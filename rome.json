@@ -6,7 +6,7 @@
     "indentSize": 2,
     "indentStyle": "space",
     "lineWidth": 80,
-    "ignore": ["bin", "cache", "dist"]
+    "ignore": ["bin", "cache", "dist", "static"]
   },
   "javascript": {
     "formatter": {
@@ -18,7 +18,7 @@
   },
   "linter": {
     "enabled": true,
-    "ignore": ["bin", "cache", "dist"],
+    "ignore": ["bin", "cache", "dist", "static"],
     "rules": {
       "recommended": true,
       "suspicious": {
