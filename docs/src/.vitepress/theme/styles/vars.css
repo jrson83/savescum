@@ -6,7 +6,7 @@
   --vp-c-brand-dark: hsl(222, 100%, 69%);
   --vp-c-brand-darker: hsl(222, 100%, 63%);
 
-  --vp-home-hero-name-color: var(--vp-c-brand-darker);
+  --vp-home-hero-name-color: var(--vp-c-brand-dark);
 
   --vp-custom-block-tip-border: #82AAFF;
   --vp-custom-block-tip-text: #82AAFF;
