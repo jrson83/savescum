@@ -23,7 +23,7 @@ Since manually triggering the ftp upload/download with WinSCP always required ac
 
 ## Evolution
 
-First, I developed a small `javascript` snippet to start the savegame transfer with [Node.js](https://nodejs.org/en). Since the savegame always has the same file path, I specified it static.
+First, I developed a small `javascript` snippet to start the savegame transfer with [Node.js](https://nodejs.org/en). Since the savegame always had the same file path, I specified it static.
 
 ```js
 // src/index.js

@@ -20,7 +20,7 @@ npm install -g savescum
 
 ## Usage
 
-Once installed, the `savescum` command becomes available and can be run from any directory. Alternatively, you can use savescum with `npx` directly:
+After installing, the `savescum` command becomes available and can be run from any directory. Alternatively, you can use savescum with `npx` directly:
 
 ```sh
 # with global installation

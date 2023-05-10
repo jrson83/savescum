@@ -1,71 +1,7 @@
-/* .VPHero .image-bg {
-  background: none;
+.VPFooter {
+  margin-bottom: 1.5rem;
 }
 
-@media (min-width: 640px) {
-  .VPHero.has-image .image {
-    margin: -108px -24px -36px;
-  }
-
-  .VPHero .image-bg {
-    width: 200px;
-    height: 200px;
-  }
-
-  .VPImage.image-src {
-    max-width: 220px;
-    max-height: 220px;
-  }
+.VPHomeHero .container .main .text {
+  padding-top: 12px;
 }
-
-@media (min-width: 960px) {
-  .VPHero.has-image .image {
-    margin: 0;
-  }
-
-  .VPHero .image-bg {
-    width: 240px;
-    height: 240px;
-  }
-
-  .VPImage.image-src {
-    max-width: 280px;
-    max-height: 280px;
-  }
-}
-
-.VPHero .image-bg:after,
-.VPHero .image-bg:before {
-  will-change: opacity;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  filter: blur(50px);
-  border-radius: 50%;
-}
-
-.VPHero .image-bg:before {
-  background: linear-gradient(135deg, var(--hero-glow-color-4) 0%, var(--hero-glow-color-3) 25%, var(--hero-glow-color-2) 50%, var(--hero-glow-color-1) 100%);
-  animation: OpacityAnim var(--hero-glow-anim-duration) ease-in-out 0s infinite alternate;
-}
-
-.VPHero .image-bg:after {
-  background: linear-gradient(135deg, var(--hero-glow-color-1) 0%, var(--hero-glow-color-2) 25%, var(--hero-glow-color-3) 50%, var(--hero-glow-color-4) 100%);
-  animation: OpacityAnim var(--hero-glow-anim-duration) ease-in-out calc(-1 * var(--hero-glow-anim-duration)) infinite alternate;
-}
-
-@keyframes OpacityAnim {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
- */

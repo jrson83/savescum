@@ -17,10 +17,14 @@ hero:
       link: https://github.com/jrson83/savescum
 
 features:
-  - title: Lorem ipsum
-    details: Lorem ipsum...
-  - title: Lorem ipsum
-    details: Lorem ipsum...
-  - title: Lorem ipsum
-    details: Lorem ipsum...
+  - icon: ⚡
+    title: Blazing fast savegame backup & restore
+    details: Lets you back up and restore savegames through the PlayStation 4 FTP server.
+  - icon: 🛠️
+    title: Runs as web application or CLI
+    details: Includes a webinterface which simplifies and speeds up save scumming.
+  - icon: 🎮
+    title: Gamepad & Keyboard support
+    details: Provides multiple input configuration for Gamepad & Keyboard hotkeys.
+
 ---
