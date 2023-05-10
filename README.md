@@ -12,7 +12,7 @@ A command-line tool & web interface, to efficiently save scum on a jailbroken PS
 
 ## Documentation
 
-View the documentation at [jrson83.github.io/savescum](http://jrson83.github.io/savescum) (under construction).
+View the documentation at [savescum.jrson.me](https://savescum.jrson.me/) (under construction).
 
 ## License
 
