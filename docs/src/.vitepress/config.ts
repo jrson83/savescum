@@ -10,7 +10,7 @@ export default defineConfig({
   description:
     'A command-line tool & webinterface, to efficiently save scum on a jailbroken PS4.',
   lastUpdated: true,
-  outDir: '../static',
+  outDir: '../dist',
   cleanUrls: true,
   themeConfig: {
     /* outline: [2, 3], */
