@@ -1,0 +1,50 @@
+{
+  "name": "savescum",
+  "version": "0.1.0",
+  "description": "A command-line tool & webinterface, to efficiently save scum on a jailbroken PS4.",
+  "keywords": [
+    "bloodborne", "ftp", "goldhen", "playstation4", "ps4", "save-game",
+    "savescum"
+  ],
+  "homepage": "https://github.com/jrson83/savescum",
+  "bugs": {
+    "url": "https://github.com/jrson83/savescum/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrson83/savescum.git",
+    "directory": "packages/savescum"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.cjs",
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.cjs",
+  "bin": {
+    "savescum": "bin/savescum.js"
+  },
+  "files": ["bin", "dist"],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "dev": "tsx src/index.ts",
+    "build": "ptsup",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@commander-js/extra-typings": "^10.0.3",
+    "@fastify/static": "^6.10.1",
+    "@fastify/type-provider-json-schema-to-ts": "^2.2.2",
+    "@savescum/web": "workspace:*",
+    "basic-ftp": "^5.0.2",
+    "commander": "^10.0.1",
+    "fastify": "^4.17.0",
+    "fastify-tsconfig": "^1.0.1",
+    "json-schema-to-ts": "^2.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

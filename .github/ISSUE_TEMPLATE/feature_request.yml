@@ -1,0 +1,34 @@
+name: Feature Request
+description: Propose a new feature to help us improve.
+
+labels: ['enhancement', 'triage']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for submitting a feature request. Please add as much information as possible to help us understand.
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: "Is your feature request related to an issue?"
+      description: "Please search [here](./?q=is%3Aissue) to see if an issue already exists, related to the feature you want to request."
+    validations:
+      required: true
+      
+  - type: textarea
+    id: feature-solution
+    attributes:
+      label: "Describe the feature"
+      description: "Please enter a clear and concise description of what you want to happen."
+    validations:
+      required: true
+      
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional context"
+      description: "Please add any other context or screenshots about the feature request here."
+    validations:
+      required: false

@@ -1,0 +1,41 @@
+name: Bug Report
+description: Report a reproducible bug to help us improve.
+
+labels: ['bug', 'triage']
+
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Thank you for submitting a bug report. Please add as much information as
+        possible to help us reproduce.
+
+
+        ### Checklist
+
+
+        1. Please make sure you are using the [latest
+        version](#example) of the library
+        (verify by `npm ls "@example-module/*"`)
+
+        2. Please check the [open issues](./?q=is%3Aissue) to ensure you are
+        reporting a new issue
+
+        ---
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Description of the bug
+      description: Tell us what bug you encountered and what should have happened.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps To Reproduce
+      description: Describe the steps to reproduce the issue.
+      placeholder: Please write the steps in a list form
+    validations:
+      required: true

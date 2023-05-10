@@ -1,0 +1,74 @@
+{
+  "name": "savescum-monorepo",
+  "private": true,
+  "keywords": ["multi-root ready"],
+  "license": "MIT",
+  "scripts": {
+    "============= WORKSPACE =============": "",
+    "preinstall": "npx only-allow pnpm",
+    "reinstall": "pnpm run clean:workspace && pnpm install",
+    "list": "pnpm recursive list",
+    "list:workspaces": "pnpm m ls --depth -1 --porcelain",
+    "============= ROME ==================": "",
+    "style:check": "stylelint \"./packages/web/**/*.scss\" -f verbose --color",
+    "style": "stylelint \"./packages/web/**/*.scss\" --fix -f verbose —color",
+    "lint": "rome check --apply-unsafe .",
+    "fmt": "rome format . --write",
+    "============= CLEAN =================": "",
+    "clean:workspace": "node ./scripts/cleanModules.mjs",
+    "clean": "pnpm --stream -r clean",
+    "clean:docs": "pnpm --filter @savescum/docs clean",
+    "clean:cli": "pnpm --filter savescum clean",
+    "clean:web": "pnpm --filter @savescum/web clean",
+    "============= DEV ===================": "",
+    "dev:docs": "pnpm --filter @savescum/docs dev",
+    "dev:cli": "pnpm --filter savescum dev",
+    "dev:web": "pnpm --filter @savescum/web dev",
+    "============= BUILD =================": "",
+    "build": "pnpm \"--filter=./packages/*\" \"--filter=!docs\" -r build",
+    "build:docs": "pnpm --filter @savescum/docs build",
+    "build:cli": "pnpm --filter savescum build && node ./scripts/afterBuild.mjs",
+    "build:web": "pnpm --filter @savescum/web build",
+    "============= MISC ==================": "",
+    "test": "pnpm --stream -r test",
+    "test:cli": "pnpm --filter savescum test",
+    "test:web": "pnpm --filter @savescum/web test",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.3",
+    "husky": "^8.0.3",
+    "nano-staged": "^0.8.0",
+    "ptsup": "^0.3.2",
+    "rome": "^12.0.0",
+    "stylelint": "^15.6.1",
+    "stylelint-config-property-sort-order-smacss": "^9.1.0",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.3",
+    "vitest": "^0.30.1"
+  },
+  "engines": {
+    "node": ">=16.14.0",
+    "npm": "use `pnpm` instead",
+    "pnpm": ">=8.4.0",
+    "yarn": "use `pnpm` instead"
+  },
+  "nano-staged": {
+    "*.ts": "rome check --apply-unsafe .",
+    "*": "rome format --write .",
+    "*.scss": "stylelint \"./packages/web/**/*.scss\" --fix"
+  },
+  "packageManager": "pnpm@8.4.0",
+  "pnpm": {
+    "overrides": {
+      "typescript": "5.0.4"
+    },
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search", "react", "react-dom", "@types/react"
+      ]
+    }
+  }
+}
