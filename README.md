@@ -1,6 +1,6 @@
 # savescum
 
-A command-line tool & web interface, to efficiently save scum on a jailbroken PS4.
+A command-line tool & webinterface, to efficiently save scum on a jailbroken PS4.
 
 ## 🎯 Features
 
