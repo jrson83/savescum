@@ -5,14 +5,14 @@ A command-line tool & web interface, to efficiently save scum on a jailbroken PS
 ## 🎯 Features
 
 - ⚡ Blazing fast savegame backup & restore
-- 🛠️ Runs as web application or stand-alone CLI
-- 🎮 Controller & Keyboard support (__hotkeys__)
-- 🔉 Sound notification on completed operation
+- 🛠️ Runs as web application or CLI
+- 🎮 Gamepad & Keyboard support (__hotkeys__)
+- 🔉 Sound notification
 - 📦 Suits any game with a single savefile
 
 ## Documentation
 
-View the documentation at [savescum.jrson.me](https://savescum.jrson.me/) (under construction).
+View the documentation and examples at [savescum.jrson.me](https://savescum.jrson.me/) (under construction).
 
 ## License
 
