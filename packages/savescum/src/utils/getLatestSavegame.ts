@@ -2,6 +2,7 @@ import { readdir, stat } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 import type { Options } from '../types'
+import { error } from './messages'
 
 async function getLatestSavegame(options: Options['savegame']) {
   const location = join(options.backupPath, options.profileId, options.cusa)
@@ -31,7 +32,7 @@ async function getLatestSavegame(options: Options['savegame']) {
     return latest[0]
   } catch (err: unknown) {
     if (err instanceof Error) {
-      console.error(`Error at path ${location}: ${err.message}`)
+      error(`Error at path ${location}: ${err.message}`)
     }
   }
 }
