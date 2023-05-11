@@ -29,7 +29,7 @@ async function getLatestSavegame(options: Options['savegame']) {
       .then((dirs) => dirs.sort((a, b) => b.time - a.time))
 
     return latest[0]
-  } catch (err) {
+  } catch (err: unknown) {
     if (err instanceof Error) {
       console.error(`Error at path ${location}: ${err.message}`)
     }
