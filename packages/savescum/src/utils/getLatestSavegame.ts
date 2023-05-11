@@ -17,7 +17,7 @@ async function getLatestSavegame(options: Options['savegame']) {
               await stat(
                 resolve(
                   homedir(),
-                  'ps4-ftp-savescum',
+                  'savescum',
                   options.profileId,
                   options.cusa,
                   path.name

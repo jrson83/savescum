@@ -63,7 +63,7 @@ ftp
   .option(
     '-b, --backup-path <string>',
     'local path to store backups',
-    resolve(homedir(), 'ps4-ftp-savescum')
+    resolve(homedir(), 'savescum')
   )
   .action(async (options) => {
     const opts = merge(ftp.opts(), options)
@@ -89,7 +89,7 @@ ftp
   .option(
     '-b, --backup-path <string>',
     'local path to store backups',
-    resolve(homedir(), 'ps4-ftp-savescum')
+    resolve(homedir(), 'savescum')
   )
   .action(async (options) => {
     const opts = merge(ftp.opts(), options)
