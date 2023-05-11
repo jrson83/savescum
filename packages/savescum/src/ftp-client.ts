@@ -101,7 +101,7 @@ export class FTPClient {
     const localFile = await fileExists(src)
 
     if (!localFile) {
-      error(`The backup file ${dest} does not exist.`)
+      error(`The backup file ${src} does not exist.`)
       process.exit(0)
     }
 
