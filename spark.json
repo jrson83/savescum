@@ -1,0 +1,4 @@
+{
+  "packages": ["savescum", "@savescum/web"],
+  "moduleManager": "pnpm"
+}
