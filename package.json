@@ -30,7 +30,7 @@
     "build:cli": "pnpm --filter savescum build && node ./scripts/afterBuild.mjs",
     "build:web": "pnpm --filter @savescum/web build",
     "============= MISC ==================": "",
-    "test": "pnpm --stream -r test",
+    "test": "pnpm --stream -r test run",
     "test:cli": "pnpm --filter savescum test",
     "test:web": "pnpm --filter @savescum/web test",
     "prepare": "husky install"
