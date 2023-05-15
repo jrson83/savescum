@@ -1,4 +1,5 @@
 {
-  "packages": ["savescum", "@savescum/web"],
-  "moduleManager": "pnpm"
+  "$schema": "./node_modules/sparkee/template/schema.json",
+  "moduleManager": "pnpm",
+  "packages": ["savescum", "@savescum/web"]
 }
