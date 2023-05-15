@@ -9,7 +9,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+packages/*/README.md
+
 # Ignore build cache directories
-**/.build-cache
-**/dist
-**/cache
+dist
+cache
