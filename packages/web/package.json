@@ -1,12 +1,17 @@
 {
   "name": "@savescum/web",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "An interactive webinterface, to efficiently save scum on a jailbroken PlayStation 4.",
   "keywords": [
-    "bloodborne", "ftp", "goldhen", "playstation4", "ps4", "save-game",
+    "bloodborne",
+    "ftp",
+    "goldhen",
+    "playstation4",
+    "ps4",
+    "save-game",
     "savescum"
   ],
-  "homepage": "https://github.com/jrson83/savescum",
+  "homepage": "https://savescum.jrson.me",
   "bugs": {
     "url": "https://github.com/jrson83/savescum/issues"
   },
