@@ -1,9 +1,8 @@
 import { FTPClient } from './ftp-client'
 import type { Options, ServerOptions } from './types'
+import { getWorkspaceRoot } from './utils'
 import { JsonSchemaToTsProvider } from '@fastify/type-provider-json-schema-to-ts'
 import Fastify from 'fastify'
-import { join } from 'node:path'
-import { cwd } from 'node:process'
 
 export const startServer = async (options: ServerOptions) => {
   const fastify = Fastify({
@@ -11,7 +10,7 @@ export const startServer = async (options: ServerOptions) => {
   }).withTypeProvider<JsonSchemaToTsProvider>()
 
   fastify.register(import('@fastify/static'), {
-    root: join(cwd(), 'node_modules', '@savescum', 'web', 'dist'),
+    root: await getWorkspaceRoot(),
   })
 
   fastify.get('/', function (_req, reply) {
