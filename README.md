@@ -10,6 +10,9 @@ A command-line tool & webinterface, to efficiently save scum on a jailbroken PS4
 - 🔉 Sound notification
 - 📦 Suits any game with a single savefile
 
+> **Note**  
+> The webinterface is currently in development.
+
 ## Documentation
 
 View the documentation and examples at [savescum.jrson.me](https://savescum.jrson.me/) (under construction).
