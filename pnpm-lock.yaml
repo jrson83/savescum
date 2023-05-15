@@ -103,9 +103,6 @@ importers:
       preact:
         specifier: ^10.13.2
         version: 10.13.2
-      rome:
-        specifier: ^12.0.0
-        version: 12.1.0
       sass:
         specifier: ^1.62.1
         version: 1.62.1
