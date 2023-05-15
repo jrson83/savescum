@@ -1,6 +1,3 @@
-import { program } from '@commander-js/extra-typings'
-import { homedir } from 'node:os'
-import { resolve } from 'node:path'
 import { description, name, version } from '../package.json'
 import {
   backupCommand,
@@ -10,6 +7,9 @@ import {
 } from './commands'
 import type { ServerOptions } from './types'
 import { merge } from './utils'
+import { program } from '@commander-js/extra-typings'
+import { homedir } from 'node:os'
+import { resolve } from 'node:path'
 
 program.name(name).description(description).version(version)
 

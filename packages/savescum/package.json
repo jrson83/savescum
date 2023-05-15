@@ -1,12 +1,17 @@
 {
   "name": "savescum",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "A command-line tool & webinterface, to efficiently save scum on a jailbroken PS4.",
   "keywords": [
-    "bloodborne", "ftp", "goldhen", "playstation4", "ps4", "save-game",
+    "bloodborne",
+    "ftp",
+    "goldhen",
+    "playstation4",
+    "ps4",
+    "save-game",
     "savescum"
   ],
-  "homepage": "https://github.com/jrson83/savescum",
+  "homepage": "https://savescum.jrson.me",
   "bugs": {
     "url": "https://github.com/jrson83/savescum/issues"
   },
@@ -29,7 +34,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "tsx src/index.ts",
-    "build": "ptsup",
+    "build": "ptsup  && node ../../scripts/afterBuild.mjs",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },

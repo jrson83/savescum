@@ -1,9 +1,9 @@
+import { FTPClient } from './ftp-client'
+import type { Options, ServerOptions } from './types'
 import { JsonSchemaToTsProvider } from '@fastify/type-provider-json-schema-to-ts'
 import Fastify from 'fastify'
 import { join } from 'node:path'
 import { cwd } from 'node:process'
-import { FTPClient } from './ftp-client'
-import type { Options, ServerOptions } from './types'
 
 export const startServer = async (options: ServerOptions) => {
   const fastify = Fastify({

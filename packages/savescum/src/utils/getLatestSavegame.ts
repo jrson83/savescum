@@ -1,8 +1,8 @@
+import type { Options } from '../types'
+import { error } from './messages'
 import { readdir, stat } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
-import type { Options } from '../types'
-import { error } from './messages'
 
 async function getLatestSavegame(options: Options['savegame']) {
   const location = join(options.backupPath, options.profileId, options.cusa)

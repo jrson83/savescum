@@ -1,15 +1,15 @@
-import { Client } from 'basic-ftp'
-import { mkdir } from 'node:fs/promises'
-import { dirname } from 'node:path'
 import type { Options } from './types'
 import {
+  colorize,
   error,
   fileExists,
   getLatestSavegame,
   message,
   paths,
-  colorize,
 } from './utils'
+import { Client } from 'basic-ftp'
+import { mkdir } from 'node:fs/promises'
+import { dirname } from 'node:path'
 
 export class FTPClient {
   static async connect(options: Options['ftp']): Promise<Client> {
