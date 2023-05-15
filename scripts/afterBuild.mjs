@@ -24,7 +24,4 @@ async function afterBuild(path, newExt) {
   await rename(path, newPath)
 }
 
-afterBuild(
-  resolve(process.cwd(), 'packages', 'savescum', 'dist', 'index.cjs.js'),
-  '.cjs'
-)
+afterBuild(resolve(process.cwd(), 'dist', 'index.cjs.js'), '.cjs')
