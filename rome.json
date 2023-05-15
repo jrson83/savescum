@@ -21,8 +21,12 @@
     "ignore": ["bin", "cache", "dist", "static"],
     "rules": {
       "recommended": true,
+      "a11y": {
+        "useKeyWithClickEvents": "off"
+      },
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "off"
       },
       "correctness": {
         "noVoidTypeReturn": "off"
@@ -31,5 +35,8 @@
         "all": false
       }
     }
+  },
+  "organizeImports": {
+    "enabled": true
   }
 }
