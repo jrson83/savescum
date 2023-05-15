@@ -1,5 +1,9 @@
 # Webinterface
 
+::: warning INFO
+The webinterface is currently in development.
+:::
+
 ## Overview
 
 Savescum's webinterface simplifies and speeds up save scumming. It lets you store your savegame configs in the browsers `localStorage` and choose/configure either gamepad, mouse or keyboard, to trigger FTP `backup` and `restore` operations.
