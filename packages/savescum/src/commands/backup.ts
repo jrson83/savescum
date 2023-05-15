@@ -10,5 +10,6 @@ export async function backupCommand(options: Options): Promise<void> {
   if (response.status === 200) {
     success('Backup completed')
     if (options.ftp.sound) await beep()
+    process.exit(0)
   }
 }

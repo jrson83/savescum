@@ -15,5 +15,6 @@ export async function testCommand(cmd: Command): Promise<void> {
   if (response) {
     success('Connection succeeded')
     await beep()
+    process.exit(0)
   }
 }
