@@ -3,7 +3,7 @@ import { beep, info, message, success } from '../utils'
 import type { Command } from '@commander-js/extra-typings'
 
 export async function testCommand(cmd: Command): Promise<void> {
-  const { debug, user, ip, port } = cmd.optsWithGlobals()
+  const { debug, ip, port, sound, user } = cmd.optsWithGlobals()
   info('Running connection test ...')
 
   if (debug) {
@@ -14,7 +14,6 @@ export async function testCommand(cmd: Command): Promise<void> {
 
   if (response) {
     success('Connection succeeded')
-    await beep()
-    process.exit(0)
+    if (sound) await beep().then(() => process.exit(0))
   }
 }

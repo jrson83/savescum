@@ -67,7 +67,7 @@ ftp
   )
   .action(async (options) => {
     const opts = merge(ftp.opts(), options)
-    await backupCommand(opts)
+    await backupCommand(opts).then(() => process.exit(0))
   })
   .addHelpText(
     'after',
@@ -93,7 +93,7 @@ ftp
   )
   .action(async (options) => {
     const opts = merge(ftp.opts(), options)
-    await restoreCommand(opts)
+    await restoreCommand(opts).then(() => process.exit(0))
   })
   .addHelpText(
     'after',
