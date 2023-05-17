@@ -6,7 +6,7 @@ import Fastify from 'fastify'
 
 export const startServer = async (options: ServerOptions) => {
   const fastify = Fastify({
-    logger: true /* !!options.log */,
+    logger: !!options.log,
   }).withTypeProvider<JsonSchemaToTsProvider>()
 
   fastify.register(import('@fastify/static'), {
