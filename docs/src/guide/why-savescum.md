@@ -72,7 +72,7 @@ Since I wanted to make this effective savescum method available to others, I sta
 
 ## Architecture​
 
-The `savescum` core module is a small executable (CLI) built with [TypeScript](https://www.typescriptlang.org/) and [Node.js](https://nodejs.org/en), bundled with [ptsup](https://github.com/hairyf/ptsup). It has only a few dependencies and is lightweight `324.42 KiB` minified & gzipped.
+The `savescum` core module is a small executable (CLI) built with [TypeScript](https://www.typescriptlang.org/) and [Node.js](https://nodejs.org/en), bundled with [ptsup](https://github.com/hairyf/ptsup). It has only a few dependencies and is lightweight `769.0 kb` minified & gzipped.
 
 Savescum's webinterface module `@savescum/web` is built with [Preact](https://preactjs.com/) and [TypeScript](https://www.typescriptlang.org/), bundled with [vite](https://vitejs.dev/) and used by the `savescum` core module as a `dependency`.
 
