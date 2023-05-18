@@ -52,6 +52,7 @@ commit_parsers = [
   { message = "^refactor", group = "Refactor" },
   { message = "^style", group = "Styling", skip = true },
   { message = "^test", group = "Testing", skip = true },
+  { message = "^release:", skip = true },
   { message = "^chore\\(release\\): prepare for", skip = true },
   { message = "^chore", group = "Miscellaneous Tasks", skip = true },
   { body = ".*security", group = "Security", skip = true },
@@ -59,10 +60,10 @@ commit_parsers = [
 # protect breaking changes from being skipped due to matching a skipping commit_parser
 protect_breaking_commits = false
 # filter out the commits that are not matched by commit parsers
-filter_commits = true
+filter_commits = false
 # glob pattern for matching git tags.
 # monorepo and single repo is diffrence.
-tag_pattern = "@*"
+tag_pattern = "*@[0-9]*"
 # regex for skipping tags
 skip_tags = ""
 # regex for ignoring tags
