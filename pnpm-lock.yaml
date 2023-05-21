@@ -78,8 +78,8 @@ importers:
         specifier: ^2.2.2
         version: 2.2.2(fastify@4.17.0)(json-schema-to-ts@2.8.0)
       basic-ftp:
-        specifier: ^5.0.2
-        version: 5.0.2
+        specifier: ^5.0.3
+        version: 5.0.3
       commander:
         specifier: ^10.0.1
         version: 10.0.1
@@ -1440,8 +1440,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: true
 
-  /basic-ftp@5.0.2:
-    resolution: {integrity: sha512-NgkBwqp7rkhIUBaxLwL601lvUuBUvShJocrLYdiyTsH1WeP/wofMdooZ4p6hz+4hqiU59PBOj0EkaqELwFJLuQ==}
+  /basic-ftp@5.0.3:
+    resolution: {integrity: sha512-QHX8HLlncOLpy54mh+k/sWIFd0ThmRqwe9ZjELybGZK+tZ8rUb9VO0saKJUROTbE+KhzDUT7xziGpGrW8Kmd+g==}
     engines: {node: '>=10.0.0'}
     dev: true
 
