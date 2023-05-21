@@ -37,7 +37,7 @@
     "preact": "^10.13.2",
     "sass": "^1.62.1",
     "typescript": "^5.0.4",
-    "vite": "^4.3.4"
+    "vite": "^4.3.8"
   },
   "publishConfig": {
     "access": "public"
