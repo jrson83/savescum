@@ -16,6 +16,7 @@ const AppContextProvider: FunctionComponent = ({ children }) => {
     return persistedData
       ? Object.assign({}, JSON.parse(persistedData), {
           fetch: { error: undefined },
+          router: { pathname: window.location.pathname },
         })
       : state
   })
@@ -25,11 +26,15 @@ const AppContextProvider: FunctionComponent = ({ children }) => {
   }, [state])
 
   useLayoutEffect(() => {
-    const handleRouteChange = () => {
-      dispatch({
-        type: 'router/navigate',
-        payload: { pathname: window.location.pathname },
-      })
+    const handleRouteChange = (e: PopStateEvent) => {
+      const { location } = e.currentTarget as Window
+
+      if (location.pathname !== state.router.pathname) {
+        dispatch({
+          type: 'router/navigate',
+          payload: { pathname: location.pathname },
+        })
+      }
     }
 
     window.addEventListener('popstate', handleRouteChange)

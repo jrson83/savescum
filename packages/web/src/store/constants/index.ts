@@ -3,7 +3,7 @@ import type { AppContextState, FtpOptions, Route, Savegame } from '../'
 const STORAGE_KEY = 'SAVESCUM'
 
 const initialRouteOptions: Route = {
-  pathname: '/',
+  pathname: window.location.pathname || '/',
 }
 
 const initialFtpState: FtpOptions = {
