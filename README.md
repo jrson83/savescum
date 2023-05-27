@@ -37,6 +37,9 @@ savescum [options] [command]
 npx savescum [options] [command]
 ```
 
+> **Warning**  
+> Remember always backup your saves files!
+
 ## License
 
 Licensed under the [MIT license](https://github.com/jrson83/ps4-savescum/blob/main/LICENSE).
