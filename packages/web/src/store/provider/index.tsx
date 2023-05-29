@@ -42,7 +42,7 @@ const AppContextProvider: FunctionComponent = ({ children }) => {
     return () => {
       window.removeEventListener('popstate', handleRouteChange)
     }
-  }, [])
+  }, [state.router])
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
