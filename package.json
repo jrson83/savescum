@@ -61,7 +61,7 @@
     "*": "rome format --write .",
     "*.scss": "stylelint \"./packages/web/**/*.scss\" --fix"
   },
-  "packageManager": "pnpm@8.5.1",
+  "packageManager": "pnpm@8.6.0",
   "pnpm": {
     "overrides": {
       "typescript": "5.0.4"
