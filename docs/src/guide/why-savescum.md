@@ -13,6 +13,20 @@ As an alternative approach, this tool provides a CLI/webinterface to perform FTP
 
 It tries to keep the effort to `backup` and `restore` savegames as low as possible, speed up the process as fast as possible, and provides multiple input configuration for `hotkeys`.
 
+## Speed comparison
+
+This video shows a speed comparison of savescum methods.
+
+[![Comparison Video](/assets/img/youtube-comparison-hqdefault.png)](https://www.youtube.com/watch?v=KVDkTK97hJk)
+
+::: info Hardware & Software used for testing:
+- PlayStation 4 Pro | CUH-7216B | Firmware 9.00
+- Samsung 850 EVO Internal SSD 250GB
+- Toshiba HDD | USB 3.0 SATA to USB 3.0 | Connected at USB backport
+- GoldHEN v2.3
+- Bloodborne v1.09 with 60 fps patch applied using GoldHEN Cheats Manager
+:::
+
 ## Motivation
 
 Personally, I don't do cheating or save-editing in games, and I'm glad I'm forced to play Bloodborne offline because of the [60 FPS patch](https://www.bloodborne-wiki.com/2020/05/bloodborne-60-fps-mod.html). I don't mind [save edited dungeons](https://www.bloodborne-wiki.com/2017/11/save-editing-chalice-dungeons.html), but I don't use them myself. I have nothing against [save scumming](https://www.makeuseof.com/what-is-save-scumming-video-games/), though.

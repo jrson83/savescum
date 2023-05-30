@@ -40,6 +40,12 @@ npx savescum [options] [command]
 > **Warning**  
 > Remember always backup your saves files!
 
+## Speed comparison
+
+This video shows a speed comparison of savescum methods.
+
+[![Comparison Video](https://raw.githubusercontent.com/jrson83/savescum/main/.github/assets/youtube-comparison-hqdefault.png)](https://www.youtube.com/watch?v=KVDkTK97hJk)
+
 ## License
 
 Licensed under the [MIT license](https://github.com/jrson83/ps4-savescum/blob/main/LICENSE).
