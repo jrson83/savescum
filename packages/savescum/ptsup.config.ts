@@ -10,7 +10,7 @@ export default defineConfig({
   dts: {
     enable: false,
   },
-  external: [],
+  external: ['@savescum/web'],
   esbuild: {
     bundle: true,
     minify: true,
