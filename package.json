@@ -33,7 +33,8 @@
     "test": "pnpm --stream -r test run",
     "test:cli": "pnpm --filter savescum test",
     "test:web": "pnpm --filter @savescum/web test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pub": "tsx scripts/prepublishOnly.ts && sparkee publish"
   },
   "devDependencies": {
     "@types/node": "^20.2.3",
