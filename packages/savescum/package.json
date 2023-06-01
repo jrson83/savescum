@@ -50,6 +50,9 @@
     "fastify-tsconfig": "^1.0.1",
     "json-schema-to-ts": "^2.8.2"
   },
+  "engines": {
+    "node": ">=16.14.0"
+  },
   "publishConfig": {
     "access": "public"
   }
