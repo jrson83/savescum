@@ -23,13 +23,10 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./lib/index.d.ts",
-      "default": "./lib/index.cjs"
-    }
+    ".": "./lib/index.cjs",
+    "./package.json": "./package.json"
   },
-  "main": "lib/index.js",
-  "module": "lib/index.cjs",
+  "main": "lib/index.cjs",
   "types": "lib/index.d.ts",
   "typesVersions": {
     "*": {
