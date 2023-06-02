@@ -30,7 +30,7 @@ export const useForm = <
   const [errors, setErrors] = useState<ErrorRecord<T>>({})
 
   const handleChange =
-    <S extends unknown>(key: keyof T, sanitizeFn?: (value: string) => S) =>
+    <S>(key: keyof T, sanitizeFn?: (value: string) => S) =>
     (e: JSX.TargetedEvent<HTMLInputElement | HTMLSelectElement>) => {
       const value = sanitizeFn
         ? sanitizeFn(e.currentTarget.value)
