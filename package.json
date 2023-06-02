@@ -34,7 +34,7 @@
     "test:cli": "pnpm --filter savescum test",
     "test:web": "pnpm --filter @savescum/web test",
     "prepare": "husky install",
-    "pub": "tsx scripts/prepublishOnly.ts && sparkee publish"
+    "pub": "tsx scripts/prepublishOnly.ts && npx sparkee publish"
   },
   "devDependencies": {
     "@types/node": "^20.2.3",
@@ -47,7 +47,7 @@
     "stylelint-config-property-sort-order-smacss": "^9.1.0",
     "stylelint-config-standard-scss": "^9.0.0",
     "tsx": "^3.12.7",
-    "typescript": "^5.0.4",
+    "typescript": "^5.1.3",
     "vite": "^4.3.8",
     "vitest": "^0.31.1"
   },
@@ -65,7 +65,7 @@
   "packageManager": "pnpm@8.6.0",
   "pnpm": {
     "overrides": {
-      "typescript": "5.0.4"
+      "typescript": "5.1.3"
     },
     "peerDependencyRules": {
       "ignoreMissing": [
