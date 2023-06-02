@@ -18,6 +18,19 @@ export const startServer = async (options: ServerOptions) => {
       reply.sendFile('index.html')
     })
 
+    fastify.setNotFoundHandler((request, reply) => {
+      if (request.raw.url?.startsWith('/api')) {
+        reply.code(404).send({
+          success: false,
+          error: {
+            kind: 'user_input',
+            message: 'Resource not found',
+          },
+        })
+      }
+      reply.sendFile('index.html')
+    })
+
     fastify.post<{ Body: Options }>('/api/test', async (request, reply) => {
       try {
         const data = await FTPClient.test(request.body.ftp)
