@@ -11,7 +11,7 @@
     ":semanticCommitScope(deps)"
   ],
   "timezone": "Europe/Amsterdam",
-  "enabledManagers": ["npm"],
+  "enabledManagers": ["npm", "github-actions"],
   "addLabels": ["dependencies"],
   "rangeStrategy": "update-lockfile",
   "automerge": true,
