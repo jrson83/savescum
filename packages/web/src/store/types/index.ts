@@ -1,4 +1,7 @@
 import type {
+  FetchErrorAction,
+  FetchFulfilledAction,
+  FetchPendingAction,
   FtpResetAction,
   FtpSaveAction,
   FtpTestAction,
@@ -7,7 +10,7 @@ import type {
   SavegameSaveAction,
   SavegameSeleteAction,
   SavegameToggleAction,
-} from '../'
+} from '../actions'
 
 export interface Route {
   pathname: string
@@ -31,6 +34,24 @@ export interface Savegame {
   isActive: boolean
 }
 
+export interface FetchOptions {
+  response?: any
+  isPending: boolean
+  error?: string
+}
+
+export type AppContextState = {
+  fetch: FetchOptions
+  router: Route
+  ftp: FtpOptions
+  savegames: Savegame[]
+}
+
+export type TAppContext = {
+  state: AppContextState
+  dispatch: (action: AppContextAction) => void
+}
+
 export type Dispatch<A> = (value: A) => void
 export type SetStateAction<S> = S | ((prevState: S) => S)
 
@@ -43,14 +64,6 @@ export type AppContextAction =
   | SavegameSaveAction
   | SavegameSeleteAction
   | SavegameToggleAction
-
-export type AppContextState = {
-  router: Route
-  ftp: FtpOptions
-  savegames: Savegame[]
-}
-
-export type TAppContext = {
-  state: AppContextState
-  dispatch: (action: AppContextAction) => void
-}
+  | FetchErrorAction
+  | FetchFulfilledAction
+  | FetchPendingAction

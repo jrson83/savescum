@@ -1,4 +1,4 @@
-import type { AppContextAction, Savegame } from '../'
+import type { AppContextAction, Savegame } from '../types'
 import { nextSaveGameId } from '@/utils'
 import type { Reducer } from 'preact/hooks'
 

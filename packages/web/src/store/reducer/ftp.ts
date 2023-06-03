@@ -1,4 +1,5 @@
-import { type AppContextAction, type FtpOptions, initialFtpState } from '../'
+import { initialFtpState } from '../constants'
+import type { AppContextAction, FtpOptions } from '../types'
 import type { Reducer } from 'preact/hooks'
 
 const ftpReducer: Reducer<FtpOptions, AppContextAction> = (

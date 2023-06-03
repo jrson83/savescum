@@ -1,6 +1,6 @@
-import type { FtpOptions, Route, Savegame } from '../'
+import type { FetchOptions, FtpOptions, Route, Savegame } from '../types'
 
-type Reducers = 'router' | 'ftp' | 'savegame'
+type Reducers = 'router' | 'fetch' | 'ftp' | 'savegame'
 
 interface Action {
   type: `${Reducers}/${string}`
@@ -15,6 +15,21 @@ export interface RouterNavigateAction extends Action {
 export interface RouterRedirectAction extends Action {
   type: 'router/redirect'
   payload: Route
+}
+
+export interface FetchPendingAction extends Action {
+  type: 'fetch/pending'
+  payload: FetchOptions
+}
+
+export interface FetchFulfilledAction extends Action {
+  type: 'fetch/fulfilled'
+  payload: FetchOptions
+}
+
+export interface FetchErrorAction extends Action {
+  type: 'fetch/error'
+  payload: string
 }
 
 export interface FtpSaveAction extends Action {

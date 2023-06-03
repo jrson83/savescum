@@ -1,4 +1,10 @@
-import type { AppContextState, FtpOptions, Route, Savegame } from '../'
+import type {
+  AppContextState,
+  FetchOptions,
+  FtpOptions,
+  Route,
+  Savegame,
+} from '../types'
 
 const STORAGE_KEY = 'SAVESCUM'
 
@@ -36,7 +42,14 @@ const initialSavegameState: Savegame[] = [
   },
 ]
 
+export const initialFetchState: FetchOptions = {
+  response: undefined,
+  isPending: false,
+  error: undefined,
+}
+
 const initialState: AppContextState = {
+  fetch: initialFetchState,
   router: initialRouteOptions,
   ftp: initialFtpState,
   savegames: initialSavegameState,

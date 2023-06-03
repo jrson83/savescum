@@ -8,6 +8,8 @@ export interface History {
   replace: (path: string) => void
 }
 
+export type ButtonAttrs = JSX.HTMLAttributes<HTMLButtonElement>
+
 export type DivAttrs = JSX.HTMLAttributes<HTMLDivElement>
 
 export type LinkAttrs = JSX.HTMLAttributes<HTMLAnchorElement>
