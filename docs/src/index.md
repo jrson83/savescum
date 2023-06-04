@@ -6,7 +6,7 @@ hero:
   text: CLI & Webinterface
   tagline: To efficiently save scum on a jailbroken PS4.
   image:
-    src: /wreathe-logo.svg
+    src: /assets/img/savescum-logo.png
     alt: savescum logo
   actions:
     - theme: brand
