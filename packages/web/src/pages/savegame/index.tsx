@@ -5,7 +5,7 @@ export const Savegame = () => {
   const match = useMatch('/savegame/:id', pathname)
 
   return (
-    <div>
+    <div className='main__content'>
       <h1>Savegame</h1>
       <p>Router: {pathname}</p>
       <p>Params: {match?.params?.id}</p>

@@ -15,6 +15,8 @@ function matchRoutes(href: string, pathname: string) {
 
   /* const params = match.slice(1) */
 
+  // todo: decodeURIComponent
+
   return {
     params: captureGroups,
     pattern,

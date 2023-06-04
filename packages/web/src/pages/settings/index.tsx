@@ -1,11 +1,11 @@
 import { useRouter } from '@/hooks'
 
-export const About = () => {
+export const Settings = () => {
   const { pathname } = useRouter()
 
   return (
-    <div>
-      <h1>About</h1>
+    <div className='main__content'>
+      <h1>Settings</h1>
       <p>Router: {pathname}</p>
     </div>
   )
