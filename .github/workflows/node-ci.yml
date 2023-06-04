@@ -8,12 +8,14 @@ on:
     paths:
       - '**.ts'
       - '**/package.json'
+      - 'pnpm-lock.yaml'
 
   push:
     branches: [main]
     paths:
       - '**.ts'
       - '**/package.json'
+      - 'pnpm-lock.yaml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
