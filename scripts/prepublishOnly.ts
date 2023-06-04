@@ -1,14 +1,21 @@
-import { copyFile } from 'fs/promises'
+import { copyFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { cwd } from 'node:process'
 
+const licensePath = resolve(cwd(), 'LICENSE')
 const readmePath = resolve(cwd(), 'README.md')
-const corePackagePath = resolve(cwd(), 'packages', 'savescum', 'README.md')
-const webPackagePath = resolve(cwd(), 'packages', 'web', 'README.md')
+const corePackageReadme = resolve(cwd(), 'packages', 'savescum', 'README.md')
+const corePackageLicense = resolve(cwd(), 'packages', 'savescum', 'LICENSE')
+const webPackageReadme = resolve(cwd(), 'packages', 'web', 'README.md')
+const webPackageLicense = resolve(cwd(), 'packages', 'web', 'LICENSE')
 
 async function main() {
-  await copyFile(readmePath, corePackagePath)
-  await copyFile(readmePath, webPackagePath)
+  await Promise.all([
+    await copyFile(readmePath, corePackageReadme),
+    await copyFile(licensePath, corePackageLicense),
+    await copyFile(readmePath, webPackageReadme),
+    await copyFile(licensePath, webPackageLicense),
+  ]).then(() => console.log('DONE'))
 }
 
 main().catch((err: unknown) => {
