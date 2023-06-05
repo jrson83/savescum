@@ -1,4 +1,4 @@
-import { type AppContextAction, type FetchOptions } from '../'
+import { type AppContextAction, type FetchOptions } from '../types'
 import type { Reducer } from 'preact/hooks'
 
 const fetchReducer: Reducer<FetchOptions, AppContextAction> = (
@@ -14,7 +14,7 @@ const fetchReducer: Reducer<FetchOptions, AppContextAction> = (
     case 'fetch/fulfilled':
       return {
         ...state,
-        response: payload,
+        response: payload.response,
         isPending: false,
         error: undefined,
       }

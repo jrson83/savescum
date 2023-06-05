@@ -30,3 +30,5 @@ export type IconFC = FunctionComponent<
     size?: number
   }
 >
+
+export type FetchActionType = 'backup' | 'restore' | 'test' | 'recent'

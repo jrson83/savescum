@@ -61,3 +61,5 @@ export interface SavegameToggleAction extends Action {
   type: 'savegame/toggle'
   payload: Pick<Savegame, 'idx'>
 }
+
+export * from './fetch'

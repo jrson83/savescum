@@ -13,8 +13,9 @@ const initialRouteOptions: Route = {
 }
 
 const initialFtpState: FtpOptions = {
-  ip: '',
-  port: 2121,
+  requestType: 'browser',
+  ip: '192.168.56.1',
+  port: 21,
   user: 'anonymous',
   password: '',
   secure: false,
@@ -24,7 +25,7 @@ const initialFtpState: FtpOptions = {
 const initialSavegameState: Savegame[] = [
   {
     idx: 1,
-    title: 'Bloodborne (Example)',
+    title: 'Bloodborne',
     profileId: '1ceaa172',
     cusa: 'CUSA00207',
     sdimg: 'sdimg_SPRJ0005',
@@ -35,10 +36,10 @@ const initialSavegameState: Savegame[] = [
     idx: 2,
     title: 'Dark Souls III',
     profileId: '1ceaa172',
-    cusa: 'CUSA00XX',
-    sdimg: 'sdimg_SPRJXXXX',
+    cusa: 'CUSA03365',
+    sdimg: 'sdimg_EP0700',
     createdAt: new Date().getTime(),
-    isActive: true,
+    isActive: false,
   },
 ]
 

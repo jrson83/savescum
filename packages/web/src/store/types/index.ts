@@ -17,6 +17,7 @@ export interface Route {
 }
 
 export interface FtpOptions {
+  requestType: 'browser' | 'node'
   ip: string
   port: number
   user: string
@@ -34,8 +35,17 @@ export interface Savegame {
   isActive: boolean
 }
 
+export interface DefaultResponse {
+  success: boolean
+  message: string
+}
+
+export type SavegameResponse = DefaultResponse & {
+  savegame?: Savegame
+}
+
 export interface FetchOptions {
-  response?: any
+  response?: DefaultResponse
   isPending: boolean
   error?: string
 }
