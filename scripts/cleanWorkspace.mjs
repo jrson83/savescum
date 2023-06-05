@@ -1,15 +1,20 @@
 #!/usr/bin/env node
-import type { Dirent } from 'fs'
 import { readdir, rm } from 'fs/promises'
 import { cwd } from 'node:process'
 
-async function removeWorkspaceDir(path: string): Promise<void> {
-  const root: string = path || cwd()
+/**
+ * Deletes node_modules folders inside a workspace recursively & parallel
+ *
+ * @param {string} [path=process.cwd()] - The target path
+ * @returns {Promise<void>}
+ */
+async function removeWorkspaceDir(path) {
+  const root = path || cwd()
   try {
-    const contents: Dirent[] = await readdir(root, { withFileTypes: true })
+    const contents = await readdir(root, { withFileTypes: true })
     for (const content of contents) {
-      const name: string = content.name
-      const isDir: boolean = content.isDirectory()
+      const name = content.name
+      const isDir = content.isDirectory()
 
       if (isDir && !name.startsWith('.')) {
         if (name === 'node_modules') {
@@ -18,7 +23,7 @@ async function removeWorkspaceDir(path: string): Promise<void> {
         } else await removeWorkspaceDir(`${root}/${name}`)
       }
     }
-  } catch (err: unknown) {
+  } catch (err) {
     if (err instanceof Error) {
       console.error(`Error at path ${root}: ${err.message}`)
     }

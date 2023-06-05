@@ -15,7 +15,7 @@
     "lint": "rome check --apply-unsafe .",
     "fmt": "rome format . --write",
     "============= CLEAN =================": "",
-    "clean:workspace": "tsx ./scripts/cleanWorkspace.ts",
+    "clean:workspace": "node ./scripts/cleanWorkspace.mjs",
     "clean": "pnpm --stream -r clean",
     "clean:docs": "pnpm --filter @savescum/docs clean",
     "clean:cli": "pnpm --filter savescum clean",
