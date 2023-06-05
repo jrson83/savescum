@@ -1,0 +1,19 @@
+@use '../mixins' as *;
+
+// Layouts: Settings
+.settings {
+  padding: 1.5rem;
+  border: 1px solid var(--c-border);
+  border-radius: var(--border-radius);
+  background-color: var(--c-bg-sub);
+  color: var(--c-font-sub);
+
+  &:first-of-type {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @include mix-breakpoint(md) {
+    @include mix-full-width;
+  }
+}

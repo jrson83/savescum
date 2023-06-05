@@ -1,0 +1,102 @@
+@use 'sass:color';
+
+// Component: Button
+.btn {
+  padding: 0.75rem 1.5rem;
+  padding-block: 0.75ch;
+  padding-inline: 1.75ch; 
+  overflow: visible;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: #405cf5;
+
+  /* box-shadow: 0 2px 2px rgb(64 92 245 / 40%); */
+  color: #fff;
+  font-size: 100%;
+  cursor: pointer;
+  appearance: button;
+
+  &:hover,
+  &:active {
+    background-color: color.scale(#405cf5, $lightness: -20%);
+  }
+
+  &:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px color.scale(#405cf5, $lightness: -40%);
+  }
+
+  &[disabled],
+  &:disabled,
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  // https://www.kevinpowell.co/article/scaling-buttons-with-css-custom-properties/
+  &-sm {
+    --scale: 0.8;
+  }
+
+  &-lg {
+    --scale: 1.2;
+  }
+
+  &-fw {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-weight: 700;
+  }
+}
+
+/* .btn:focus,
+.btn:hover {
+  outline: none;
+  background: #5d75f6;
+}
+
+.btn:active {
+  outline: none;
+  background: #405cf5;
+  box-shadow: 0 0 5px #405cf5;
+} */
+
+.btn-container-right {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 1rem;
+  column-gap: 0.75rem;
+}
+
+/* @keyframes spin {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.spinner {
+  animation: spin 2000ms linear infinite;
+  fill: #405cf5;
+  color: #405cf5
+}
+ */
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  animation: spinner-d3wgkg 1s infinite linear;
+  border: 2px solid;
+  border-radius: 50%;
+  border-color: var(--c-font-sub);
+  border-right-color: var(--c-info);
+}
+
+@keyframes spinner-d3wgkg {
+  to {
+    transform: rotate(1turn);
+  }
+}

@@ -1,0 +1,29 @@
+// Layouts: Header
+.header {
+  display: grid;
+  grid-area: header;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--c-border);
+  background-color: var(--c-bg-sub);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 848px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    gap: 3rem;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}

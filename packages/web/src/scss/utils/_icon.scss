@@ -1,0 +1,17 @@
+// Utilities: icons
+
+.icon {
+  display: inline-flex;
+  align-self: center;
+
+  svg, img {
+    width: 1em;
+    height: 1em;
+    fill: currentcolor;
+  }
+}
+
+.baseline svg {
+  position: relative;
+  top: .125em;
+}

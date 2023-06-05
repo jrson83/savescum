@@ -1,0 +1,43 @@
+@use 'sass:color';
+
+// Component: Panel
+.panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--c-border);
+  border-radius: var(--border-radius);
+  background-color: var(--c-bg-sub);
+  color: var(--c-font-sub);
+  text-decoration: none;
+
+  &:hover { 
+    filter: brightness(var(--brightness));
+  }
+
+  &:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px color.scale(#405cf5, $lightness: -40%);
+  }
+
+  &:first-of-type {
+    margin-top: 1rem;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
+    color: var(--c-font-prim);
+
+    &-sub {
+      display:flex;
+      align-items:center;
+      gap:0.25rem;
+      color: var(--c-font-sub);
+    }
+  }
+}
+

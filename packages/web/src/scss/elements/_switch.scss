@@ -1,0 +1,33 @@
+// Element: Switch
+.toggle-switch {
+  position: relative;
+  width: 4em;
+  height: 2em;
+  transition: background-color 0.09s ease-in-out;
+  border-radius: 2em;
+  outline: 0;
+  background-color: #ddd;
+  cursor: pointer;
+  appearance: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2em;
+    height: 2em;
+    transform: scale(0.7);
+    transition: left 0.09s ease-in-out;
+    border-radius: 2em;
+    background-color: white;
+    box-shadow: 0 0.1em rgb(0 0 0 / 50%);
+  }
+
+  &:checked {
+    background-color: var(--c-link-prim);
+
+    &::after {
+      left: 2em;
+    }
+  }
+}

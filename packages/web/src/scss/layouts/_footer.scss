@@ -1,0 +1,26 @@
+// Layouts: Footer
+.footer {
+  display: flex;
+  grid-area: footer;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &__content {
+    width: 100%;
+    max-width: 848px;
+    padding: 1rem;
+    border: 1px solid var(--c-border);
+    border-bottom: none;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    background-color: var(--c-bg-sub);
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #22c55e;
+  }
+}

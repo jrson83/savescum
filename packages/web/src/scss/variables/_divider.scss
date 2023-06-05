@@ -1,0 +1,10 @@
+@use "sass:map";
+@use "./config" as *;
+
+// Utility: Divider
+$divider: (
+  color: inherit,
+  border: 1px solid var(--c-border),
+  spacing: map.get($config, spacing),
+  text-spacing: 0.35em
+) !default;

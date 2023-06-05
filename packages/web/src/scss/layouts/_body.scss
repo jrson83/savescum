@@ -1,0 +1,20 @@
+@use "sass:map";
+@use "../variables" as *;
+
+// Layouts: Body
+html {
+  height: 100%;
+  line-height: map.get($body, line-height);
+  text-size-adjust: 100%;
+  scroll-behavior: map.get($body, scroll-behavior);
+}
+
+body {
+  height: 100%;
+  background-color: map.get($body, background-color);
+  color: map.get($body, color);
+  font-family: map.get($body, font-family);
+  font-size: map.get($body, font-size);
+  font-weight: map.get($body, font-weight);
+  line-height: map.get($body, line-height);
+}

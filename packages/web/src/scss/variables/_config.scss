@@ -1,0 +1,23 @@
+// Variables: Default config
+$config: (
+  f-family: (
+    "Inter", system-ui, -apple-system, "BlinkMacSystemFont",
+    "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji"
+  ),
+  f-family-heading: (
+    "Barlow", system-ui, "Arial", sans-serif
+  ),
+  f-size-xxs: clamp(0.69rem, calc(0.69rem + 0.04vw), 0.72rem),
+  f-size-xs: clamp(0.83rem, calc(0.81rem + 0.12vw), 0.90rem),
+  f-size-base: clamp(1.00rem, calc(0.96rem + 0.22vw), 1.13rem),
+  f-size-1: clamp(1.20rem, calc(1.13rem + 0.36vw), 1.41rem),
+  f-size-2: clamp(1.44rem, calc(1.33rem + 0.55vw), 1.76rem),
+  f-size-3: clamp(1.73rem, calc(1.56rem + 0.82vw), 2.20rem),
+  f-size-4: clamp(2.07rem, calc(1.84rem + 1.17vw), 2.75rem),
+  f-size-5: clamp(2.49rem, calc(2.16rem + 1.64vw), 3.43rem),
+  f-weight: normal,
+  border-radius: 0.25rem,
+  spacing: 1.5rem,
+) !default;

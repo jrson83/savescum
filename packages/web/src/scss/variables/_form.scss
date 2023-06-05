@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use 'config' as *;
+@use '../functions' as *;
+
+// Element: Forms
+$forms: (
+  bg: var(--c-bg-prim),
+  color: var(--c-font-prim),
+  accent-color: var(--link-prim),
+  border: 1px solid var(--c-border),
+  border-radius: var(--border-radius),
+  border-focus: 1px solid var(--c-bg-third),
+  box-shadow-focus: 4px 4px 10px rgb(0 0 0 / 6%)
+) !default;

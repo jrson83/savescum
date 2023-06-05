@@ -1,0 +1,25 @@
+// Layouts: app
+#app {
+  display: grid;
+  grid-gap: 0;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  grid-template-columns: 1fr;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  grid-template-rows: auto 1fr 80px;
+  height: 100%;
+}
+
+@media screen and (width >= 849px) {
+  #app {
+    grid-template-areas:
+      'header header header'
+      '. main .'
+      'footer footer footer';
+    grid-template-columns: 1fr 848px  1fr;
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+    grid-template-rows: auto 1fr auto;
+  }
+}

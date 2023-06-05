@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use './config' as *;
+@use '../functions' as *;
+
+// Component: Tabs
+$tabs: (
+  font-family: var(--f-family-heading),
+  border-bottom: 1px solid var(--c-border),
+  border-bottom-tab: 2px solid #ccc,
+  color: var(--c-text-prim),
+  color-active: var(--c-link-prim),
+  color-hover: var(--c-link-sub),
+  padding-y: 0.8rem,
+  padding-x: 0.5rem,
+) !default;
