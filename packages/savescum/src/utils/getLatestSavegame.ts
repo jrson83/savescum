@@ -5,7 +5,11 @@ import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 
 async function getLatestSavegame(options: Options['savegame']) {
-  const location = join(options.backupPath, options.profileId, options.cusa)
+  const location = join(
+    options.backupPath || join(homedir(), 'savescum'),
+    options.profileId,
+    options.cusa
+  )
   try {
     const latest = await readdir(location, { withFileTypes: true })
       .then((dirs) => dirs.filter((dir) => dir.isDirectory()))
@@ -16,8 +20,7 @@ async function getLatestSavegame(options: Options['savegame']) {
             time: (
               await stat(
                 resolve(
-                  homedir(),
-                  'savescum',
+                  options.backupPath || join(homedir(), 'savescum'),
                   options.profileId,
                   options.cusa,
                   path.name
