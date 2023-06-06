@@ -1,5 +1,5 @@
-import type { Options } from '../types'
+import type { OptionsSchema } from '../types'
 
-export function merge(defaultOption: any, userOption: any): Options {
+export function merge(defaultOption: any, userOption: any): OptionsSchema {
   return Object.assign({}, { ftp: defaultOption }, { savegame: userOption })
 }

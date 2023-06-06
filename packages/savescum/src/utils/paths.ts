@@ -1,8 +1,8 @@
-import type { Options } from '../types'
+import type { SavegameSchema } from '../types'
 import { homedir } from 'node:os'
 import { format, join } from 'node:path'
 
-export function paths(savegame: Options['savegame'], timestamp?: string) {
+export function paths(savegame: SavegameSchema, timestamp?: string) {
   const local = join(
     savegame.backupPath || join(homedir(), 'savescum'),
     savegame.profileId,
