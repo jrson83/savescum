@@ -1,8 +1,8 @@
 import { startServer } from '../server'
-import type { ServerOptions } from '../types'
+import type { ServeOptions } from '../types'
 import { colorize, getServerAddresses, info, success } from '../utils'
 
-export async function serveCommand(options: ServerOptions): Promise<void> {
+export async function serveCommand(options: ServeOptions): Promise<void> {
   info('Running serve ...')
 
   await startServer(options)

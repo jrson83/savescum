@@ -5,9 +5,9 @@ import {
   serveCommand,
   testCommand,
 } from './commands'
-import type { ServerOptions } from './types'
+import type { ServeOptions } from './types'
 import { merge } from './utils'
-import { program } from '@commander-js/extra-typings'
+import { Option, program } from '@commander-js/extra-typings'
 import { homedir } from 'node:os'
 import { resolve } from 'node:path'
 
@@ -21,7 +21,7 @@ program
   // todo
   .option('-o, --open', 'open webinterface in default browser', Boolean, false)
   .option('-l, --log', 'enable debug logging server events', Boolean, false)
-  .action(async (options: ServerOptions) => {
+  .action(async (options: ServeOptions) => {
     await serveCommand(options)
   })
 
@@ -37,6 +37,9 @@ const ftp = program
   .option('-s, --secure', 'explicit ftps over tls', false)
   .option('-n, --no-sound', 'disable playing notification sound')
   .option('-d, --debug', 'enable debug logging ftp server events', false)
+  .addOption(
+    new Option('--requestType').implies({ requestType: 'node' }).hideHelp()
+  )
 
 ftp
   .command('test', { isDefault: true })
@@ -103,7 +106,5 @@ ftp
     $ savescum ftp --ip=192.168.179.69 restore --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005
     $ savescum ftp --ip=192.168.179.69 --port=41 --no-sound restore --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005`
   )
-
-/* program.addCommand(ftp) */
 
 program.parseAsync(process.argv)

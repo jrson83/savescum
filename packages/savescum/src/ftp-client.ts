@@ -1,4 +1,4 @@
-import type { Options } from './types'
+import type { FtpSchema, OptionsSchema } from './types'
 import {
   colorize,
   error,
@@ -12,9 +12,9 @@ import { mkdir } from 'node:fs/promises'
 import { dirname } from 'node:path'
 
 export class FTPClient {
-  static async connect(options: Options['ftp']): Promise<Client> {
+  static async connect(options: FtpSchema): Promise<Client> {
     const client = new Client(4000)
-    client.ftp.verbose = false /* || options.debug || false */
+    client.ftp.verbose = options.debug || false
 
     try {
       await client.access({
@@ -27,18 +27,23 @@ export class FTPClient {
     } catch (err: unknown) {
       if (err instanceof Error) {
         error(err.message)
-        process.exit(0)
+        if (options.requestType === 'node') process.exit(0)
+        throw err
       }
     }
     return client
   }
 
-  static async test(options: Options['ftp']) {
+  static async test(options: FtpSchema) {
+    const client = await FTPClient.connect(options)
     try {
-      const client = await FTPClient.connect(options)
       if ((await client.pwd()) === '/') {
         client.close()
-        return { status: 200, success: true }
+        return {
+          success: true,
+          message:
+            'A connection was successfully established with the ftp-server.',
+        }
       }
       error(
         `Something went wrong. Could not establish connection to ${options.ip}`
@@ -47,12 +52,15 @@ export class FTPClient {
     } catch (err: unknown) {
       if (err instanceof Error) {
         error(err.message)
-        process.exit(0)
+        if (options.requestType === 'node') process.exit(0)
+        throw err
       }
+    } finally {
+      client.close()
     }
   }
 
-  static async backup(options: Options) {
+  static async backup(options: OptionsSchema) {
     const { ftp, savegame } = options
     const { dest, src } = paths(savegame)
 
@@ -64,12 +72,13 @@ export class FTPClient {
     const client = await FTPClient.connect(ftp)
 
     try {
-      await client.ensureDir(dirname(src))
+      //await client.ensureDir(dirname(src))
 
       await mkdir(dirname(dest), { recursive: true }).catch((err: unknown) => {
         if (err instanceof Error) {
           error(err.message)
-          process.exit(0)
+          if (ftp.requestType === 'node') process.exit(0)
+          throw err
         }
       })
 
@@ -77,21 +86,26 @@ export class FTPClient {
     } catch (err: unknown) {
       if (err instanceof Error) {
         error(err.message)
-        process.exit(0)
+        if (ftp.requestType === 'node') process.exit(0)
+        throw err
       }
+    } finally {
+      client.close()
     }
 
-    client.close()
-
     return {
-      status: 200,
       success: true,
-      cusa: savegame.cusa,
-      sdimg: savegame.sdimg,
+      message: 'Backup operation has been successfully finished.',
+      savegame: {
+        profileId: savegame.profileId,
+        cusa: savegame.cusa,
+        sdimg: savegame.sdimg,
+        backupPath: savegame.backupPath || dest,
+      },
     }
   }
 
-  static async restore(options: Options) {
+  static async restore(options: OptionsSchema) {
     const { ftp, savegame } = options
 
     const latestBackup = await getLatestSavegame(savegame)
@@ -102,7 +116,7 @@ export class FTPClient {
 
     if (!localFile) {
       error(`The backup file ${src} does not exist.`)
-      process.exit(0)
+      if (ftp.requestType === 'node') process.exit(0)
     }
 
     if (ftp.debug) {
@@ -113,22 +127,27 @@ export class FTPClient {
     const client = await FTPClient.connect(ftp)
 
     try {
-      await client.ensureDir(dirname(dest))
+      //await client.ensureDir(dirname(dest))
       await client.uploadFrom(src, dest)
     } catch (err: unknown) {
       if (err instanceof Error) {
         error(err.message)
-        process.exit(0)
+        if (ftp.requestType === 'node') process.exit(0)
+        throw err
       }
+    } finally {
+      client.close()
     }
 
-    client.close()
-
     return {
-      status: 200,
       success: true,
-      cusa: savegame.cusa,
-      sdimg: savegame.sdimg,
+      message: 'Restore operation has been successfully finished.',
+      savegame: {
+        profileId: savegame.profileId,
+        cusa: savegame.cusa,
+        sdimg: savegame.sdimg,
+        backupPath: savegame.backupPath || dest,
+      },
     }
   }
 }
