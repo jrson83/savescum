@@ -7,6 +7,11 @@ export interface ServerOptions {
   log: boolean
 }
 
+export interface ServerAdresses {
+  address: string
+  internal: boolean
+}
+
 export type Options = FromSchema<typeof OptionsSchema>
 
 export const OptionsSchema = {
