@@ -18,8 +18,9 @@ program
   .description('serve webinterface (default: http://127.0.0.1:3000)')
   .option('-H, --host <string>', 'webinterface host', String, '127.0.0.1')
   .option('-p, --port <number>', 'webinterface port', parseInt, 3000)
+  // todo
   .option('-o, --open', 'open webinterface in default browser', Boolean, false)
-  .option('-l, --log', 'enable debug logging server events', Boolean, true)
+  .option('-l, --log', 'enable debug logging server events', Boolean, false)
   .action(async (options: ServerOptions) => {
     await serveCommand(options)
   })
