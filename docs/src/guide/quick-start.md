@@ -30,6 +30,10 @@ savescum [options] [command]
 npx savescum [options] [command]
 ```
 
+::: tip
+To listen on all addresses, including LAN and public addresses, set the webinterface `--host` to `0.0.0.0`. This is required to access the webinterface from a different device.
+:::
+
 ## Backup location
 
 By default backups are stored in the home directory of the current user:

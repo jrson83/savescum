@@ -15,6 +15,10 @@ savescum [options]
 savescum serve [options]
 ```
 
+::: tip
+To listen on all addresses, including LAN and public addresses, set the webinterface `--host` to `0.0.0.0`. This is required to access the webinterface from a different device.
+:::
+
 ### Options
 
 | Option | Description |
