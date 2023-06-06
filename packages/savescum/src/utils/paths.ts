@@ -1,9 +1,10 @@
 import type { Options } from '../types'
+import { homedir } from 'node:os'
 import { format, join } from 'node:path'
 
 export function paths(savegame: Options['savegame'], timestamp?: string) {
   const local = join(
-    savegame.backupPath,
+    savegame.backupPath || join(homedir(), 'savescum'),
     savegame.profileId,
     savegame.cusa,
     timestamp ? timestamp : `${Number(new Date())}`,
