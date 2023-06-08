@@ -71,6 +71,15 @@ small {
   color: var(--c-error);
 }
 
+.c-brand {
+  color: var(--c-brand)
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 /* a:not(.panel),
 a:visited:not(.panel),
 a:active:not(.panel) {

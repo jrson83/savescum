@@ -5,6 +5,6 @@
 $divider: (
   color: inherit,
   border: 1px solid var(--c-border),
-  spacing: map.get($config, spacing),
+  spacing: 1rem,
   text-spacing: 0.35em
 ) !default;
