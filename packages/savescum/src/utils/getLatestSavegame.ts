@@ -5,8 +5,9 @@ import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 
 async function getLatestSavegame(options: SavegameSchema) {
+  const home = join(homedir(), 'savescum')
   const location = join(
-    options.backupPath || join(homedir(), 'savescum'),
+    options.backupPath || home,
     options.profileId,
     options.cusa
   )
@@ -15,27 +16,44 @@ async function getLatestSavegame(options: SavegameSchema) {
       .then((dirs) => dirs.filter((dir) => dir.isDirectory()))
       .then((dirPaths) =>
         Promise.all(
-          dirPaths.map(async (path) => ({
-            name: path.name,
-            time: (
-              await stat(
-                resolve(
-                  options.backupPath || join(homedir(), 'savescum'),
-                  options.profileId,
-                  options.cusa,
-                  path.name
-                )
+          dirPaths.map(async (path) => {
+            const fileDetails = await stat(
+              resolve(
+                options.backupPath || home,
+                options.profileId,
+                options.cusa,
+                path.name,
+                options.sdimg
               )
-            ).mtime.getTime(),
-          }))
+            )
+
+            const { size, mtime } = fileDetails
+
+            return {
+              timestamp: path.name,
+              mtime: mtime.getTime(),
+              size: `${size / (1024 * 1024)}MB`,
+            }
+          })
         )
       )
-      .then((dirs) => dirs.sort((a, b) => b.time - a.time))
+      .then((dirs) => dirs.sort((a, b) => b.mtime - a.mtime))
 
-    return latest[0]
+    return {
+      profileId: options.profileId,
+      cusa: options.cusa,
+      sdimg: options.sdimg,
+      backupPath: resolve(
+        options.backupPath || home,
+        options.profileId,
+        options.cusa
+      ),
+      history: latest,
+    }
   } catch (err: unknown) {
     if (err instanceof Error) {
       error(`Error at path ${location}: ${err.message}`)
+      throw err
     }
   }
 }

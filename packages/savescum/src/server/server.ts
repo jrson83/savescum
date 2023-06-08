@@ -3,6 +3,7 @@ import type {
   JsonSchemaToTsProviderWithSharedSchema,
   ServeOptions,
 } from '../types'
+import { getLatestSavegame } from '../utils'
 import { responseSchema, sharedSchema } from './schemas'
 import resolveWebRoot from '@savescum/web'
 import Fastify from 'fastify'
@@ -91,6 +92,24 @@ export const startServer = async (options: ServeOptions) => {
       async (request, reply) => {
         const data = await FTPClient.backup(request.body)
         return reply.code(200).send(data)
+      }
+    )
+
+    fastify.post(
+      '/api/history',
+      {
+        schema: {
+          body: sharedSchema,
+          /* response: responseSchema, */
+        } as const,
+      },
+      async (request, reply) => {
+        const data = await getLatestSavegame(request.body.savegame)
+        return reply.code(200).send({
+          success: true,
+          message: 'success',
+          savegame: data,
+        })
       }
     )
 

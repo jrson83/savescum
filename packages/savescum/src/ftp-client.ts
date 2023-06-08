@@ -38,7 +38,6 @@ export class FTPClient {
     const client = await FTPClient.connect(options)
     try {
       if ((await client.pwd()) === '/') {
-        client.close()
         return {
           success: true,
           message:
@@ -110,7 +109,7 @@ export class FTPClient {
 
     const latestBackup = await getLatestSavegame(savegame)
 
-    const { dest, src } = paths(savegame, latestBackup?.name)
+    const { dest, src } = paths(savegame, latestBackup?.history[0].timestamp)
 
     const localFile = await fileExists(src)
 
