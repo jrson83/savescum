@@ -7,9 +7,16 @@ const fetchAction = async <T = unknown>(
   options: AppContextState
 ): Promise<T> => {
   if (!isDefined(type))
-    throw new TypeError('A Type is required: backup | restore | recent')
+    throw new TypeError(
+      'A Type is required: backup | restore | recent | history'
+    )
 
-  if (type === 'backup' || type === 'restore' || type === 'recent') {
+  if (
+    type === 'backup' ||
+    type === 'restore' ||
+    type === 'recent' ||
+    'history'
+  ) {
     const activeSavegame = options.savegames.find(({ isActive }) => {
       return isActive
     })

@@ -1,4 +1,5 @@
 import { icons } from '@/data'
+import type { Savegame } from '@/store'
 
 export interface History {
   length: number
@@ -31,4 +32,11 @@ export type IconFC = FunctionComponent<
   }
 >
 
-export type FetchActionType = 'backup' | 'restore' | 'test' | 'recent'
+export type PanelComp = FunctionComponent<DivAttrs & Partial<Savegame>>
+
+export type FetchActionType =
+  | 'backup'
+  | 'restore'
+  | 'test'
+  | 'recent'
+  | 'history'

@@ -14,7 +14,7 @@ const fetchReducer: Reducer<FetchOptions, AppContextAction> = (
     case 'fetch/fulfilled':
       return {
         ...state,
-        response: payload.response,
+        response: payload,
         isPending: false,
         error: undefined,
       }

@@ -40,12 +40,20 @@ export interface DefaultResponse {
   message: string
 }
 
-export type SavegameResponse = DefaultResponse & {
-  savegame?: Savegame
+export type SavegameResponse = {
+  success: boolean
+  message: string
+  savegame?: Savegame & {
+    history?: Array<{
+      timestamp: string
+      mtime: number
+      size: string
+    }>
+  }
 }
 
 export interface FetchOptions {
-  response?: DefaultResponse
+  response?: SavegameResponse
   isPending: boolean
   error?: string
 }

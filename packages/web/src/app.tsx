@@ -1,27 +1,15 @@
-import { Footer, Header, Link, Main, Route } from '@/components'
-import { Dashboard, Savegame, Settings } from '@/pages'
+import { Footer, Header, Main, Route } from '@/components'
+import { Dashboard, SavegamePage, Settings } from '@/pages'
 import { AppContextProvider } from '@/store'
 
 export function App() {
   return (
     <AppContextProvider>
-      <Header>
-        <nav>
-          <Link href='/' activeClassName='is-active'>
-            Home
-          </Link>
-          <Link href='/savegame/1' activeClassName='is-active'>
-            Savegame:1
-          </Link>
-          <Link href='/savegame/2' activeClassName='is-active'>
-            Savegame:2
-          </Link>
-        </nav>
-      </Header>
+      <Header />
       <Main>
         <Route path='/' component={Dashboard} />
         <Route path='/settings' component={Settings} />
-        <Route path='/savegame/:id' component={Savegame} />
+        <Route path='/savegame/:id' component={SavegamePage} />
       </Main>
       <Footer />
     </AppContextProvider>
