@@ -11,12 +11,18 @@ importers:
 
   .:
     devDependencies:
+      '@types/mock-fs':
+        specifier: ^4.13.1
+        version: 4.13.1
       '@types/node':
         specifier: ^20.2.3
         version: 20.2.3
       husky:
         specifier: ^8.0.3
         version: 8.0.3
+      mock-fs:
+        specifier: ^5.2.0
+        version: 5.2.0
       nano-staged:
         specifier: ^0.8.0
         version: 0.8.0
@@ -1115,6 +1121,12 @@ packages:
 
   /@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
+    dev: true
+
+  /@types/mock-fs@4.13.1:
+    resolution: {integrity: sha512-m6nFAJ3lBSnqbvDZioawRvpLXSaPyn52Srf7OfzjubYbYX8MTUdIgDxQl0wEapm4m/pNYSd9TXocpQ0TvZFlYA==}
+    dependencies:
+      '@types/node': 20.2.3
     dev: true
 
   /@types/node@17.0.45:
@@ -2876,6 +2888,11 @@ packages:
       pathe: 1.1.1
       pkg-types: 1.0.3
       ufo: 1.1.2
+    dev: true
+
+  /mock-fs@5.2.0:
+    resolution: {integrity: sha512-2dF2R6YMSZbpip1V1WHKGLNjr/k48uQClqMVb5H3MOvwc9qhYis3/IWbj02qIg/Y8MDXKFF4c5v0rxx2o6xTZw==}
+    engines: {node: '>=12.0.0'}
     dev: true
 
   /ms@2.1.2:

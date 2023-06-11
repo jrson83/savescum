@@ -37,8 +37,10 @@
     "pub": "tsx scripts/prepublishOnly.ts && npx sparkee publish"
   },
   "devDependencies": {
+    "@types/mock-fs": "^4.13.1",
     "@types/node": "^20.2.3",
     "husky": "^8.0.3",
+    "mock-fs": "^5.2.0",
     "nano-staged": "^0.8.0",
     "ptsup": "^0.3.4",
     "rome": "^12.1.3",
