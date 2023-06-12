@@ -9,7 +9,7 @@ import {
   remoteSavegamePath,
   restoreResponse,
   testResponse,
-} from './setup'
+} from './vitest.setup'
 import { Client } from 'basic-ftp'
 import mock from 'mock-fs'
 import { normalize } from 'node:path'
