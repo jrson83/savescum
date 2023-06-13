@@ -2,4 +2,5 @@
 
 // Mixin: Font-Face
 @include mix-font-face("Inter", "/fonts/inter-400", 400, normal);
+@include mix-font-face("Inter", "/fonts/inter-500", 500, normal);
 @include mix-font-face("Barlow", "/fonts/barlow-700", 700, normal);

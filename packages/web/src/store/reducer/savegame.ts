@@ -7,7 +7,7 @@ const savegameReducer: Reducer<Savegame[], AppContextAction> = (
   { payload, type }
 ) => {
   switch (type) {
-    case 'savegame/save':
+    case 'savegame/add':
       return [
         ...state,
         {

@@ -8,7 +8,10 @@
   overflow: visible;
   border: none;
   border-radius: var(--border-radius);
-  background-color: #405cf5;
+
+  /* background-color: #405cf5; */
+
+  background: linear-gradient(hsl(228deg 94% 67%), hsl(228deg 81% 59%));
 
   /* box-shadow: 0 2px 2px rgb(64 92 245 / 40%); */
   color: #fff;
@@ -16,15 +19,25 @@
   cursor: pointer;
   appearance: button;
 
-  &:hover,
+  /* &:hover,
   &:active {
     background-color: color.scale(#405cf5, $lightness: -20%);
+  } */
+
+  &:hover,
+  &:active {
+    background: color.scale(hsl(222deg 100% 69%), $lightness: -20%);
   }
 
-  &:focus {
+  /* &:focus {
     outline-color: transparent;
     outline-style: solid;
     box-shadow: 0 0 0 4px color.scale(#405cf5, $lightness: -40%);
+  } */
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(222deg 100% 69% / 80%);
   }
 
   &[disabled],
@@ -50,19 +63,42 @@
     padding: 1rem;
     font-weight: 700;
   }
+
+  &-error {
+    border: 1px solid var(--c-error);
+    background: transparent;
+    color: var(--c-error);
+
+    &:hover {
+      background: var(--c-error);
+      color: var(--c-font-sub);
+    }
+  }
 }
 
-/* .btn:focus,
-.btn:hover {
-  outline: none;
-  background: #5d75f6;
-}
+.btn[type='reset'] {
+  border: 1px solid var(--c-border);
+  background: var(--c-bg-prim);
+  color: var(--c-font-prim);
 
-.btn:active {
-  outline: none;
-  background: #405cf5;
-  box-shadow: 0 0 5px #405cf5;
-} */
+  &:hover,
+  &:active {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px color.scale(hsl(222deg 100% 69%), $lightness: -40%);
+  }
+
+  /* &:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px color.scale(hsl(222deg 100% 69%), $lightness: -40%);
+  } */
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px hsl(222deg 100% 69% / 70%);
+  }
+}
 
 .btn-container-right {
   display: flex;
@@ -70,33 +106,4 @@
   justify-content: end;
   margin-top: 1rem;
   column-gap: 0.75rem;
-}
-
-/* @keyframes spin {
-  100% {
-    transform: rotate(360deg)
-  }
-}
-
-.spinner {
-  animation: spin 2000ms linear infinite;
-  fill: #405cf5;
-  color: #405cf5
-}
- */
-
-.spinner {
-  width: 20px;
-  height: 20px;
-  animation: spinner-d3wgkg 1s infinite linear;
-  border: 2px solid;
-  border-radius: 50%;
-  border-color: var(--c-font-sub);
-  border-right-color: var(--c-info);
-}
-
-@keyframes spinner-d3wgkg {
-  to {
-    transform: rotate(1turn);
-  }
 }

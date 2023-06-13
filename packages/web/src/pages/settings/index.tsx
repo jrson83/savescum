@@ -5,7 +5,7 @@ export const Settings = () => {
 
   return (
     <div className='main__content'>
-      <h1>Settings</h1>
+      <h2>Settings</h2>
       <p>Router: {pathname}</p>
     </div>
   )

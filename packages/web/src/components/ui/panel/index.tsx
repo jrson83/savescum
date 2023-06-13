@@ -9,23 +9,16 @@ export const Panel: PanelComp = ({
   createdAt,
   ...props
 }) => {
+  const { className } = props
+
   return (
     <div className='panel' key={idx}>
       <Link
         href={`/savegame/${idx}`}
         type='button'
-        className={`panel__item ${props.className}`}
+        className={`panel__item ${className ? className : ''}`}
         tabIndex={0}
       >
-        {/* <div className='panel__title'>
-          <span>{title}</span>
-          <span className='smaller dimm'>
-            {timeAgo(createdAt as unknown as Date)}
-          </span>
-        </div>
-        <div className='panel__actions'>
-          <Icon icon={'arrowRight'} className='dimm' title='arrow' size={28} />
-        </div> */}
         <div className='panel__title'>
           <span>{title}</span>
           <small className='panel__title-sub'>

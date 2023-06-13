@@ -6,9 +6,9 @@
 $tabs: (
   font-family: var(--f-family-heading),
   border-bottom: 1px solid var(--c-border),
-  border-bottom-tab: 2px solid #ccc,
-  color: var(--c-text-prim),
-  color-active: var(--c-link-prim),
+  border-bottom-tab:var(--c-brand),
+  color: var(--c-font-third),
+  color-active: var(--c-font-sub),
   color-hover: var(--c-link-sub),
   padding-y: 0.8rem,
   padding-x: 0.5rem,

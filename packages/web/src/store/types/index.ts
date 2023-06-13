@@ -7,7 +7,7 @@ import type {
   FtpTestAction,
   RouterNavigateAction,
   RouterRedirectAction,
-  SavegameSaveAction,
+  SavegameAddAction,
   SavegameSeleteAction,
   SavegameToggleAction,
 } from '../actions'
@@ -79,7 +79,7 @@ export type AppContextAction =
   | FtpSaveAction
   | FtpResetAction
   | FtpTestAction
-  | SavegameSaveAction
+  | SavegameAddAction
   | SavegameSeleteAction
   | SavegameToggleAction
   | FetchErrorAction

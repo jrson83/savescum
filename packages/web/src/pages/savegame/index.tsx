@@ -1,3 +1,5 @@
+import { SavegameForm } from './form'
+import { Tabs } from '@/components'
 import { useApp, useMatch, useRouter } from '@/hooks'
 import {
   type DefaultResponse,
@@ -126,81 +128,110 @@ export const SavegamePage = () => {
   return (
     <div className='main__content'>
       <h2>{activeSave?.title}</h2>
-      {/* <p>Router: {pathname}</p>
-      <p>Params: {match?.params?.id}</p> */}
-      <hr />
-      {!state.fetch.response ? (
-        <table>
-          <caption style='text-align:left'>
-            <h3>Backup History</h3>
-          </caption>
-        </table>
-      ) : (
-        <table>
-          <caption style='text-align:left'>
-            <h3>Backup History</h3>
-          </caption>
-          <thead>
-            <tr>
-              <th scope='col'>File Name</th>
-              <th scope='col'>Creation Time</th>
-              <th scope='col'>File Size</th>
-            </tr>
-          </thead>
-          <tbody>
-            {state.fetch.response.savegame?.history?.map((savegame) => (
-              <>
-                <tr>
-                  <td data-label='File Name'>Visa - 3412</td>
-                  <td data-label='Creation Time'>
-                    {timeAgo(new Date(savegame.mtime))}
-                  </td>
-                  <td data-label='File Size'>{savegame.size}</td>
-                </tr>
-                <tr>
-                  {/* rome-ignore lint/a11y/noHeaderScope: <explanation> */}
-                  <td scope='row' data-label='File Name'>
-                    Visa - 6076
-                  </td>
-                  <td data-label='Creation Time'>
-                    {timeAgo(new Date(savegame.mtime))}
-                  </td>
-                  <td data-label='File Size'>{savegame.size}</td>
-                </tr>
-              </>
-            ))}
-          </tbody>
-        </table>
-      )}
-      <button type='button' className='btn' onClick={getBackupHistory}>
-        Get history
-      </button>
-      <button type='button' className='btn' onClick={handleFtpTest}>
-        Test FTP
-      </button>
-      <button type='button' className='btn' onClick={handleActiveSavegame}>
-        Toggle save
-      </button>
-      <button
-        type='button'
-        className='btn'
-        onClick={handleBackup}
-        {...((!state.ftp.ip || state.fetch.isPending) && {
-          disabled: true,
-        })}
-      >
-        Backup savegame
-      </button>
-      <button
-        type='button'
-        className='btn'
-        onClick={handleRestore}
-        {...((!state.ftp.ip || state.fetch.isPending) && {
-          disabled: true,
-        })}
-      >
-        Restore savegame
-      </button>
+      <Tabs
+        panels={[
+          {
+            title: 'Overview',
+            content: (
+              <div>
+                <button
+                  type='button'
+                  className='btn'
+                  onClick={getBackupHistory}
+                >
+                  Get history
+                </button>
+                <button type='button' className='btn' onClick={handleFtpTest}>
+                  Test FTP
+                </button>
+                <button
+                  type='button'
+                  className='btn'
+                  onClick={handleActiveSavegame}
+                >
+                  Toggle save
+                </button>
+                <button
+                  type='button'
+                  className='btn'
+                  onClick={handleBackup}
+                  {...((!state.ftp.ip || state.fetch.isPending) && {
+                    disabled: true,
+                  })}
+                >
+                  Backup savegame
+                </button>
+                <button
+                  type='button'
+                  className='btn'
+                  onClick={handleRestore}
+                  {...((!state.ftp.ip || state.fetch.isPending) && {
+                    disabled: true,
+                  })}
+                >
+                  Restore savegame
+                </button>
+              </div>
+            ),
+          },
+          {
+            title: 'Backups',
+            content: (
+              <div className='settings'>
+                {!state.fetch.response ? (
+                  <table>
+                    <caption style='text-align:left'>
+                      <h3>Backup History</h3>
+                    </caption>
+                  </table>
+                ) : (
+                  <table>
+                    <caption style='text-align:left'>
+                      <h4>Backup History</h4>
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope='col'>Date</th>
+                        <th scope='col'>Type</th>
+                        <th scope='col'>File Size</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {state.fetch.response.savegame?.history?.map(
+                        (savegame) => (
+                          <>
+                            <tr>
+                              <td data-label='Date'>
+                                {timeAgo(new Date(savegame.mtime))}
+                              </td>
+                              <td data-label='Type'>Backup</td>
+                              <td data-label='File Size'>{savegame.size}</td>
+                            </tr>
+                            <tr>
+                              <td data-label='Date'>
+                                {timeAgo(new Date(savegame.mtime))}
+                              </td>
+                              {/* rome-ignore lint/a11y/noHeaderScope: <explanation> */}
+                              <td scope='row' data-label='Type'>
+                                Backup
+                              </td>
+                              <td data-label='File Size'>{savegame.size}</td>
+                            </tr>
+                          </>
+                        )
+                      )}
+                    </tbody>
+                  </table>
+                )}
+              </div>
+            ),
+          },
+          {
+            title: 'Settings',
+            content: <SavegameForm />,
+          },
+        ]}
+      />
     </div>
   )
 }

@@ -86,7 +86,7 @@
   } */
 
   &.is-active {
-    border-bottom-color: map.get($tabs, color);
+    border-bottom-color: map.get($tabs, border-bottom-tab);
     color: map.get($tabs, color-active);
   }
 

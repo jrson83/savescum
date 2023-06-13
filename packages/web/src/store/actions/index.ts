@@ -53,8 +53,8 @@ export interface FtpTestAction extends Action {
   payload: FtpOptions
 }
 
-export interface SavegameSaveAction extends Action {
-  type: 'savegame/save'
+export interface SavegameAddAction extends Action {
+  type: 'savegame/add'
   payload: Omit<Savegame, 'idx'>
 }
 
