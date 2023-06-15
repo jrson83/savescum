@@ -62,6 +62,7 @@ export class FTPClient {
   static async backup(options: OptionsSchema) {
     const { ftp, savegame } = options
     const { dest, src } = paths(savegame)
+    let fileSize: number | undefined
 
     if (ftp.debug) {
       message(`${colorize.dim(`├── Remote Path: ${src}`)}`)
@@ -71,8 +72,14 @@ export class FTPClient {
     const client = await FTPClient.connect(ftp)
 
     try {
-      //await client.ensureDir(dirname(src))
+      fileSize = await client.size(src)
+    } catch (err: unknown) {
+      if ((err as { code: number }).code === 550) {
+        throw err
+      }
+    }
 
+    try {
       await mkdir(dirname(dest), { recursive: true }).catch((err: unknown) => {
         if (err instanceof Error) {
           error(err.message)
@@ -126,7 +133,6 @@ export class FTPClient {
     const client = await FTPClient.connect(ftp)
 
     try {
-      //await client.ensureDir(dirname(dest))
       await client.uploadFrom(src, dest)
     } catch (err: unknown) {
       if (err instanceof Error) {
