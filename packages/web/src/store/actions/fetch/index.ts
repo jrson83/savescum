@@ -20,12 +20,13 @@ const fetchAction = async <T = unknown>(
     const activeSavegame = options.savegames.find(({ isActive }) => {
       return isActive
     })
+
     options = Object.assign({}, { ...options }, { savegame: activeSavegame })
   }
 
   const response = await fetch(
     `http://${window.location.hostname || 'localhost'}:${
-      window.location.port || 3000
+      3000 || window.location.port || 3000
     }/api/${type}`,
     {
       method: 'POST',
@@ -34,6 +35,7 @@ const fetchAction = async <T = unknown>(
       credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       redirect: 'follow',
       referrerPolicy: 'no-referrer',

@@ -20,6 +20,20 @@ const savegameReducer: Reducer<Savegame[], AppContextAction> = (
           isActive: true,
         },
       ]
+    case 'savegame/edit':
+      return state.map((savegame) => {
+        if (savegame.idx !== payload.idx) {
+          return savegame
+        }
+
+        return {
+          ...savegame,
+          title: payload.title,
+          profileId: payload.profileId,
+          cusa: payload.cusa,
+          sdimg: payload.sdimg,
+        }
+      })
     case 'savegame/toggle': {
       return state.map((savegame) => {
         if (savegame.idx !== payload.idx) {

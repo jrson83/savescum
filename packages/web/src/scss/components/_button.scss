@@ -76,7 +76,7 @@
   }
 }
 
-.btn[type='reset'] {
+.btn[type='reset'], .btn-outline {
   border: 1px solid var(--c-border);
   background: var(--c-bg-prim);
   color: var(--c-font-prim);

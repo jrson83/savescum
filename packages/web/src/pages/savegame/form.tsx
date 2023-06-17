@@ -1,6 +1,5 @@
 import { useApp, useForm, useMatch, useRouter } from '@/hooks'
 import type { Savegame } from '@/store'
-import type { FunctionComponent } from 'preact'
 
 const SavegameForm: FunctionComponent = () => {
   const {
@@ -10,14 +9,21 @@ const SavegameForm: FunctionComponent = () => {
   const { pathname } = useRouter()
   const match = useMatch('/savegame/:id', pathname)
 
-  const activeSave = savegames.find(({ idx }) => {
-    return idx === parseInt(match?.params?.id as string)
-  })
+  const activeSave = savegames.find(
+    ({ idx }) => idx === parseInt(match?.params?.id as string)
+  )
+
+  /* useEffect(() => {
+    activeSave = savegames.find(
+      ({ idx }) => idx === parseInt(match?.params?.id as string)
+    )
+    console.log(activeSave)
+  }, [savegames]) */
 
   const {
     handleSubmit,
     handleChange,
-    data: options,
+    data: savegame,
     errors,
   } = useForm<Savegame>({
     validations: {
@@ -41,24 +47,28 @@ const SavegameForm: FunctionComponent = () => {
       },
       sdimg: {
         pattern: {
-          value: '^[a-zA-Z0-9]*$',
-          message: 'Please provide a valid cusa.',
+          value: '^[a-zA-Z0-9_-]*$',
+          message: 'Please provide a valid sdimg.',
         },
       },
     },
     onSubmit: (e: Event) => {
       e.preventDefault()
       dispatch({
-        type: 'savegame/add',
+        type: 'savegame/edit',
         payload: {
-          title: options.title,
-          profileId: options.profileId,
-          cusa: options.cusa,
-          sdimg: options.sdimg,
-          createdAt: new Date().getTime(),
-          isActive: true,
+          idx: savegame.idx,
+          title: savegame.title,
+          profileId: savegame.profileId,
+          cusa: savegame.cusa,
+          sdimg: savegame.sdimg,
+          createdAt: savegame.createdAt,
+          isActive: savegame.isActive,
         },
       })
+    },
+    initialValues: {
+      ...activeSave,
     },
   })
 
@@ -70,7 +80,7 @@ const SavegameForm: FunctionComponent = () => {
             <div className='form__title'>
               <div style='display:flex;flex-direction:column;row-gap:0.25rem;'>
                 <span style='color:var(--c-font-prim);font-weight:500;'>
-                  Manage Savegame
+                  Manage this savegame
                 </span>
                 <small>Edit the current savegame</small>
               </div>
@@ -81,7 +91,7 @@ const SavegameForm: FunctionComponent = () => {
                   id='input-title'
                   type='text'
                   placeholder='Bloodborne (Level 544)'
-                  value={options.title || activeSave?.title}
+                  value={savegame.title}
                   onInput={handleChange('title')}
                   className='ifta-field'
                   required
@@ -100,7 +110,7 @@ const SavegameForm: FunctionComponent = () => {
                   id='input-profile-id'
                   placeholder='1ceaa172'
                   type='text'
-                  value={options.profileId || activeSave?.profileId}
+                  value={savegame.profileId}
                   onChange={handleChange('profileId')}
                   className='ifta-field'
                   required
@@ -121,7 +131,7 @@ const SavegameForm: FunctionComponent = () => {
                   id='input-cusa'
                   placeholder='CUSA00207'
                   type='text'
-                  value={options.cusa || activeSave?.cusa}
+                  value={savegame.cusa}
                   onChange={handleChange('cusa')}
                   className='ifta-field'
                   required
@@ -140,7 +150,7 @@ const SavegameForm: FunctionComponent = () => {
                   id='input-sdimg'
                   placeholder='sdimg_SPRJ0005'
                   type='text'
-                  value={options.sdimg || activeSave?.sdimg}
+                  value={savegame.sdimg}
                   onChange={handleChange('sdimg')}
                   className='ifta-field'
                   required
@@ -157,8 +167,8 @@ const SavegameForm: FunctionComponent = () => {
             </div>
           </div>
           <div className='btn-container-right'>
-            <button type='reset' className='btn'>
-              Cancel
+            <button type='button' className='btn btn-outline'>
+              Run Test
             </button>
             <button type='submit' className='btn'>
               Save

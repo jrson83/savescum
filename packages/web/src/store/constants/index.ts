@@ -49,12 +49,12 @@ export const initialFetchState: FetchOptions = {
   error: undefined,
 }
 
-const initialState: AppContextState = {
+const initialState: AppContextState = Object.freeze({
   fetch: initialFetchState,
   router: initialRouteOptions,
   ftp: initialFtpState,
   savegames: initialSavegameState,
-}
+})
 
 export {
   initialSavegameState,

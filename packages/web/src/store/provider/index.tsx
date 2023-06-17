@@ -12,18 +12,24 @@ const AppContextProvider: FunctionComponent = ({ children }) => {
   const isMounted = useIsMounted()
 
   const [state, dispatch] = useReducer(rootReducer, initialState, (state) => {
-    const persistedData = localStorage.getItem(STORAGE_KEY)
-    return persistedData
-      ? Object.assign({}, JSON.parse(persistedData), {
-          fetch: { error: undefined },
-          router: { pathname: window.location.pathname },
-        })
-      : state
+    try {
+      const persistedData = localStorage.getItem(STORAGE_KEY)
+      return persistedData
+        ? Object.assign({}, JSON.parse(persistedData), {
+            fetch: { error: undefined },
+            router: { pathname: window.location.pathname },
+          })
+        : state
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(err.message)
+      }
+    }
   })
 
   useEffect(() => {
     if (isMounted()) localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-  }, [state])
+  }, [state.ftp, state.savegames])
 
   useLayoutEffect(() => {
     const handleRouteChange = (e: PopStateEvent) => {

@@ -58,6 +58,11 @@ export interface SavegameAddAction extends Action {
   payload: Omit<Savegame, 'idx'>
 }
 
+export interface SavegameEditAction extends Action {
+  type: 'savegame/edit'
+  payload: Savegame
+}
+
 export interface SavegameSeleteAction extends Action {
   type: 'savegame/delete'
   payload: Pick<Savegame, 'idx'>

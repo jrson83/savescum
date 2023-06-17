@@ -29,7 +29,7 @@ const Route: FunctionComponent<RouteProps> = ({
   const isMatch = exact ? pathname === path : !!match
 
   useEffect(() => {
-    console.log(match)
+    /* console.log(match) */
   }, [])
 
   if (!isMatch || !match) return null
