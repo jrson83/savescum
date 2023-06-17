@@ -36,8 +36,8 @@ importers:
         specifier: ^12.1.3
         version: 12.1.3
       sparkee:
-        specifier: ^1.3.2
-        version: 1.3.2
+        specifier: ^1.3.3
+        version: 1.3.3
       stylelint:
         specifier: ^15.8.0
         version: 15.8.0
@@ -3712,11 +3712,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /sparkee@1.3.2:
-    resolution: {integrity: sha512-sMmZ7B4aFa3GvBPbRb/qAQ5TKY7DkfEZR985aTs2xQgB7t9wbf+PbeAxyzcuU00f37+NtCEvXOpvO04vcdStHQ==}
+  /sparkee@1.3.3:
+    resolution: {integrity: sha512-n1G/ikl5XtjMYGzPt7KWKnYaU++d9mI5PlOg+Hdn0CTi816lyFMzet1Vs0ZWGGrKpYfTd6+pwHE92NbWE5pj0g==}
     engines: {node: '>=16.14.0', npm: use `pnpm` instead, pnpm: '>=8.0.0', yarn: use `pnpm` instead}
     hasBin: true
-    requiresBuild: true
     dependencies:
       chalk: 4.1.2
       consola: 2.15.3
@@ -3727,7 +3726,7 @@ packages:
       jsonfile: 6.1.0
       read-yaml-file: 2.1.0
       rimraf: 4.4.1
-      semver: 7.5.1
+      semver: 7.5.2
       shelljs: 0.8.5
       shelljs-live: 0.0.5(shelljs@0.8.5)
       yargs: 17.7.2
