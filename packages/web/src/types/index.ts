@@ -34,6 +34,17 @@ export type IconFC = FunctionComponent<
 
 export type PanelComp = FunctionComponent<DivAttrs & Partial<Savegame>>
 
+export interface TabProps {
+  title: string
+  children: VNode<TabProps>[] | VNode<TabProps>
+}
+
+export type TabFC = FunctionComponent<TabProps>
+
+export type TabsFC = FunctionComponent<{
+  ariaLabel: string
+}>
+
 export type FetchActionType =
   | 'backup'
   | 'restore'

@@ -89,14 +89,4 @@
     border-bottom-color: map.get($tabs, border-bottom-tab);
     color: map.get($tabs, color-active);
   }
-
-  &__panel {
-    display: none;
-
-    /* padding: 1.5rem 0; */
-  
-    &.is-active {
-      display: block;
-    }
-  }
 }

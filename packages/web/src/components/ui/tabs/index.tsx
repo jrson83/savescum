@@ -1,25 +1,27 @@
+import type { TabFC, TabProps, TabsFC } from '@/types'
+import { isValidElement, toChildArray } from 'preact'
 import { useState } from 'preact/hooks'
 
-export type TapPanel = {
-  title: string
-  content: any
+const Tab: TabFC = ({ children }) => {
+  return <>{children}</>
 }
 
-export type TabsProps = {
-  panels: TapPanel[]
-}
-
-export const Tabs: FunctionComponent<TabsProps> = ({ panels }) => {
+const Tabs: TabsFC = ({ ariaLabel, children }) => {
   const [currentIdx, setCurrentIdx] = useState(0)
 
   const btnOnClick = (idx: number) => {
     if (currentIdx !== idx) setCurrentIdx(idx)
   }
 
+  // https://github.com/preactjs/preact/issues/3437
+  const TabChildren = toChildArray(children)
+    .filter(isValidElement)
+    .filter((child) => child.type === Tab) as VNode<TabProps>[]
+
   return (
     <>
-      <div role='tablist' aria-label='Settings Tabs' className='tabs'>
-        {panels.map((panel, idx) => (
+      <div role='tablist' aria-label={ariaLabel} className='tabs'>
+        {TabChildren.map((child, idx) => (
           <button
             key={idx}
             type='button'
@@ -30,23 +32,20 @@ export const Tabs: FunctionComponent<TabsProps> = ({ panels }) => {
             id={`tab-${idx}`}
             onClick={() => btnOnClick(idx)}
           >
-            <span>{panel.title}</span>
+            <span>{child.props.title}</span>
           </button>
         ))}
       </div>
-      <div className='tabs-cnt'>
-        {panels.map((panel, idx) => (
-          <div
-            key={idx}
-            className={`tab__panel ${idx === currentIdx ? 'is-active' : ''}`}
-            id={`panel-${idx}`}
-            role='tabpanel'
-            aria-labelledby={`tab-${idx}`}
-          >
-            {panel.content}
-          </div>
-        ))}
+      <div
+        className='tab__panel'
+        id={`panel-${currentIdx}`}
+        role='tabpanel'
+        aria-labelledby={`tab-${currentIdx}`}
+      >
+        {TabChildren[currentIdx]}
       </div>
     </>
   )
 }
+
+export { Tab, Tabs }
