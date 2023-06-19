@@ -59,6 +59,40 @@ export class FTPClient {
     }
   }
 
+  static async ensure(options: OptionsSchema) {
+    const { ftp, savegame } = options
+    const { dest, src } = paths(savegame)
+    let fileSize: number | undefined
+
+    if (ftp.debug) {
+      message(`${colorize.dim(`├── Remote Path: ${src}`)}`)
+      message(`${colorize.dim(`└── Local Path: ${dest}\n`)}`)
+    }
+
+    const client = await FTPClient.connect(ftp)
+
+    try {
+      fileSize = await client.size(src)
+
+      return {
+        success: true,
+        message: 'Ensure operation has been successfully finished.',
+        savegame: {
+          profileId: savegame.profileId,
+          cusa: savegame.cusa,
+          sdimg: savegame.sdimg,
+          backupPath: savegame.backupPath || dest,
+        },
+      }
+    } catch (err: unknown) {
+      if ((err as { code: number }).code === 550) {
+        throw err
+      }
+    } finally {
+      client.close()
+    }
+  }
+
   static async backup(options: OptionsSchema) {
     const { ftp, savegame } = options
     const { dest, src } = paths(savegame)

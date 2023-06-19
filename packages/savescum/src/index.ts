@@ -1,6 +1,7 @@
 import { description, name, version } from '../package.json'
 import {
   backupCommand,
+  ensureCommand,
   restoreCommand,
   serveCommand,
   testCommand,
@@ -53,6 +54,32 @@ ftp
   Example:
     $ savescum ftp --ip=192.168.179.69 test
     $ savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug test`
+  )
+
+ftp
+  .command('ensure')
+  .description('ensure save-game exists on ps4 ftp-server')
+  .requiredOption('-p, --profile-id <string>', '(required) psn account id')
+  .requiredOption(
+    '-c, --cusa <string>',
+    '(required) game title id type & number'
+  )
+  .requiredOption('-s, --sdimg <string>', '(required) save-game file')
+  .option(
+    '-b, --backup-path <string>',
+    'local path to store backups',
+    resolve(homedir(), 'savescum')
+  )
+  .action(async (options) => {
+    const opts = merge(ftp.opts(), options)
+    await ensureCommand(opts).then(() => process.exit(0))
+  })
+  .addHelpText(
+    'after',
+    `
+  Example (Bloodborne savegame):
+    $ savescum ftp --ip=192.168.179.69 ensure --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005
+    $ savescum ftp --ip=192.168.179.69 --port=41 --no-sound ensure --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005`
   )
 
 ftp

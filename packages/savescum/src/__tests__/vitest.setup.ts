@@ -42,6 +42,12 @@ export const testResponse = {
   message: 'A connection was successfully established with the ftp-server.',
 }
 
+export const ensureResponse = {
+  success: true,
+  message: 'Ensure operation has been successfully finished.',
+  savegame,
+}
+
 export const backupResponse = {
   success: true,
   message: 'Backup operation has been successfully finished.',

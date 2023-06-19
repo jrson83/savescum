@@ -3,6 +3,7 @@ import * as util from '../utils'
 import {
   backupResponse,
   cusaPath,
+  ensureResponse,
   fakeDate,
   localSavegamePath,
   options,
@@ -12,13 +13,14 @@ import {
 } from './vitest.setup'
 import { Client } from 'basic-ftp'
 import mock from 'mock-fs'
-import { normalize } from 'node:path'
+import { normalize, resolve } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('basic-ftp', () => {
   const Client = vi.fn()
   Client.prototype.access = vi.fn()
   Client.prototype.pwd = vi.fn()
+  Client.prototype.size = vi.fn()
   Client.prototype.close = vi.fn()
   Client.prototype.ftp = vi.fn()
   Client.prototype.downloadTo = vi.fn()
@@ -38,7 +40,9 @@ describe('ftp test', () => {
     spy = vi.spyOn(util, 'paths')
 
     mock({
-      [normalize(remoteSavegamePath)]: 'test savegame content',
+      [normalize(remoteSavegamePath)]: mock.load(
+        resolve(__dirname, 'assets/sdimg_SPRJ0005')
+      ),
       [cusaPath]: {},
     })
   })
@@ -58,6 +62,29 @@ describe('ftp test', () => {
     expect(client.close).toBeCalledTimes(1)
 
     expect(response).toStrictEqual(testResponse)
+  })
+
+  it('should run ftp ensure cmd with success', async () => {
+    expect(spy.getMockName()).toEqual('paths')
+
+    expect(await util.fileExists(cusaPath)).toBe(true)
+
+    vi.useFakeTimers()
+    vi.setSystemTime(fakeDate)
+
+    client.pwd.mockResolvedValueOnce('/')
+    client.size.mockResolvedValueOnce({ ...ensureResponse, code: 200 })
+
+    const response = await FTPClient.ensure(options)
+
+    expect(client.access).toBeCalledTimes(1)
+    expect(client.size).toBeCalledTimes(1)
+    expect(client.size).toBeCalledWith(remoteSavegamePath)
+    expect(client.close).toBeCalledTimes(1)
+
+    expect(response).toStrictEqual(ensureResponse)
+
+    vi.useRealTimers()
   })
 
   it('should run ftp backup cmd with success', async () => {

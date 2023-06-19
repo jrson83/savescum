@@ -68,6 +68,20 @@ export const startServer = async (options: ServeOptions) => {
     )
 
     fastify.post(
+      '/api/ensure',
+      {
+        schema: {
+          body: sharedSchema,
+          response: responseSchema,
+        } as const,
+      },
+      async (request, reply) => {
+        const data = await FTPClient.ensure(request.body)
+        return reply.code(200).send(data)
+      }
+    )
+
+    fastify.post(
       '/api/backup',
       {
         schema: {
