@@ -9,6 +9,7 @@ on:
       - '**.ts'
       - '**/package.json'
       - 'pnpm-lock.yaml'
+      - '.github/workflows/*.yml'
 
   push:
     branches: [main]
@@ -16,6 +17,7 @@ on:
       - '**.ts'
       - '**/package.json'
       - 'pnpm-lock.yaml'
+      - '.github/workflows/*.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
