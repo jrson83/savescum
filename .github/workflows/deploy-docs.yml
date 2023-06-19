@@ -54,7 +54,7 @@ jobs:
         run: pnpm run build:docs
 
       - name: Deploy to Server
-        uses: burnett01/rsync-deployments@b247bfd3aff7245a6df1b3a64798f4176ca2a4a1 # 5.2.2
+        uses: burnett01/rsync-deployments@45d84ad5f6c174f3e0ffc50e9060a9666d09c16e # 6.0.0
         with:
           switches: -avzr --delete
           path: "./docs/dist/*"
