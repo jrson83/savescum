@@ -42,7 +42,7 @@
     "@savescum/web": "workspace:*"
   },
   "devDependencies": {
-    "@commander-js/extra-typings": "^10.0.3",
+    "@commander-js/extra-typings": "^11.0.0",
     "@fastify/static": "^6.10.2",
     "@fastify/type-provider-json-schema-to-ts": "^2.2.2",
     "basic-ftp": "^5.0.3",
