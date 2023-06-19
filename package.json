@@ -21,6 +21,7 @@
     "clean:cli": "pnpm --filter savescum clean",
     "clean:web": "pnpm --filter @savescum/web clean",
     "============= DEV ===================": "",
+    "dev": "pnpm \"--filter=./packages/*\" \"--filter=!docs\" --parallel -r dev",
     "dev:docs": "pnpm --filter @savescum/docs dev",
     "dev:cli": "pnpm --filter savescum dev",
     "dev:web": "pnpm --filter @savescum/web dev",
