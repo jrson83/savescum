@@ -85,66 +85,64 @@ const FTPForm: FunctionComponent = () => {
     <div className='settings'>
       <form onSubmit={handleSubmit}>
         <div className='two-columns'>
-          <div className='form__title'>
-            <div style='display:flex;flex-direction:column;row-gap:0.25rem;'>
-              <span style='color:var(--c-font-prim);font-weight:500;'>
-                GoldHEN FTP-Server
-              </span>
+          <div className='form-panel__item'>
+            <div className='form-panel__title'>GoldHEN FTP-Server</div>
+            <div className='form-panel__desc'>
               <small>Define credentials for the GoldHEN FTP-Server</small>
-              <div style='margin-top:2rem;'>
-                {state.ftp.ip === '' ? (
-                  <div className='icon'>
-                    <Icon
-                      icon={'statusQuestion'}
-                      title='FTPstatus'
-                      color='c-warn'
-                      size={24}
-                    />{' '}
-                    &nbsp;
-                    <small>No FTP-Server IP currently configured.</small>
-                  </div>
-                ) : state.fetch.isPending ? (
-                  <div className='icon'>
-                    <Icon
-                      icon={'statusInfo'}
-                      title='FTPstatus'
-                      color='c-info'
-                      size={24}
-                    />{' '}
-                    &nbsp;
-                    <small>Fetching...</small>
-                  </div>
-                ) : isSucesfullResponse() ? (
-                  <div className='icon'>
-                    <Icon
-                      icon={'statusSuccess'}
-                      title='FTPstatus'
-                      color='c-success'
-                      size={24}
-                    />{' '}
-                    &nbsp;
-                    <small>Test Connection Successful!</small>
-                  </div>
-                ) : (
-                  <div className='icon'>
-                    <Icon
-                      icon={'statusError'}
-                      title='FTPstatus'
-                      color='c-error'
-                      size={24}
-                    />{' '}
-                    &nbsp;
-                    <small>
-                      Could not establish connection to PS4
-                      {state.ftp.ip === ''
-                        ? ': No IP specified.'
-                        : state.fetch.error !== undefined
-                        ? `: ${state.fetch.error}`
-                        : '.'}
-                    </small>
-                  </div>
-                )}
-              </div>
+            </div>
+            <div style='margin-top:2rem;'>
+              {state.ftp.ip === '' ? (
+                <div className='icon'>
+                  <Icon
+                    icon={'statusQuestion'}
+                    title='FTPstatus'
+                    color='c-warn'
+                    size={24}
+                  />{' '}
+                  &nbsp;
+                  <small>No FTP-Server IP currently configured.</small>
+                </div>
+              ) : state.fetch.isPending ? (
+                <div className='icon'>
+                  <Icon
+                    icon={'statusInfo'}
+                    title='FTPstatus'
+                    color='c-info'
+                    size={24}
+                  />{' '}
+                  &nbsp;
+                  <small>Fetching...</small>
+                </div>
+              ) : isSucesfullResponse() ? (
+                <div className='icon'>
+                  <Icon
+                    icon={'statusSuccess'}
+                    title='FTPstatus'
+                    color='c-success'
+                    size={24}
+                  />{' '}
+                  &nbsp;
+                  <small>Test Connection Successful!</small>
+                </div>
+              ) : (
+                <div className='icon'>
+                  <Icon
+                    icon={'statusError'}
+                    title='FTPstatus'
+                    color='c-error'
+                    size={24}
+                  />{' '}
+                  &nbsp;
+                  <small>
+                    Could not establish connection to PS4
+                    {state.ftp.ip === ''
+                      ? ': No IP specified.'
+                      : state.fetch.error !== undefined
+                      ? `: ${state.fetch.error}`
+                      : '.'}
+                  </small>
+                </div>
+              )}
             </div>
           </div>
           <div className='form__content'>

@@ -1,18 +1,16 @@
 // Layouts: Main
 .main {
   grid-area: main;
-  background-color: var(--c-bg-prim);
 
   &__content {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    gap: 1.5rem;
+    row-gap: 1.5rem;
   }
 
   &__heading {
     display: flex;
-    flex-direction: row;
     column-gap: 1rem;;
   }
 }

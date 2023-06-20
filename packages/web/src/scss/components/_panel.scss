@@ -6,11 +6,7 @@
 .panel {
   display: grid;
   row-gap: 2rem;
-
-  /* &:first-of-type {
-    margin-top: 1rem;
-  } */
-
+  
   &__title {
     display: flex;
     flex-direction: column;
@@ -35,6 +31,7 @@
     background-color: var(--c-bg-sub);
     color: var(--c-font-sub);
     text-decoration: none;
+    will-change: filter;
 
     &:hover { 
       filter: brightness(var(--brightness));

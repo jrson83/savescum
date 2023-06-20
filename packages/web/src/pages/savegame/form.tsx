@@ -77,11 +77,9 @@ const SavegameForm: FunctionComponent = () => {
       <div className='settings'>
         <form onSubmit={handleSubmit}>
           <div className='two-columns'>
-            <div className='form__title'>
-              <div style='display:flex;flex-direction:column;row-gap:0.25rem;'>
-                <span style='color:var(--c-font-prim);font-weight:500;'>
-                  Manage this savegame
-                </span>
+            <div className='form-panel__item'>
+              <div className='form-panel__title'>Manage this savegame</div>
+              <div className='form-panel__desc'>
                 <small>Edit the current savegame</small>
               </div>
             </div>
@@ -185,7 +183,7 @@ const SavegameForm: FunctionComponent = () => {
               <small>Once you delete a savegame, there is no going back.</small>
             </div>
           </div>
-          <div className='form-panel__slider'>
+          <div className='form-panel__element'>
             <button type='button' className='btn btn-error'>
               Delete
             </button>
