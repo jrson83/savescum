@@ -55,14 +55,13 @@ export class FTPClient {
         throw err
       }
     } finally {
-      client.close()
+      if (!client.closed) client.close()
     }
   }
 
   static async ensure(options: OptionsSchema) {
     const { ftp, savegame } = options
     const { dest, src } = paths(savegame)
-    let fileSize: number | undefined
 
     if (ftp.debug) {
       message(`${colorize.dim(`├── Remote Path: ${src}`)}`)
@@ -72,8 +71,7 @@ export class FTPClient {
     const client = await FTPClient.connect(ftp)
 
     try {
-      fileSize = await client.size(src)
-
+      await client.size(src)
       return {
         success: true,
         message: 'Ensure operation has been successfully finished.',
@@ -89,14 +87,13 @@ export class FTPClient {
         throw err
       }
     } finally {
-      client.close()
+      if (!client.closed) client.close()
     }
   }
 
   static async backup(options: OptionsSchema) {
     const { ftp, savegame } = options
     const { dest, src } = paths(savegame)
-    let fileSize: number | undefined
 
     if (ftp.debug) {
       message(`${colorize.dim(`├── Remote Path: ${src}`)}`)
@@ -106,7 +103,7 @@ export class FTPClient {
     const client = await FTPClient.connect(ftp)
 
     try {
-      fileSize = await client.size(src)
+      await client.size(src)
     } catch (err: unknown) {
       if ((err as { code: number }).code === 550) {
         throw err
@@ -130,7 +127,7 @@ export class FTPClient {
         throw err
       }
     } finally {
-      client.close()
+      if (!client.closed) client.close()
     }
 
     return {
@@ -175,7 +172,7 @@ export class FTPClient {
         throw err
       }
     } finally {
-      client.close()
+      if (!client.closed) client.close()
     }
 
     return {

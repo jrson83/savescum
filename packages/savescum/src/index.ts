@@ -18,10 +18,22 @@ program
   .command('serve', { isDefault: true })
   .description('serve webinterface (default: http://127.0.0.1:3000)')
   .option('-H, --host <string>', 'webinterface host', String, '127.0.0.1')
-  .option('-p, --port <number>', 'webinterface port', parseInt, 3000)
+  .addOption(
+    new Option('-p, --port <number>', 'webinterface port')
+      .default(3000)
+      .argParser((i) => parseInt(i, 10))
+  )
   // todo
-  .option('-o, --open', 'open webinterface in default browser', Boolean, false)
-  .option('-l, --log', 'enable debug logging server events', Boolean, false)
+  .addOption(
+    new Option('-o, --open', 'open webinterface in default browser')
+      .default(false)
+      .argParser((i) => (i === 'false' ? false : true))
+  )
+  .addOption(
+    new Option('-l, --log', 'enable debug logging server events')
+      .default(false)
+      .argParser((i) => (i === 'false' ? false : true))
+  )
   .action(async (options: ServeOptions) => {
     await serveCommand(options)
   })
@@ -32,7 +44,11 @@ const ftp = program
   .configureHelp({ showGlobalOptions: true })
   //.enablePositionalOptions()
   .requiredOption('-i, --ip <string>', 'ps4 ftp-server ip address (required)')
-  .option('-p, --port <number>', 'ps4 ftp-server port', parseInt, 2121)
+  .addOption(
+    new Option('-p, --port <number>', 'ps4 ftp-server port')
+      .default(2121)
+      .argParser((i) => parseInt(i, 10))
+  )
   .option('-u, --user <string>', 'ps4 ftp-server username', String, 'anonymous')
   .option('-P, --password <string>', 'ps4 ftp-server password', String, '')
   .option('-s, --secure', 'explicit ftps over tls', false)
