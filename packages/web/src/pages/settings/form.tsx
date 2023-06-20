@@ -151,10 +151,11 @@ const FTPForm: FunctionComponent = () => {
                 id='input-ip'
                 type='text'
                 placeholder='192.168.178.69'
-                value={options.ip || ''}
+                value={options.ip}
                 pattern='^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
                 onInput={handleChange('ip')}
                 className='ifta-field'
+                autoComplete='off'
                 required
               />
               <label for='input-ip' className='label-after smaller'>
@@ -167,12 +168,13 @@ const FTPForm: FunctionComponent = () => {
                 id='input-port'
                 placeholder='2121'
                 type='number'
-                value={options.port || 2121}
+                value={options.port}
                 min='1'
                 onChange={handleChange<number>('port', (value) =>
                   parseInt(value, 10)
                 )}
                 className='ifta-field'
+                autoComplete='off'
                 required
               />
               <label for='input-port' className='label-after smaller dimm'>
@@ -185,9 +187,10 @@ const FTPForm: FunctionComponent = () => {
                 id='input-user'
                 placeholder='User'
                 type='text'
-                value={options.user || 'anonymous'}
+                value={options.user}
                 onChange={handleChange('user')}
                 className='ifta-field'
+                autoComplete='off'
                 required
               />
               <label for='input-user' className='label-after smaller'>
@@ -200,9 +203,10 @@ const FTPForm: FunctionComponent = () => {
                 id='input-password'
                 placeholder='********'
                 type='password'
-                value={options.password || ''}
+                value={options.password}
                 onChange={handleChange('password')}
                 className='ifta-field'
+                autoComplete='off'
               />
               <label for='input-password' className='label-after smaller'>
                 Configure the password (<code>default: empty</code>)
@@ -212,12 +216,9 @@ const FTPForm: FunctionComponent = () => {
           </div>
         </div>
         <div className='btn-container-right'>
-          <button type='reset' className='btn'>
-            Reset
-          </button>
           <button
             type='button'
-            className='btn'
+            className='btn btn-outline'
             onClick={handleFtpTest}
             {...((!state.ftp.ip || state.fetch.isPending) && {
               disabled: true,

@@ -66,37 +66,58 @@
 
   &-error {
     border: 1px solid var(--c-error);
-    background: transparent;
-    color: var(--c-error);
+    background: var(--c-error);
+    color: var(--c-font-prim);
 
     &:hover {
       background: var(--c-error);
       color: var(--c-font-sub);
     }
   }
-}
 
-.btn[type='reset'], .btn-outline {
-  border: 1px solid var(--c-border);
-  background: var(--c-bg-prim);
-  color: var(--c-font-prim);
+  &-info {
+    border: 1px solid var(--c-info);
+    background: var(--c-info);
+    color: var(--c-font-prim);
 
-  &:hover,
-  &:active {
-    outline-color: transparent;
-    outline-style: solid;
-    box-shadow: 0 0 0 4px color.scale(hsl(222deg 100% 69%), $lightness: -40%);
+    &:hover {
+      background: var(--c-info);
+      color: var(--c-font-sub);
+    }
   }
 
-  /* &:focus {
-    outline-color: transparent;
-    outline-style: solid;
-    box-shadow: 0 0 0 4px color.scale(hsl(222deg 100% 69%), $lightness: -40%);
-  } */
+  &-outline-error {
+    border: 1px solid var(--c-error);
+    background: transparent;
+    color: var(--c-error);
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px hsl(222deg 100% 69% / 70%);
+    &:hover {
+      background: var(--c-error);
+      color: var(--c-bg-prim);
+    }
+  }
+
+  &-outline {
+    transition:
+      background-color 300ms, /* Solid buttons*/
+      border-color 300ms, /* Hollow buttons*/
+      box-shadow calc(300ms / 2); // Focused buttons
+
+    border: 1px solid var(--c-border);
+    background: var(--c-bg-prim);
+    color: var(--c-font-prim);
+   
+    &:focus {
+      outline: none; // Make sure every priority has a visually distinct focus style!
+      box-shadow:
+       0 0 0 3px var(--c-bg-sub),
+       0 0 0 calc(2px * 2.5) var(--c-border);
+    }
+  
+    &:active {
+      transform: scale(0.98);
+      transition: none;
+    }
   }
 }
 

@@ -11,6 +11,8 @@ export interface History {
 
 export type ButtonAttrs = JSX.HTMLAttributes<HTMLButtonElement>
 
+export type DialogAttrs = JSX.HTMLAttributes<HTMLDialogElement>
+
 export type DivAttrs = JSX.HTMLAttributes<HTMLDivElement>
 
 export type LinkAttrs = JSX.HTMLAttributes<HTMLAnchorElement>
@@ -46,6 +48,7 @@ export type TabsFC = FunctionComponent<{
 }>
 
 export type FetchActionType =
+  | 'ensure'
   | 'backup'
   | 'restore'
   | 'test'

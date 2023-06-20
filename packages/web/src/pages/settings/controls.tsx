@@ -50,7 +50,7 @@ export const Controls = () => {
         </div>
       </div>
       <div className='btn-container-right'>
-        <button type='reset' className='btn'>
+        <button type='reset' className='btn btn-outline'>
           Reset
         </button>
         <button type='submit' className='btn'>

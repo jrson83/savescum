@@ -4,7 +4,7 @@ import { isDefined } from '@/utils'
 
 const fetchAction = async <T = unknown>(
   type: FetchActionType,
-  options: AppContextState
+  options: Partial<AppContextState>
 ): Promise<T> => {
   if (!isDefined(type))
     throw new TypeError(
@@ -12,12 +12,13 @@ const fetchAction = async <T = unknown>(
     )
 
   if (
+    type === 'ensure' ||
     type === 'backup' ||
     type === 'restore' ||
     type === 'recent' ||
-    'history'
+    type === 'history'
   ) {
-    const activeSavegame = options.savegames.find(({ isActive }) => {
+    const activeSavegame = options.savegames?.find(({ isActive }) => {
       return isActive
     })
 
@@ -26,7 +27,7 @@ const fetchAction = async <T = unknown>(
 
   const response = await fetch(
     `http://${window.location.hostname || 'localhost'}:${
-      3000 || window.location.port || 3000
+      window.location.port || 3000
     }/api/${type}`,
     {
       method: 'POST',

@@ -1,9 +1,9 @@
 import { useApp, useForm, useMatch, useRouter } from '@/hooks'
-import type { Savegame } from '@/store'
+import { DefaultResponse, type Savegame, fetchAction } from '@/store'
 
 const SavegameForm: FunctionComponent = () => {
   const {
-    state: { savegames },
+    state: { savegames, fetch, ftp },
     dispatch,
   } = useApp()
   const { pathname } = useRouter()
@@ -71,6 +71,30 @@ const SavegameForm: FunctionComponent = () => {
       ...activeSave,
     },
   })
+
+  const handleFtpEnsure = async (e: Event) => {
+    e.preventDefault()
+    if (!fetch.isPending) {
+      dispatch({
+        type: 'fetch/pending',
+        payload: {
+          isPending: true,
+        },
+      })
+
+      try {
+        const req = await fetchAction<DefaultResponse>('ensure', {
+          ftp,
+          savegames,
+        })
+        dispatch({ type: 'fetch/fulfilled', payload: req })
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          dispatch({ type: 'fetch/error', payload: err.message })
+        }
+      }
+    }
+  }
 
   return (
     <>
@@ -165,7 +189,14 @@ const SavegameForm: FunctionComponent = () => {
             </div>
           </div>
           <div className='btn-container-right'>
-            <button type='button' className='btn btn-outline'>
+            <button
+              type='button'
+              className='btn btn-outline'
+              onClick={handleFtpEnsure}
+              {...((!ftp.ip || fetch.isPending) && {
+                disabled: true,
+              })}
+            >
               Run Test
             </button>
             <button type='submit' className='btn'>
@@ -184,7 +215,7 @@ const SavegameForm: FunctionComponent = () => {
             </div>
           </div>
           <div className='form-panel__element'>
-            <button type='button' className='btn btn-error'>
+            <button type='button' className='btn btn-outline-error'>
               Delete
             </button>
           </div>
