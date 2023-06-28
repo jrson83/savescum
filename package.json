@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@types/mock-fs": "^4.13.1",
-    "@types/node": "^20.2.3",
+    "@types/node": "^20.3.2",
     "@vitest/ui": "^0.32.2",
     "husky": "^8.0.3",
     "mock-fs": "^5.2.0",
