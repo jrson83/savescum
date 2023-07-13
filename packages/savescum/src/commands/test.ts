@@ -12,7 +12,7 @@ export async function testCommand(cmd: Command): Promise<void> {
     message(`- Connecting to ftp://${user}@${ip}:${port}\n`)
   }
 
-  const response = await FTPClient.test(cmd.optsWithGlobals())
+  const response = await FTPClient.test(cmd.optsWithGlobals() as FtpSchema)
 
   if (response?.success) {
     success(response.message)

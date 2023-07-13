@@ -3,7 +3,10 @@ export const ftpSchema = {
   additionalProperties: false,
   properties: {
     requestType: { type: 'string', enum: ['browser', 'node'] },
-    ip: { type: 'string' },
+    ip: {
+      type: 'string',
+      format: 'ipv4',
+    },
     port: { type: 'number' },
     user: { type: 'string' },
     password: { type: 'string' },

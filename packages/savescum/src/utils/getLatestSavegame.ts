@@ -4,7 +4,17 @@ import { readdir, stat } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 
-async function getLatestSavegame(options: SavegameSchema) {
+async function getLatestSavegame(options: SavegameSchema): Promise<
+  | (SavegameSchema & {
+      history: Array<{
+        id: number
+        timestamp: string
+        mtime: number
+        size: string
+      }>
+    })
+  | undefined
+> {
   const home = join(homedir(), 'savescum')
   const location = join(
     options.backupPath || home,
@@ -16,7 +26,7 @@ async function getLatestSavegame(options: SavegameSchema) {
       .then((dirs) => dirs.filter((dir) => dir.isDirectory()))
       .then((dirPaths) =>
         Promise.all(
-          dirPaths.map(async (path) => {
+          dirPaths.map(async (path, index) => {
             const fileDetails = await stat(
               resolve(
                 options.backupPath || home,
@@ -30,6 +40,7 @@ async function getLatestSavegame(options: SavegameSchema) {
             const { size, mtime } = fileDetails
 
             return {
+              id: index + 1,
               timestamp: path.name,
               mtime: mtime.getTime(),
               size: `${size / (1024 * 1024)}MB`,

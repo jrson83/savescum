@@ -1,16 +1,21 @@
 import { FTPClient } from '../ftp-client'
+import { NodeClient } from '../node-client'
 import type {
   JsonSchemaToTsProviderWithSharedSchema,
   ServeOptions,
 } from '../types'
-import { getLatestSavegame } from '../utils'
-import { responseSchema, sharedSchema } from './schemas'
+import {
+  ftpOptionsSchema,
+  historyOptionsSchema,
+  savegameOptionsSchema,
+  sharedSchema,
+} from './schemas'
 import resolveWebRoot from '@savescum/web'
 import Fastify from 'fastify'
 
 export const startServer = async (options: ServeOptions) => {
   const fastify = Fastify({
-    logger: !!options.log,
+    logger: true /* !!options.log */,
   }).withTypeProvider<JsonSchemaToTsProviderWithSharedSchema>()
 
   try {
@@ -37,44 +42,27 @@ export const startServer = async (options: ServeOptions) => {
       reply.sendFile('index.html')
     })
 
+    fastify.post('/api/test', ftpOptionsSchema, async (request, reply) => {
+      const data = await FTPClient.test(request.body.ftp)
+      return reply.code(200).send(data)
+    })
+
     fastify.post(
-      '/api/test',
-      {
-        schema: {
-          body: {
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-              ftp: {
-                $ref: 'shared-schema#/definitions/ftp',
-              },
-            },
-            required: ['ftp'],
-          },
-          response: responseSchema,
-        } as const,
-      },
+      '/api/history',
+      historyOptionsSchema,
       async (request, reply) => {
-        /* try { */
-        const data = await FTPClient.test(request.body.ftp)
-        return reply.code(200).send(data)
-        /* } catch (err: unknown) {
-          if (err instanceof Error) {
-            request.log.error(err)
-            return reply.status(500).send({ ...err })
-          }
-        } */
+        const data = await NodeClient.history(request.body.savegame)
+        return reply.code(200).send({
+          success: true,
+          message: 'success',
+          savegame: data,
+        })
       }
     )
 
     fastify.post(
       '/api/ensure',
-      {
-        schema: {
-          body: sharedSchema,
-          response: responseSchema,
-        } as const,
-      },
+      savegameOptionsSchema,
       async (request, reply) => {
         const data = await FTPClient.ensure(request.body)
         return reply.code(200).send(data)
@@ -83,12 +71,7 @@ export const startServer = async (options: ServeOptions) => {
 
     fastify.post(
       '/api/backup',
-      {
-        schema: {
-          body: sharedSchema,
-          response: responseSchema,
-        } as const,
-      },
+      savegameOptionsSchema,
       async (request, reply) => {
         const data = await FTPClient.backup(request.body)
         return reply.code(200).send(data)
@@ -97,33 +80,10 @@ export const startServer = async (options: ServeOptions) => {
 
     fastify.post(
       '/api/restore',
-      {
-        schema: {
-          body: sharedSchema,
-          response: responseSchema,
-        } as const,
-      },
+      savegameOptionsSchema,
       async (request, reply) => {
-        const data = await FTPClient.backup(request.body)
+        const data = await FTPClient.restore(request.body)
         return reply.code(200).send(data)
-      }
-    )
-
-    fastify.post(
-      '/api/history',
-      {
-        schema: {
-          body: sharedSchema,
-          /* response: responseSchema, */
-        } as const,
-      },
-      async (request, reply) => {
-        const data = await getLatestSavegame(request.body.savegame)
-        return reply.code(200).send({
-          success: true,
-          message: 'success',
-          savegame: data,
-        })
       }
     )
 

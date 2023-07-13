@@ -1,6 +1,7 @@
 import type {
   errorSchema,
   ftpSchema,
+  savegameHistorySchema,
   savegameSchema,
   sharedSchema,
 } from '../server'
@@ -19,6 +20,8 @@ export type ErrorSchema = FromSchema<typeof errorSchema>
 export type FtpSchema = FromSchema<typeof ftpSchema>
 
 export type SavegameSchema = FromSchema<typeof savegameSchema>
+
+export type SavegameDetailsSchema = FromSchema<typeof savegameHistorySchema>
 
 export type OptionsSchema = {
   ftp: FtpSchema
