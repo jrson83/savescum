@@ -1,6 +1,6 @@
 import { Icon } from '@/components'
 import { useApp, useForm } from '@/hooks'
-import { DefaultResponse, type FtpOptions, fetchAction } from '@/store'
+import { type FtpOptions, type SavegameResponse, fetchAction } from '@/store'
 
 const FTPForm: FunctionComponent = () => {
   const { state, dispatch } = useApp()
@@ -54,7 +54,6 @@ const FTPForm: FunctionComponent = () => {
           port: options.port,
           user: options.user,
           password: options.password,
-          secure: false,
         },
       })
     },
@@ -71,7 +70,7 @@ const FTPForm: FunctionComponent = () => {
       })
 
       try {
-        const req = await fetchAction<DefaultResponse>('test', state)
+        const req = await fetchAction<SavegameResponse>('test', state)
         dispatch({ type: 'fetch/fulfilled', payload: req })
       } catch (err: unknown) {
         if (err instanceof Error) {

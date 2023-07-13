@@ -1,29 +1,19 @@
-import type { AppContextState } from '@/store'
+import type { AppContextState, Savegame } from '@/store'
 import type { FetchActionType } from '@/types'
 import { isDefined } from '@/utils'
 
 const fetchAction = async <T = unknown>(
   type: FetchActionType,
-  options: Partial<AppContextState>
+  options: Partial<
+    AppContextState & {
+      savegame: Savegame
+    }
+  >
 ): Promise<T> => {
   if (!isDefined(type))
     throw new TypeError(
       'A Type is required: backup | restore | recent | history'
     )
-
-  if (
-    type === 'ensure' ||
-    type === 'backup' ||
-    type === 'restore' ||
-    type === 'recent' ||
-    type === 'history'
-  ) {
-    const activeSavegame = options.savegames?.find(({ isActive }) => {
-      return isActive
-    })
-
-    options = Object.assign({}, { ...options }, { savegame: activeSavegame })
-  }
 
   const response = await fetch(
     `http://${window.location.hostname || 'localhost'}:${
@@ -35,6 +25,8 @@ const fetchAction = async <T = unknown>(
       cache: 'no-cache',
       credentials: 'same-origin',
       headers: {
+        'X-Savescum': 'true',
+        'X-Requested-With': 'savescum-browser',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       },

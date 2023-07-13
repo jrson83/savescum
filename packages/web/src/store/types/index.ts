@@ -10,7 +10,6 @@ import type {
   SavegameAddAction,
   SavegameEditAction,
   SavegameSeleteAction,
-  SavegameToggleAction,
 } from '../actions'
 
 export interface Route {
@@ -18,39 +17,40 @@ export interface Route {
 }
 
 export interface FtpOptions {
-  requestType: 'browser' | 'node'
   ip: string
   port: number
   user: string
   password: string
-  secure?: boolean
+  requestType: 'browser'
 }
 
 export interface Savegame {
-  idx: number
+  id: number
   title: string
   profileId: string
   cusa: string
   sdimg: string
   createdAt: number
-  isActive: boolean
 }
+
+export interface SavegameHistory {
+  history: Array<{
+    id: number
+    timestamp: string
+    mtime: number
+    size: string
+  }>
+}
+
+export type SavegameDetailed = Savegame & SavegameHistory
 
 export interface DefaultResponse {
   success: boolean
   message: string
 }
 
-export type SavegameResponse = {
-  success: boolean
-  message: string
-  savegame?: Savegame & {
-    history?: Array<{
-      timestamp: string
-      mtime: number
-      size: string
-    }>
-  }
+export type SavegameResponse = DefaultResponse & {
+  savegame: SavegameDetailed
 }
 
 export interface FetchOptions {
@@ -83,7 +83,6 @@ export type AppContextAction =
   | SavegameAddAction
   | SavegameEditAction
   | SavegameSeleteAction
-  | SavegameToggleAction
   | FetchErrorAction
   | FetchFulfilledAction
   | FetchPendingAction

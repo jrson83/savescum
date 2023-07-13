@@ -10,7 +10,7 @@ export const Dashboard = () => {
     <div className='main__content'>
       <h2>Games</h2>
       {savegames.map((savegame) => (
-        <Panel {...savegame} />
+        <Panel key={savegame.id} {...savegame} />
       ))}
       <Panel title='Add Game' className='panel__item-add' />
     </div>

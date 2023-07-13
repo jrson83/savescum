@@ -55,7 +55,7 @@ export interface FtpTestAction extends Action {
 
 export interface SavegameAddAction extends Action {
   type: 'savegame/add'
-  payload: Omit<Savegame, 'idx'>
+  payload: Omit<Savegame, 'id'>
 }
 
 export interface SavegameEditAction extends Action {
@@ -65,12 +65,7 @@ export interface SavegameEditAction extends Action {
 
 export interface SavegameSeleteAction extends Action {
   type: 'savegame/delete'
-  payload: Pick<Savegame, 'idx'>
-}
-
-export interface SavegameToggleAction extends Action {
-  type: 'savegame/toggle'
-  payload: Pick<Savegame, 'idx'>
+  payload: Pick<Savegame, 'id'>
 }
 
 export * from './fetch'

@@ -3,7 +3,7 @@ import type { PanelComp } from '@/types'
 import { timeAgo } from '@/utils'
 
 export const Panel: PanelComp = ({
-  idx,
+  id,
   profileId,
   title,
   createdAt,
@@ -12,9 +12,9 @@ export const Panel: PanelComp = ({
   const { className } = props
 
   return (
-    <div className='panel' key={idx}>
+    <div className='panel' key={id}>
       <Link
-        href={`/savegame/${idx}`}
+        href={`/savegame/${id}`}
         type='button'
         className={`panel__item ${className ? className : ''}`}
         tabIndex={0}

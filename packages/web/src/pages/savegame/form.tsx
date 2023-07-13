@@ -1,5 +1,5 @@
 import { useApp, useForm, useMatch, useRouter } from '@/hooks'
-import { DefaultResponse, type Savegame, fetchAction } from '@/store'
+import { type Savegame, type SavegameResponse, fetchAction } from '@/store'
 
 const SavegameForm: FunctionComponent = () => {
   const {
@@ -10,7 +10,7 @@ const SavegameForm: FunctionComponent = () => {
   const match = useMatch('/savegame/:id', pathname)
 
   const activeSave = savegames.find(
-    ({ idx }) => idx === parseInt(match?.params?.id as string)
+    ({ id }) => id === parseInt(match?.params?.id as string)
   )
 
   /* useEffect(() => {
@@ -57,13 +57,12 @@ const SavegameForm: FunctionComponent = () => {
       dispatch({
         type: 'savegame/edit',
         payload: {
-          idx: savegame.idx,
+          id: savegame.id,
           title: savegame.title,
           profileId: savegame.profileId,
           cusa: savegame.cusa,
           sdimg: savegame.sdimg,
           createdAt: savegame.createdAt,
-          isActive: savegame.isActive,
         },
       })
     },
@@ -83,7 +82,7 @@ const SavegameForm: FunctionComponent = () => {
       })
 
       try {
-        const req = await fetchAction<DefaultResponse>('ensure', {
+        const req = await fetchAction<SavegameResponse>('ensure', {
           ftp,
           savegames,
         })

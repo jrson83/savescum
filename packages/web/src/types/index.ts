@@ -34,7 +34,9 @@ export type IconFC = FunctionComponent<
   }
 >
 
-export type PanelComp = FunctionComponent<DivAttrs & Partial<Savegame>>
+export type PanelComp = FunctionComponent<
+  Omit<DivAttrs, 'id'> & Partial<Savegame>
+>
 
 export interface TabProps {
   title: string
@@ -47,10 +49,28 @@ export type TabsFC = FunctionComponent<{
   ariaLabel: string
 }>
 
+export interface RouteComponentProps {
+  history: History
+  location: {
+    params?: Record<string, string>
+    pattern: RegExp
+    pathname: string
+  }
+}
+
+export type RouteComponent = FunctionComponent<RouteComponentProps>
+
+export interface RouteProps {
+  component: RouteComponent
+  path: string
+  exact?: boolean
+}
+
+export type RouteType = FunctionComponent<RouteProps>
+
 export type FetchActionType =
   | 'ensure'
   | 'backup'
   | 'restore'
   | 'test'
-  | 'recent'
   | 'history'

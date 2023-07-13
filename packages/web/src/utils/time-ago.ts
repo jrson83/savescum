@@ -45,18 +45,17 @@ function getFormattedDate(
   return `${day}. ${month} ${year}. at ${hours}:${minutes}`
 }
 
-export function timeAgo(dateParam: Date) {
+export function timeAgo(dateParam: number | string | Date) {
   if (!dateParam) {
     return null
   }
 
-  const date = typeof dateParam === 'object' ? dateParam : new Date(dateParam)
+  const date =
+    typeof dateParam === 'object' ? dateParam : new Date(Number(dateParam))
   const DAY_IN_MS = 86400000 // 24 * 60 * 60 * 1000
   const today = new Date()
-  // @ts-expect-error
-  const yesterday = new Date(today - DAY_IN_MS)
-  // @ts-expect-error
-  const seconds = Math.round((today - date) / 1000)
+  const yesterday = new Date(today.valueOf() - DAY_IN_MS)
+  const seconds = Math.round((today.valueOf() - date.valueOf()) / 1000)
   const minutes = Math.round(seconds / 60)
   const isToday = today.toDateString() === date.toDateString()
   const isYesterday = yesterday.toDateString() === date.toDateString()
