@@ -1,7 +1,7 @@
 {
   "name": "@savescum/web",
   "version": "0.1.2",
-  "description": "An interactive webinterface, to efficiently save scum on a jailbroken PlayStation 4.",
+  "description": "An interactive webinterface, to efficiently save scum on an exploitable PS4/PS5.",
   "keywords": [
     "bloodborne",
     "ftp",

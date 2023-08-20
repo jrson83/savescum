@@ -45,7 +45,7 @@ The webinterface is now running on your local system at [http://127.0.0.1:3000](
 
 ## `savescum ftp`
 
-Perform operations with the PS4 FTP server.
+Perform operations with the PS4/PS5 FTP server.
 
 ### Usage
 
@@ -57,10 +57,10 @@ savescum ftp [options] [command]
 
 | Option | Description |
 | -      | -           |
-| `--ip <string>`          | Specify PS4 FTP server ip (`string`) (`required`) |
-| `--port <port>`          | Specify PS4 FTP server port (default: `2121`) (`number`) |
-| `--user <string>`        | Specify PS4 FTP server user (default: `anonymous`) (`string`) |
-| `--password <string>`    | Specify PS4 FTP server password (default: `''`) (`string`) |
+| `--ip <string>`          | Specify PS4/PS5 FTP server ip (`string`) (`required`) |
+| `--port <port>`          | Specify PS4/PS5 FTP server port (default: `2121`) (`number`) |
+| `--user <string>`        | Specify PS4/PS5 FTP server user (default: `anonymous`) (`string`) |
+| `--password <string>`    | Specify PS4/PS5 FTP server password (default: `''`) (`string`) |
 | `--no-sound`             | Disable playing notification sound (`boolean`) |
 | `--debug`                | Enable debug logging ftp server events (default: `false`) (`boolean`) |
 | `--help`                 | Display help for command |
@@ -69,7 +69,7 @@ savescum ftp [options] [command]
 
 ## `savescum ftp test`
 
-Test connection to PS4 FTP server.
+Test connection to PS4/PS5 FTP server.
 
 ### Usage
 
@@ -100,7 +100,7 @@ savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug test
 
 ## `savescum ftp backup`
 
-Create local savegame backup from PS4 FTP server.
+Create local savegame backup from PS4/PS5 FTP server.
 
 ### Usage
 
@@ -127,7 +127,7 @@ backup --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005 --debug
 
 ## `savescum ftp restore`
 
-Restore local savegame backup to PS4 FTP server.
+Restore local savegame backup to PS4/PS5 FTP server.
 
 ### Usage
 

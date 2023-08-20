@@ -3,13 +3,13 @@
 ## Overview
 If you meet the [requirements](/guide/quick-start#requirements), continue reading this guide. It will help finding the required option parameters you have to specify, using both CLI or webinterface.
 
-## How to obtain PlayStation 4 IP address?
+## How to obtain PS4/PS5 IP address?
 
-1. Go to the **Settings** option in the PS4 Dashboard
+1. Go to the **Settings** option in the PS4/PS5 Dashboard
 2. Then select **Network** from the list of options
 3. Select the **View Connection Status** option
 4. On the **View Connection Status** page you can find the **IP Address**
-5. **Use** savescum CLI or webinterface to `test` the PS4 FTP server connection
+5. **Use** savescum [CLI](http://127.0.0.1:5173/cli/commands#savescum-ftp-test) or webinterface to `test` the PS4/PS5 FTP server connection
 
 ## How to start GoldHEN FTP server?
 
@@ -33,15 +33,15 @@ If you meet the [requirements](/guide/quick-start#requirements), continue readin
 
 ## How to obtain PSNID, CUSA & SDIMG?
 
-> If you do not know your CUSA, you can search for it on [orbispatches.com](https://orbispatches.com).
+> If you don't know a games CUSA, you can search for it on [orbispatches.com](https://orbispatches.com) or [prosperopatches.com](https://prosperopatches.com/).
 
-1. **Download** [WinSCP](https://winscp.net/eng/download.php) or any FTP-Client
-2. **Connect** to the PlayStation 4
+1. **Download** [WinSCP](https://winscp.net/eng/download.php), [FileZilla](https://filezilla-project.org/) or any FTP-Client
+2. **Connect** to the PS4/PS5 FTP server
 
 ```sh
 Protocol: FTP
-IP: PlayStation 4 IP address you obtained before
-Port: 2121
+IP: PS4/PS5 IP address you obtained before
+Port: 2121 or 1337
 User: anonymous
 Password: empty
 ```
@@ -59,4 +59,4 @@ Password: empty
 ```
 
 4. **Note down** CUSA & SDIMG
-5. **Use** savescum CLI or webinterface to `test` the PS4 FTP server connection
+5. **Use** savescum [CLI](http://127.0.0.1:5173/cli/commands#savescum-ftp-test) or webinterface to `test` the PS4/PS5 FTP server connection

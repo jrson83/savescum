@@ -13,6 +13,7 @@
     "directory": "docs"
   },
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf dist src/.vitepress/cache",
     "dev": "vitepress dev src",

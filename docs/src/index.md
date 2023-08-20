@@ -4,7 +4,7 @@ layout: home
 hero:
   name: savescum
   text: CLI & Webinterface
-  tagline: To efficiently save scum on a jailbroken PS4.
+  tagline: To efficiently save scum on an exploitable PS4/PS5.
   image:
     src: /assets/img/savescum-logo.png
     alt: savescum logo
@@ -19,7 +19,7 @@ hero:
 features:
   - icon: ⚡
     title: Blazing fast savegame backup & restore
-    details: Lets you back up and restore savegames through the PlayStation 4 FTP server.
+    details: Lets you back up and restore savegames using PS4/PS5 FTP server.
   - icon: 🛠️
     title: Runs as web application or CLI
     details: Includes a webinterface which simplifies and speeds up save scumming.

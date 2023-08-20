@@ -22,11 +22,11 @@ The webinterface is now running on your local system at [http://127.0.0.1:3000](
 
 ### `savescum ftp`
 
-Perform operations with the PS4 FTP server. (`no standalone command`)
+Perform operations with the PS4/PS5 FTP server. (`no standalone command`)
 
 `savescum ftp test`
 
-Test connection to PS4 FTP server.
+Test connection to PS4/PS5 FTP server.
 
 #### Example usage
 
@@ -49,7 +49,7 @@ savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug test
 
 `savescum ftp backup`
 
-Create local savegame backup from PS4 FTP server.
+Create local savegame backup from PS4/PS5 FTP server.
 
 #### Example usage (Bloodborne savegame)
 
@@ -67,7 +67,7 @@ backup --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005 --debug
 
 `savescum ftp restore`
 
-Restore local savegame backup to PS4 FTP server.
+Restore local savegame backup to PS4/PS5 FTP server.
 
 #### Example usage (Bloodborne savegame)
 

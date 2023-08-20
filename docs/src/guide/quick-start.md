@@ -5,10 +5,14 @@
 Savescum has a few requirements:
 
 - [Node.js](https://nodejs.org/en/) `>= 16.15.1`
-- PlayStation 4 (`Jailbroken`)
-  - [GoldHEN](https://github.com/GoldHEN/GoldHEN) or any FTP-Server
+- An exploitable PlayStation 4/5 (see [PS4 JB Status](https://wololo.net/2023/05/02/ps4-jailbreak-the-status-in-2023/), [PS5 JB Status](https://wololo.net/2023/05/04/ps5-jailbreak-the-status-in-2023/))
+  - PS4: [GoldHEN](https://github.com/GoldHEN/GoldHEN) or any FTP-Server
+  - PS5: FTPS5 either [SiSTR0](https://github.com/SiSTR0/FTPS5) or [EchoStretch](https://github.com/EchoStretch/FTPS5)
+
+### Recommended for PS4
+
   - [Apollo Save Tool](https://github.com/bucanero/apollo-ps4)
-  - Activated offline PSN account 
+  - Activated PSN offline account 
 
 ## Installation
 

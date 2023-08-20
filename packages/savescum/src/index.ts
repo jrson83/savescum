@@ -43,14 +43,14 @@ const ftp = program
   .description('perform ftp operations through cli')
   .configureHelp({ showGlobalOptions: true })
   //.enablePositionalOptions()
-  .requiredOption('-i, --ip <string>', 'ps4 ftp-server ip address (required)')
+  .requiredOption('-i, --ip <string>', 'ftp-server ip address (required)')
   .addOption(
-    new Option('-p, --port <number>', 'ps4 ftp-server port')
+    new Option('-p, --port <number>', 'ftp-server port')
       .default(2121)
       .argParser((i) => parseInt(i, 10))
   )
-  .option('-u, --user <string>', 'ps4 ftp-server username', String, 'anonymous')
-  .option('-P, --password <string>', 'ps4 ftp-server password', String, '')
+  .option('-u, --user <string>', 'ftp-server username', String, 'anonymous')
+  .option('-P, --password <string>', 'ftp-server password', String, '')
   .option('-s, --secure', 'explicit ftps over tls', false)
   .option('-n, --no-sound', 'disable playing notification sound')
   .option('-d, --debug', 'enable debug logging ftp server events', false)
@@ -60,7 +60,7 @@ const ftp = program
 
 ftp
   .command('test', { isDefault: true })
-  .description('test connection to ps4 ftp-server')
+  .description('test connection to ftp-server')
   .action(async (_options, cmd) => {
     await testCommand(cmd)
   })
@@ -74,7 +74,7 @@ ftp
 
 ftp
   .command('ensure')
-  .description('ensure save-game exists on ps4 ftp-server')
+  .description('ensure save-game exists on ftp-server')
   .requiredOption('-p, --profile-id <string>', '(required) psn account id')
   .requiredOption(
     '-c, --cusa <string>',
@@ -100,7 +100,7 @@ ftp
 
 ftp
   .command('backup')
-  .description('create save-game backup from ps4 ftp-server')
+  .description('create save-game backup from ftp-server')
   .requiredOption('-p, --profile-id <string>', '(required) psn account id')
   .requiredOption(
     '-c, --cusa <string>',
@@ -126,7 +126,7 @@ ftp
 
 ftp
   .command('restore')
-  .description('restore save-game backup to ps4 ftp-server')
+  .description('restore save-game backup to ftp-server')
   .requiredOption('-p, --profile-id <string>', '(required) psn account id')
   .requiredOption(
     '-c, --cusa <string>',

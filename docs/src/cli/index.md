@@ -2,7 +2,7 @@
 
 ## Overview
 
-Savescum lets you back up and restore savegames through the PlayStation 4 FTP server.
+Savescum lets you back up and restore savegames through the PS4/PS5 FTP server.
 
 ## Installation
 
@@ -18,7 +18,7 @@ savescum --help
 # outputs
 Usage: savescum [options] [command]
 
-A command-line tool & webinterface, to efficiently save scum on a jailbroken PS4.
+A command-line tool & webinterface, to efficiently save scum on an exploitable PS4/PS5.
 
 Options:
   -V, --version    output the version number
@@ -41,16 +41,16 @@ savescum ftp test --help
 # outputs
 Usage: savescum ftp test [options]
 
-test connection to ps4 ftp-server
+test connection to ftp-server
 
 Options:
   -h, --help               display help for command
 
 Global Options:
-  -i, --ip <string>        ps4 ftp-server ip address (required)
-  -p, --port <number>      ps4 ftp-server port (default: 2121)
-  -u, --user <string>      ps4 ftp-server username (default: "anonymous")
-  -P, --password <string>  ps4 ftp-server password (default: "")
+  -i, --ip <string>        ftp-server ip address (required)
+  -p, --port <number>      ftp-server port (default: 2121)
+  -u, --user <string>      ftp-server username (default: "anonymous")
+  -P, --password <string>  ftp-server password (default: "")
   -s, --secure             explicit ftps over tls (default: false)
   -n, --no-sound           disable playing notification sound
   -d, --debug              enable debug logging ftp server events (default: false)
