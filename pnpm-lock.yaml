@@ -69,8 +69,8 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
       vitepress:
-        specifier: 1.0.0-rc.10
-        version: 1.0.0-rc.10(@types/node@20.5.9)(search-insights@2.8.1)
+        specifier: 1.0.0-rc.12
+        version: 1.0.0-rc.12(@types/node@20.5.9)(search-insights@2.8.1)
       vue:
         specifier: ^3.3.4
         version: 3.3.4
@@ -4389,8 +4389,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress@1.0.0-rc.10(@types/node@20.5.9)(search-insights@2.8.1):
-    resolution: {integrity: sha512-+MsahIWqq5WUEmj6MR4obcKYbT7im07jZPCQPdNJExkeOSbOAJ4xypSLx88x7rvtzWHhHc5aXbOhCRvGEGjFrw==}
+  /vitepress@1.0.0-rc.12(@types/node@20.5.9)(search-insights@2.8.1):
+    resolution: {integrity: sha512-mZknN5l9lgbBjXwumwdOQQDM+gPivswFEykEQeenY0tv7eocS+bb801IpFZT3mFV6YRhSddmbutHlFgPPADjEg==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.5.2
