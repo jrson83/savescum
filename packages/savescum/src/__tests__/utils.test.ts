@@ -1,8 +1,8 @@
-import { fileExists, merge, paths } from '../utils'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { cwd } from 'node:process'
 import { describe, expect, it, vi } from 'vitest'
+import { fileExists, merge, paths } from '../utils'
 
 const saveGame = {
   profileId: '1ceaa172',

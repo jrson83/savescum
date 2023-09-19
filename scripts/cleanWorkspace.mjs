@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { readdir, rm } from 'fs/promises'
 import { cwd } from 'node:process'
+import { readdir, rm } from 'fs/promises'
 
 /**
  * Deletes node_modules folders inside a workspace recursively & parallel

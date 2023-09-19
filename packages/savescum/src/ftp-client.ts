@@ -1,3 +1,6 @@
+import { mkdir } from 'node:fs/promises'
+import { dirname } from 'node:path'
+import { Client } from 'basic-ftp'
 import type { FtpSchema, OptionsSchema } from './types'
 import {
   colorize,
@@ -7,9 +10,6 @@ import {
   message,
   paths,
 } from './utils'
-import { Client } from 'basic-ftp'
-import { mkdir } from 'node:fs/promises'
-import { dirname } from 'node:path'
 
 export class FTPClient {
   static async connect(options: FtpSchema): Promise<Client> {

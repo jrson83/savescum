@@ -1,6 +1,6 @@
-import type { AppContextAction, Savegame } from '../types'
 import { nextSaveGameId } from '@/utils'
 import type { Reducer } from 'preact/hooks'
+import type { AppContextAction, Savegame } from '../types'
 
 const savegameReducer: Reducer<Savegame[], AppContextAction> = (
   state,

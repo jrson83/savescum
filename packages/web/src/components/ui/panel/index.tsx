@@ -12,20 +12,20 @@ export const Panel: PanelComp = ({
   const { className } = props
 
   return (
-    <div className='panel' key={id}>
+    <div className="panel" key={id}>
       <Link
         href={`/savegame/${id}`}
-        type='button'
+        type="button"
         className={`panel__item ${className ? className : ''}`}
         tabIndex={0}
       >
-        <div className='panel__title'>
+        <div className="panel__title">
           <span>{title}</span>
-          <small className='panel__title-sub'>
+          <small className="panel__title-sub">
             {createdAt ? (
               <>
-                <Icon title='CreatedAt' icon={'time'} size={18} />
-                <span className='dimm'>
+                <Icon title="CreatedAt" icon={'time'} size={18} />
+                <span className="dimm">
                   {createdAt && timeAgo(new Date(createdAt))}
                 </span>
               </>
@@ -35,15 +35,15 @@ export const Panel: PanelComp = ({
           </small>
         </div>
         {createdAt ? (
-          <small className='panel__title-sub'>
-            <Icon title='Profile' icon={'user'} size={18} />
+          <small className="panel__title-sub">
+            <Icon title="Profile" icon={'user'} size={18} />
             <span>{profileId}</span>
           </small>
         ) : (
           <div></div>
         )}
 
-        <Icon title='Collapsible' icon={'arrowRight'} size={24} />
+        <Icon title="Collapsible" icon={'arrowRight'} size={24} />
       </Link>
     </div>
   )

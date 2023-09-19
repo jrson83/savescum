@@ -1,6 +1,6 @@
-import { version } from '../../../packages/savescum/package.json'
 import { generateSitemap as sitemap } from 'sitemap-ts'
 import { defineConfig } from 'vitepress'
+import { version } from '../../../packages/savescum/package.json'
 
 const github = 'https://github.com/jrson83/savescum'
 

@@ -1,5 +1,5 @@
-import type { ServerAdresses } from '../types'
 import { networkInterfaces } from 'node:os'
+import type { ServerAdresses } from '../types'
 
 const getServerAddresses = () => {
   // get network interfaces

@@ -7,9 +7,9 @@ export function App() {
     <AppContextProvider>
       <Header />
       <Main>
-        <Route path='/' component={Dashboard} />
-        <Route path='/settings' component={Settings} />
-        <Route path='/savegame/:id' component={SavegamePage} />
+        <Route path="/" component={Dashboard} />
+        <Route path="/settings" component={Settings} />
+        <Route path="/savegame/:id" component={SavegamePage} />
       </Main>
       <Footer />
     </AppContextProvider>

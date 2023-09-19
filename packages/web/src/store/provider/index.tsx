@@ -1,7 +1,7 @@
-import { STORAGE_KEY, TAppContext, initialState, rootReducer } from '../'
 import { useIsMounted } from '@/hooks'
 import { createContext } from 'preact'
 import { useEffect, useLayoutEffect, useReducer } from 'preact/hooks'
+import { STORAGE_KEY, TAppContext, initialState, rootReducer } from '../'
 
 const AppContext = createContext<TAppContext>({
   state: initialState,

@@ -1,6 +1,6 @@
-import type { SavegameSchema } from '../types'
 import { homedir } from 'node:os'
 import { format, join } from 'node:path'
+import type { SavegameSchema } from '../types'
 
 export function paths(savegame: SavegameSchema, timestamp?: string) {
   const local = join(

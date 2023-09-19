@@ -1,10 +1,10 @@
-import { SavegameForm } from './form'
 import { Tab, Tabs } from '@/components'
 import { useApp } from '@/hooks'
 import { type SavegameResponse, fetchAction } from '@/store'
 import { RouteComponent } from '@/types'
 import { timeAgo } from '@/utils'
 import { useEffect, useMemo } from 'preact/hooks'
+import { SavegameForm } from './form'
 
 export const SavegamePage: RouteComponent = ({ location }) => {
   const { state, dispatch } = useApp()
@@ -134,13 +134,13 @@ export const SavegamePage: RouteComponent = ({ location }) => {
   }, [])
 
   return (
-    <div className='main__content'>
+    <div className="main__content">
       <h2>{activeGame?.title}</h2>
-      <Tabs ariaLabel='Savegame Tabs'>
-        <Tab title='Overview'>
+      <Tabs ariaLabel="Savegame Tabs">
+        <Tab title="Overview">
           <button
-            type='button'
-            className='btn'
+            type="button"
+            className="btn"
             onClick={getBackupHistory}
             {...(state.fetch.isPending && {
               disabled: true,
@@ -149,8 +149,8 @@ export const SavegamePage: RouteComponent = ({ location }) => {
             Get history
           </button>
           <button
-            type='button'
-            className='btn'
+            type="button"
+            className="btn"
             onClick={handleFtpTest}
             {...((!state.ftp.ip || state.fetch.isPending) && {
               disabled: true,
@@ -162,8 +162,8 @@ export const SavegamePage: RouteComponent = ({ location }) => {
             Toggle save
           </button> */}
           <button
-            type='button'
-            className='btn'
+            type="button"
+            className="btn"
             onClick={handleBackup}
             {...((!state.ftp.ip || state.fetch.isPending) && {
               disabled: true,
@@ -172,8 +172,8 @@ export const SavegamePage: RouteComponent = ({ location }) => {
             Backup savegame
           </button>
           <button
-            type='button'
-            className='btn'
+            type="button"
+            className="btn"
             onClick={handleRestore}
             {...((!state.ftp.ip || state.fetch.isPending) && {
               disabled: true,
@@ -182,26 +182,26 @@ export const SavegamePage: RouteComponent = ({ location }) => {
             Restore savegame
           </button>
         </Tab>
-        <Tab title='Activity'>
-          <div className='settings'>
+        <Tab title="Activity">
+          <div className="settings">
             {!state.fetch.isPending && state.fetch.response && (
               <table>
-                <caption style='text-align:left'>
+                <caption style="text-align:left">
                   <h4>Backup History</h4>
                 </caption>
                 <thead>
                   <tr>
-                    <th scope='col'>Date</th>
-                    <th scope='col'>Type</th>
-                    <th scope='col'>File Size</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">File Size</th>
                   </tr>
                 </thead>
                 <tbody>
                   {state.fetch.response.savegame?.history?.map((savegame) => (
                     <tr key={savegame.id}>
-                      <td data-label='Date'>{timeAgo(savegame.mtime)}</td>
-                      <td data-label='Type'>Backup</td>
-                      <td data-label='File Size'>{savegame.size}</td>
+                      <td data-label="Date">{timeAgo(savegame.mtime)}</td>
+                      <td data-label="Type">Backup</td>
+                      <td data-label="File Size">{savegame.size}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -209,7 +209,7 @@ export const SavegamePage: RouteComponent = ({ location }) => {
             )}
           </div>
         </Tab>
-        <Tab title='Settings'>
+        <Tab title="Settings">
           <SavegameForm />
         </Tab>
       </Tabs>

@@ -1,3 +1,5 @@
+import resolveWebRoot from '@savescum/web'
+import Fastify from 'fastify'
 import { FTPClient } from '../ftp-client'
 import { NodeClient } from '../node-client'
 import type {
@@ -10,8 +12,6 @@ import {
   savegameOptionsSchema,
   sharedSchema,
 } from './schemas'
-import resolveWebRoot from '@savescum/web'
-import Fastify from 'fastify'
 
 export const startServer = async (options: ServeOptions) => {
   const fastify = Fastify({

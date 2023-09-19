@@ -97,28 +97,28 @@ const SavegameForm: FunctionComponent = () => {
 
   return (
     <>
-      <div className='settings'>
+      <div className="settings">
         <form onSubmit={handleSubmit}>
-          <div className='two-columns'>
-            <div className='form-panel__item'>
-              <div className='form-panel__title'>Manage this savegame</div>
-              <div className='form-panel__desc'>
+          <div className="two-columns">
+            <div className="form-panel__item">
+              <div className="form-panel__title">Manage this savegame</div>
+              <div className="form-panel__desc">
                 <small>Edit the current savegame</small>
               </div>
             </div>
-            <div className='form__content'>
-              <div className='form-group' data-before='Game Title'>
+            <div className="form__content">
+              <div className="form-group" data-before="Game Title">
                 <input
-                  id='input-title'
-                  type='text'
-                  placeholder='Bloodborne (Level 544)'
+                  id="input-title"
+                  type="text"
+                  placeholder="Bloodborne (Level 544)"
                   value={savegame.title}
                   onInput={handleChange('title')}
-                  className='ifta-field'
+                  className="ifta-field"
                   required
                 />
                 <label
-                  for='input-title'
+                  for="input-title"
                   className={`label-after smaller ${errors.title && 'c-error'}`}
                 >
                   {errors.title
@@ -126,18 +126,18 @@ const SavegameForm: FunctionComponent = () => {
                     : 'Configure the title of the game'}
                 </label>
               </div>
-              <div className='form-group' data-before='PSN Account ID'>
+              <div className="form-group" data-before="PSN Account ID">
                 <input
-                  id='input-profile-id'
-                  placeholder='1ceaa172'
-                  type='text'
+                  id="input-profile-id"
+                  placeholder="1ceaa172"
+                  type="text"
                   value={savegame.profileId}
                   onChange={handleChange('profileId')}
-                  className='ifta-field'
+                  className="ifta-field"
                   required
                 />
                 <label
-                  for='input-profile-id'
+                  for="input-profile-id"
                   className={`label-after smaller ${
                     errors.profileId && 'c-error'
                   }`}
@@ -147,18 +147,18 @@ const SavegameForm: FunctionComponent = () => {
                     : 'Configure the psn account id'}
                 </label>
               </div>
-              <div className='form-group' data-before='CUSA'>
+              <div className="form-group" data-before="CUSA">
                 <input
-                  id='input-cusa'
-                  placeholder='CUSA00207'
-                  type='text'
+                  id="input-cusa"
+                  placeholder="CUSA00207"
+                  type="text"
                   value={savegame.cusa}
                   onChange={handleChange('cusa')}
-                  className='ifta-field'
+                  className="ifta-field"
                   required
                 />
                 <label
-                  for='input-cusa'
+                  for="input-cusa"
                   className={`label-after smaller ${errors.cusa && 'c-error'}`}
                 >
                   {errors.cusa
@@ -166,18 +166,18 @@ const SavegameForm: FunctionComponent = () => {
                     : 'Configure the cusa (Title ID & Number) of the game'}
                 </label>
               </div>
-              <div className='form-group' data-before='SDIMG'>
+              <div className="form-group" data-before="SDIMG">
                 <input
-                  id='input-sdimg'
-                  placeholder='sdimg_SPRJ0005'
-                  type='text'
+                  id="input-sdimg"
+                  placeholder="sdimg_SPRJ0005"
+                  type="text"
                   value={savegame.sdimg}
                   onChange={handleChange('sdimg')}
-                  className='ifta-field'
+                  className="ifta-field"
                   required
                 />
                 <label
-                  for='input-sdimg'
+                  for="input-sdimg"
                   className={`label-after smaller ${errors.sdimg && 'c-error'}`}
                 >
                   {errors.sdimg
@@ -187,10 +187,10 @@ const SavegameForm: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className='btn-container-right'>
+          <div className="btn-container-right">
             <button
-              type='button'
-              className='btn btn-outline'
+              type="button"
+              className="btn btn-outline"
               onClick={handleFtpEnsure}
               {...((!ftp.ip || fetch.isPending) && {
                 disabled: true,
@@ -198,23 +198,23 @@ const SavegameForm: FunctionComponent = () => {
             >
               Run Test
             </button>
-            <button type='submit' className='btn'>
+            <button type="submit" className="btn">
               Save
             </button>
           </div>
         </form>
       </div>
 
-      <div className='settings'>
-        <div className='form-panel'>
-          <div className='form-panel__item'>
-            <div className='form-panel__title'>Delete this savegame</div>
-            <div className='form-panel__desc'>
+      <div className="settings">
+        <div className="form-panel">
+          <div className="form-panel__item">
+            <div className="form-panel__title">Delete this savegame</div>
+            <div className="form-panel__desc">
               <small>Once you delete a savegame, there is no going back.</small>
             </div>
           </div>
-          <div className='form-panel__element'>
-            <button type='button' className='btn btn-outline-error'>
+          <div className="form-panel__element">
+            <button type="button" className="btn btn-outline-error">
               Delete
             </button>
           </div>

@@ -10,7 +10,7 @@ const FTPForm: FunctionComponent = () => {
       state.ftp.ip !== '' &&
       !state.fetch.error &&
       !state.fetch.isPending &&
-      // rome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
+      // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
       state.fetch.response?.hasOwnProperty('success')
     )
   }
@@ -81,54 +81,54 @@ const FTPForm: FunctionComponent = () => {
   }
 
   return (
-    <div className='settings'>
+    <div className="settings">
       <form onSubmit={handleSubmit}>
-        <div className='two-columns'>
-          <div className='form-panel__item'>
-            <div className='form-panel__title'>GoldHEN FTP-Server</div>
-            <div className='form-panel__desc'>
+        <div className="two-columns">
+          <div className="form-panel__item">
+            <div className="form-panel__title">GoldHEN FTP-Server</div>
+            <div className="form-panel__desc">
               <small>Define credentials for the GoldHEN FTP-Server</small>
             </div>
-            <div style='margin-top:2rem;'>
+            <div style="margin-top:2rem;">
               {state.ftp.ip === '' ? (
-                <div className='icon'>
+                <div className="icon">
                   <Icon
                     icon={'statusQuestion'}
-                    title='FTPstatus'
-                    color='c-warn'
+                    title="FTPstatus"
+                    color="c-warn"
                     size={24}
                   />{' '}
                   &nbsp;
                   <small>No FTP-Server IP currently configured.</small>
                 </div>
               ) : state.fetch.isPending ? (
-                <div className='icon'>
+                <div className="icon">
                   <Icon
                     icon={'statusInfo'}
-                    title='FTPstatus'
-                    color='c-info'
+                    title="FTPstatus"
+                    color="c-info"
                     size={24}
                   />{' '}
                   &nbsp;
                   <small>Fetching...</small>
                 </div>
               ) : isSucesfullResponse() ? (
-                <div className='icon'>
+                <div className="icon">
                   <Icon
                     icon={'statusSuccess'}
-                    title='FTPstatus'
-                    color='c-success'
+                    title="FTPstatus"
+                    color="c-success"
                     size={24}
                   />{' '}
                   &nbsp;
                   <small>Test Connection Successful!</small>
                 </div>
               ) : (
-                <div className='icon'>
+                <div className="icon">
                   <Icon
                     icon={'statusError'}
-                    title='FTPstatus'
-                    color='c-error'
+                    title="FTPstatus"
+                    color="c-error"
                     size={24}
                   />{' '}
                   &nbsp;
@@ -144,80 +144,80 @@ const FTPForm: FunctionComponent = () => {
               )}
             </div>
           </div>
-          <div className='form__content'>
-            <div className='form-group' data-before='IP Address'>
+          <div className="form__content">
+            <div className="form-group" data-before="IP Address">
               <input
-                id='input-ip'
-                type='text'
-                placeholder='192.168.178.69'
+                id="input-ip"
+                type="text"
+                placeholder="192.168.178.69"
                 value={options.ip}
-                pattern='^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
+                pattern="^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
                 onInput={handleChange('ip')}
-                className='ifta-field'
-                autoComplete='off'
+                className="ifta-field"
+                autoComplete="off"
                 required
               />
-              <label for='input-ip' className='label-after smaller'>
+              <label for="input-ip" className="label-after smaller">
                 Configure the ip address of the FTP-Server
               </label>
-              {errors.ip && <p className='error'>{errors.ip}</p>}
+              {errors.ip && <p className="error">{errors.ip}</p>}
             </div>
-            <div className='form-group' data-before='Port'>
+            <div className="form-group" data-before="Port">
               <input
-                id='input-port'
-                placeholder='2121'
-                type='number'
+                id="input-port"
+                placeholder="2121"
+                type="number"
                 value={options.port}
-                min='1'
+                min="1"
                 onChange={handleChange<number>('port', (value) =>
                   parseInt(value, 10)
                 )}
-                className='ifta-field'
-                autoComplete='off'
+                className="ifta-field"
+                autoComplete="off"
                 required
               />
-              <label for='input-port' className='label-after smaller dimm'>
+              <label for="input-port" className="label-after smaller dimm">
                 Configure the port (<code>default: 2121</code>)
               </label>
-              {errors.port && <p className='error'>{errors.port}</p>}
+              {errors.port && <p className="error">{errors.port}</p>}
             </div>
-            <div className='form-group' data-before='Username'>
+            <div className="form-group" data-before="Username">
               <input
-                id='input-user'
-                placeholder='User'
-                type='text'
+                id="input-user"
+                placeholder="User"
+                type="text"
                 value={options.user}
                 onChange={handleChange('user')}
-                className='ifta-field'
-                autoComplete='off'
+                className="ifta-field"
+                autoComplete="off"
                 required
               />
-              <label for='input-user' className='label-after smaller'>
+              <label for="input-user" className="label-after smaller">
                 Configure the username (<code>default: anonymous</code>)
               </label>
-              {errors.user && <p className='error'>{errors.user}</p>}
+              {errors.user && <p className="error">{errors.user}</p>}
             </div>
-            <div className='form-group' data-before='Password'>
+            <div className="form-group" data-before="Password">
               <input
-                id='input-password'
-                placeholder='********'
-                type='password'
+                id="input-password"
+                placeholder="********"
+                type="password"
                 value={options.password}
                 onChange={handleChange('password')}
-                className='ifta-field'
-                autoComplete='off'
+                className="ifta-field"
+                autoComplete="off"
               />
-              <label for='input-password' className='label-after smaller'>
+              <label for="input-password" className="label-after smaller">
                 Configure the password (<code>default: empty</code>)
               </label>
-              {errors.password && <p className='error'>{errors.password}</p>}
+              {errors.password && <p className="error">{errors.password}</p>}
             </div>
           </div>
         </div>
-        <div className='btn-container-right'>
+        <div className="btn-container-right">
           <button
-            type='button'
-            className='btn btn-outline'
+            type="button"
+            className="btn btn-outline"
             onClick={handleFtpTest}
             {...((!state.ftp.ip || state.fetch.isPending) && {
               disabled: true,
@@ -225,7 +225,7 @@ const FTPForm: FunctionComponent = () => {
           >
             Run Test
           </button>
-          <button type='submit' className='btn'>
+          <button type="submit" className="btn">
             Save
           </button>
         </div>

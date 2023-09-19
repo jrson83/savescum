@@ -1,5 +1,5 @@
-import type { AppContextAction, Route } from '../types'
 import type { Reducer } from 'preact/hooks'
+import type { AppContextAction, Route } from '../types'
 
 const routeReducer: Reducer<Route, AppContextAction> = (
   state,

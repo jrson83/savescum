@@ -1,5 +1,5 @@
-import { type AppContextAction, type FetchOptions } from '../types'
 import type { Reducer } from 'preact/hooks'
+import type { AppContextAction, FetchOptions } from '../types'
 
 const fetchReducer: Reducer<FetchOptions, AppContextAction> = (
   state,

@@ -4,8 +4,8 @@ import type { IconFC } from '@/types'
 const Icon: IconFC = ({ className, color, icon, size = 32, title }) => {
   return (
     <svg
-      aria-hidden='true'
-      role='img'
+      aria-hidden="true"
+      role="img"
       fill={
         color
           ? color.startsWith('#')
@@ -13,13 +13,13 @@ const Icon: IconFC = ({ className, color, icon, size = 32, title }) => {
             : `var(--${color})`
           : 'currentColor'
       }
-      fill-rule='evenodd'
+      fill-rule="evenodd"
       className={className}
-      focusable='false'
+      focusable="false"
       width={`${size}px`}
       height={`${size}px`}
-      preserveAspectRatio='xMidYMid meet'
-      viewBox='0 0 512 512'
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 512 512"
       tabIndex={0}
     >
       <title>{title}</title>

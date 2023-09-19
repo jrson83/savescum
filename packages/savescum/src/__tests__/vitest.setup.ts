@@ -1,6 +1,6 @@
-import type { FtpSchema, OptionsSchema, SavegameSchema } from '../types'
 import { homedir } from 'node:os'
 import { join, normalize } from 'node:path'
+import type { FtpSchema, OptionsSchema, SavegameSchema } from '../types'
 
 export const backupPath = normalize(join(homedir(), 'savescum'))
 export const cusaPath = normalize(join(backupPath, '1ceaa172', 'CUSA00207'))

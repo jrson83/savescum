@@ -1,3 +1,7 @@
+import { normalize, resolve } from 'node:path'
+import { Client } from 'basic-ftp'
+import mock from 'mock-fs'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { FTPClient } from '../ftp-client'
 import * as util from '../utils'
 import {
@@ -11,10 +15,6 @@ import {
   restoreResponse,
   testResponse,
 } from './vitest.setup'
-import { Client } from 'basic-ftp'
-import mock from 'mock-fs'
-import { normalize, resolve } from 'node:path'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('basic-ftp', () => {
   const Client = vi.fn()

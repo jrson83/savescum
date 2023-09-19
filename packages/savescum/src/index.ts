@@ -1,3 +1,6 @@
+import { homedir } from 'node:os'
+import { resolve } from 'node:path'
+import { Option, program } from '@commander-js/extra-typings'
 import { description, name, version } from '../package.json'
 import {
   backupCommand,
@@ -8,9 +11,6 @@ import {
 } from './commands'
 import type { ServeOptions } from './types'
 import { merge } from './utils'
-import { Option, program } from '@commander-js/extra-typings'
-import { homedir } from 'node:os'
-import { resolve } from 'node:path'
 
 program.name(name).description(description).version(version)
 

@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/rome/configuration_schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
@@ -24,12 +24,18 @@
       "a11y": {
         "useKeyWithClickEvents": "off"
       },
-      "suspicious": {
-        "noExplicitAny": "off",
-        "noArrayIndexKey": "off"
+      "complexity": {
+        "noStaticOnlyClass": "off"
       },
       "correctness": {
         "noVoidTypeReturn": "off"
+      },
+      "nursery": {
+        "useGroupedTypeImport": "error"
+      },
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "off"
       },
       "style": {
         "all": false

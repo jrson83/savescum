@@ -36,7 +36,7 @@ export const Link: LinkFC = ({ children, ...props }) => {
       ]
         .filter((e) => !!e)
         .join(' ')}
-      // rome-ignore lint/a11y/useValidAnchor: <explanation>
+      // biome-ignore lint/a11y/useValidAnchor: <explanation>
       onClick={handleOnClick}
     >
       {children}
