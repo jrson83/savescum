@@ -5,6 +5,7 @@ import { description, name, version } from '../package.json'
 import {
   backupCommand,
   ensureCommand,
+  listProfilesCommand,
   restoreCommand,
   serveCommand,
   testCommand,
@@ -71,6 +72,13 @@ ftp
     $ savescum ftp --ip=192.168.179.69 test
     $ savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug test`
   )
+
+ftp
+  .command('profiles')
+  .description('get profiles from ftp-server')
+  .action(async (_options, cmd) => {
+    await listProfilesCommand(cmd)
+  })
 
 ftp
   .command('ensure')

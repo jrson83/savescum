@@ -9,6 +9,7 @@ import type {
 import {
   ftpOptionsSchema,
   historyOptionsSchema,
+  profilesOptionsSchema,
   savegameOptionsSchema,
   sharedSchema,
 } from './schemas'
@@ -46,6 +47,16 @@ export const startServer = async (options: ServeOptions) => {
       const data = await FTPClient.test(request.body.ftp)
       return reply.code(200).send(data)
     })
+
+    fastify.post(
+      '/api/profiles',
+      profilesOptionsSchema,
+      async (request, reply) => {
+        const data = await FTPClient.listProfiles(request.body.ftp)
+        console.log(data)
+        return reply.code(200).send(data)
+      }
+    )
 
     fastify.post(
       '/api/history',

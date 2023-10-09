@@ -1,0 +1,213 @@
+@use '@shrtcss/core/scss/shrtcss' as * with (
+  $settings: (
+    'property-prefix': 'savescum',
+  ),
+);
+@include generate-modules;
+
+body {
+  background-color: color('bg');
+}
+
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+
+  @include breakpoint('lg', 'max') {
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
+    grid-template-columns: 1fr;
+  }
+
+  @include breakpoint('lg', 'min', 'only screen') {
+    grid-template-areas:
+      'header header header'
+      '. main .'
+      'footer footer footer';
+    grid-template-columns: 1fr 848px 1fr;
+  }
+
+  &__header {
+    grid-area: header;
+    border-bottom: 1px solid color('border');
+    background-color: color('surface-raised');
+
+    @include padding('y', 'sm');
+
+    @include breakpoint('lg', 'max') {
+      @include padding('x');
+      @include padding('y', 'base');
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 848px;
+    margin: 0 auto;
+
+    & a {
+      color: inherit;
+      text-decoration: none;
+
+      & span {
+        color: color('accent');
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    grid-area: main;
+    flex-direction: column;
+    padding-block: 0;
+    padding-inline: 0;
+    gap: 1rem;
+  }
+
+  &__footer {
+    display: grid;
+    grid-area: footer;
+    grid-gap: $spacer;
+    border-block-start: 1px solid color('border');
+    background-color: color('surface-raised');
+  }
+
+  &__brand {
+    grid-area: brand;
+    align-self: center;
+    justify-self: start;
+  }
+
+  &__btn {
+    display: flex;
+    gap: 1rem;
+    grid-area: nav;
+    align-self: center;
+    justify-self: end;
+  }
+}
+
+.container {
+  padding-block: 1rem;
+}
+
+.mobile-bottom-nav {
+  display: flex;
+  position: absolute;
+  z-index: 1000;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  transform: translateZ(0);
+  background-color: color('surface-raised');
+  box-shadow: 0 -2px 5px -2px #333;
+  will-change: transform;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    font-size: 12px;
+    text-align: center;
+
+    &-active {
+      color: red;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.containerx {
+  padding: 1.5rem;
+  border-block: 1px solid color('border');
+
+  @include breakpoint('lg', 'min', 'only screen') {
+    border-inline: 1px solid color('border');
+  }
+
+  /** https://ishadeed.com/article/conditional-border-radius/ */
+  border-radius: clamp(0px, ((100vw - 4px) - 100%) * 9999, 0.25rem);
+  background-color: color('bg');
+
+  &:first-of-type {
+    margin-block-start: 1.5rem;
+  }
+}
+
+.fake-textarea {
+  min-height: 1%;
+  overflow: hidden;
+  border: 1px solid color('border');
+  border-radius: var(--shrt-border-radius);
+  background-color: color('surface');
+  font-size: 1rem;
+}
+
+.string {
+  color: color('info');
+}
+
+.number {
+  color: color('warning');
+}
+
+.boolean {
+  color: color('success');
+}
+
+.null {
+  color: color('text-base');
+}
+
+.key {
+  color: color('danger');
+}
+
+.form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  &__item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
+  }
+
+  &__title {
+    color: color('text-base');
+    font-weight: 600
+  }
+
+  &__desc {
+    color: color('text-weak');
+  }
+}
+
+.list-group {
+  background-color: color('bg');
+  
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: color('surface');
+    font-weight: 600;
+    border-block-end: 1px solid color('border');
+    gap: 1rem;
+  }
+}

@@ -1,5 +1,6 @@
 import { mkdir } from 'node:fs/promises'
 import { dirname } from 'node:path'
+import { PassThrough } from 'stream'
 import { Client } from 'basic-ftp'
 import type { FtpSchema, OptionsSchema } from './types'
 import {
@@ -184,6 +185,65 @@ export class FTPClient {
         sdimg: savegame.sdimg,
         backupPath: savegame.backupPath || dest,
       },
+    }
+  }
+
+  static async listProfiles(options: FtpSchema) {
+    const client = await FTPClient.connect(options)
+
+    try {
+      await client.cd('/user/home')
+
+      const rawProfiles = await client.list()
+
+      if (Array.isArray(rawProfiles) && rawProfiles.length > 0) {
+        const profiles: Array<{
+          profileId: string
+          username: string | undefined
+        }> = rawProfiles.map((profile) => {
+          return {
+            profileId: profile.name,
+            username: undefined,
+          }
+        })
+
+        await profiles.reduce(async (promise, profile) => {
+          await promise
+
+          const chunks: Buffer[] = []
+          const stream = new PassThrough()
+
+          stream.on('data', (chunk) => {
+            chunks.push(chunk)
+          })
+
+          stream.once('end', () => {
+            profile.username = Buffer.concat(chunks)
+              .toString('utf-8')
+              // biome-ignore lint/suspicious/noControlCharactersInRegex: its ok
+              .replace(/\u0000/g, '')
+          })
+
+          await client.downloadTo(stream, `${profile.profileId}/username.dat`)
+        }, Promise.resolve())
+
+        return {
+          success: true,
+          message: 'Profiles operation has been successfully finished.',
+          profiles,
+        }
+      }
+
+      error(`Could not find any profiles in /user/home.`)
+      process.exit(0)
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        error(err.message)
+        if (options.requestType === 'node') process.exit(0)
+        throw err
+      }
+    } finally {
+      if (!client.closed) client.close()
     }
   }
 }

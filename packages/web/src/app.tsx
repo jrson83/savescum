@@ -1,17 +1,26 @@
-import { Footer, Header, Main, Route } from '@/components'
-import { Dashboard, SavegamePage, Settings } from '@/pages'
-import { AppContextProvider } from '@/store'
+import { useWindowSize } from '@/hooks'
+import DashboardView from '@/views/dashboard'
+import SavegameView from '@/views/savegame'
+import SettingsView from '@/views/settings'
+import { Route, Router } from '@shrtcss/react'
+import { useLayoutEffect } from 'react'
+import DefaultLayout from './layouts/root'
 
-export function App() {
+export default function App() {
+  const { height } = useWindowSize()
+
+  useLayoutEffect(() => {
+    const doc = document.documentElement
+    doc.style.setProperty('--doc-height', `${height}px`)
+  }, [height])
+
   return (
-    <AppContextProvider>
-      <Header />
-      <Main>
-        <Route path="/" component={Dashboard} />
-        <Route path="/settings" component={Settings} />
-        <Route path="/savegame/:id" component={SavegamePage} />
-      </Main>
-      <Footer />
-    </AppContextProvider>
+    <Router>
+      <DefaultLayout>
+        <Route path="/" component={DashboardView} />
+        <Route path="/savegame/:id" component={SavegameView} />
+        <Route path="/settings" component={SettingsView} />
+      </DefaultLayout>
+    </Router>
   )
 }
