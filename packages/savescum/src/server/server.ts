@@ -52,8 +52,7 @@ export const startServer = async (options: ServeOptions) => {
       '/api/profiles',
       profilesOptionsSchema,
       async (request, reply) => {
-        const data = await FTPClient.listProfiles(request.body.ftp)
-        console.log(data)
+        const data = await FTPClient.profiles(request.body.ftp)
         return reply.code(200).send(data)
       }
     )

@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer'
 import { mkdir } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { PassThrough } from 'stream'
@@ -188,7 +189,7 @@ export class FTPClient {
     }
   }
 
-  static async listProfiles(options: FtpSchema) {
+  static async profiles(options: FtpSchema) {
     const client = await FTPClient.connect(options)
 
     try {
@@ -218,10 +219,14 @@ export class FTPClient {
           })
 
           stream.once('end', () => {
-            profile.username = Buffer.concat(chunks)
-              .toString('utf-8')
-              // biome-ignore lint/suspicious/noControlCharactersInRegex: its ok
-              .replace(/\u0000/g, '')
+            const buffer = Buffer.concat(chunks).subarray(0, 16)
+            let bufferSize = buffer.indexOf(0x00)
+
+            if (bufferSize === -1) bufferSize = buffer.length
+
+            profile.username = Buffer.concat(chunks, bufferSize).toString(
+              'utf-8'
+            )
           })
 
           await client.downloadTo(stream, `${profile.profileId}/username.dat`)

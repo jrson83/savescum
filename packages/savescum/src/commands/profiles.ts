@@ -1,9 +1,9 @@
 import type { Command } from '@commander-js/extra-typings'
 import { FTPClient } from '../ftp-client'
 import type { FtpSchema } from '../types'
-import { beep, info, message, success } from '../utils'
+import { beep, colorize, info, message, success } from '../utils'
 
-export async function listProfilesCommand(cmd: Command): Promise<void> {
+export async function profilesCommand(cmd: Command): Promise<void> {
   const { debug, ip, port, sound, user } = cmd.optsWithGlobals() as FtpSchema
 
   info('Getting profiles ...')
@@ -12,13 +12,19 @@ export async function listProfilesCommand(cmd: Command): Promise<void> {
     message(`- Connecting to ftp://${user}@${ip}:${port}\n`)
   }
 
-  const response = await FTPClient.listProfiles(
-    cmd.optsWithGlobals() as FtpSchema
-  )
+  const response = await FTPClient.profiles(cmd.optsWithGlobals() as FtpSchema)
 
   if (response?.success) {
-    success(response.message)
-    /* success(JSON.stringify(response.profiles)) */
+    success(`${response.message}\n`)
+
+    if (Array.isArray(response.profiles) && response.profiles.length > 0) {
+      info(`Found ${response.profiles.length} profiles:`)
+
+      response.profiles.forEach(({ profileId, username }) => {
+        console.log(`  ${colorize.green('➜')} ID: ${profileId}`)
+        console.log(`    Username: ${username}\n`)
+      })
+    }
     if (sound) await beep().then(() => process.exit(0))
   }
 }

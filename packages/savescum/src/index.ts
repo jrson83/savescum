@@ -5,7 +5,7 @@ import { description, name, version } from '../package.json'
 import {
   backupCommand,
   ensureCommand,
-  listProfilesCommand,
+  profilesCommand,
   restoreCommand,
   serveCommand,
   testCommand,
@@ -75,10 +75,17 @@ ftp
 
 ftp
   .command('profiles')
-  .description('get profiles from ftp-server')
+  .description('list all psn profiles/accounts from ftp-server')
   .action(async (_options, cmd) => {
-    await listProfilesCommand(cmd)
+    await profilesCommand(cmd)
   })
+  .addHelpText(
+    'after',
+    `
+  Example:
+    $ savescum ftp --ip=192.168.179.69 profiles
+    $ savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug profiles`
+  )
 
 ftp
   .command('ensure')
