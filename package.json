@@ -38,7 +38,7 @@
     "test:ui:cli": "pnpm --filter savescum test:ui",
     "test:ui:web": "pnpm --filter @savescum/web test:ui",
     "prepare": "husky install",
-    "pub": "tsx scripts/prepublishOnly.ts && npx sparkee publish"
+    "pub": "node ./scripts/prepublishOnly.mjs && npx sparkee publish"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.2.2",

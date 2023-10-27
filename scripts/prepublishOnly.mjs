@@ -10,6 +10,11 @@ const corePackageLicense = resolve(cwd(), 'packages', 'savescum', 'LICENSE')
 const webPackageReadme = resolve(cwd(), 'packages', 'web', 'README.md')
 const webPackageLicense = resolve(cwd(), 'packages', 'web', 'LICENSE')
 
+/**
+ * Copies LICENSE and README.md to packages parallel
+ *
+ * @returns {Promise<void>}
+ */
 async function main() {
   try {
     await Promise.all([
@@ -18,7 +23,7 @@ async function main() {
       await copyFile(readmePath, webPackageReadme),
       await copyFile(licensePath, webPackageLicense),
     ])
-  } catch (err: unknown) {
+  } catch (err) {
     if (err instanceof Error) {
       console.error(`${err.name}: ${err.message}`)
       process.exit(1)
