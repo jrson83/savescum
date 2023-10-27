@@ -43,7 +43,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.2.2",
     "@types/mock-fs": "^4.13.2",
-    "@types/node": "^20.8.2",
+    "@types/node": "^20.8.9",
     "@vitest/ui": "^0.34.6",
     "husky": "^8.0.3",
     "mock-fs": "^5.2.0",
