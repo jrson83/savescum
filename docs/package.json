@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.8.9",
-    "sitemap-ts": "^1.4.0",
-    "vitepress": "1.0.0-rc.23",
-    "vue": "^3.3.4"
+    "sitemap-ts": "^1.5.0",
+    "vitepress": "1.0.0-rc.24",
+    "vue": "^3.3.7"
   }
 }
