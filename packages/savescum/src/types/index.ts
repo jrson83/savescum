@@ -15,6 +15,11 @@ export interface ServeOptions {
   log: boolean
 }
 
+export interface ServerAdresses {
+  address: string
+  internal: boolean
+}
+
 export type ErrorSchema = FromSchema<typeof errorSchema>
 
 export type FtpSchema = FromSchema<typeof ftpSchema>

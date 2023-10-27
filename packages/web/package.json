@@ -44,12 +44,12 @@
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.5.0",
-    "@types/node": "^20.8.2",
+    "@preact/preset-vite": "^2.6.0",
+    "@types/node": "^20.8.9",
     "preact": "^10.18.1",
-    "sass": "^1.69.0",
+    "sass": "^1.69.5",
     "typescript": "5.2.2",
-    "vite": "^4.4.11"
+    "vite": "^4.5.0"
   },
   "publishConfig": {
     "access": "public"
