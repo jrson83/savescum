@@ -97,7 +97,7 @@ importers:
         specifier: ^11.1.0
         version: 11.1.0
       fastify:
-        specifier: ^4.23.2
+        specifier: ^4.24.3
         version: 4.24.3
       fastify-tsconfig:
         specifier: ^2.0.0
