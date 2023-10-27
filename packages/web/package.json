@@ -44,7 +44,7 @@
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.5.0",
+    "@preact/preset-vite": "^2.6.0",
     "@types/node": "^20.8.9",
     "preact": "^10.18.1",
     "sass": "^1.69.5",
