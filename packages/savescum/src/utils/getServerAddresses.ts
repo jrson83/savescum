@@ -6,6 +6,7 @@ const getServerAddresses = () => {
   const ipv4: Array<ServerAdresses> = []
   const networks = networkInterfaces()
   for (let x in networks) {
+    // biome-ignore lint/complexity/noForEach: <explanation>
     networks[x]?.forEach((net) => {
       if (net.family === 'IPv4') {
         ipv4.push({

@@ -10,13 +10,13 @@ export async function serveCommand(options: ServeOptions): Promise<void> {
   if (options.host === '0.0.0.0') {
     const addresses = getServerAddresses()
 
-    addresses.forEach(({ address, internal }) => {
+    for (const { address, internal } of addresses) {
       console.log(
         `  ${colorize.green('➜')} ${
           internal ? 'Local:  ' : 'Network:'
         } ${colorize.cyan(`http://${address}:${options.port}`)}`
       )
-    })
+    }
   } else {
     success(`Server listening at http://${options.host}:${options.port}\n`)
   }
