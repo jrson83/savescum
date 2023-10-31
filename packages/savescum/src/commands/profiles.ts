@@ -18,7 +18,11 @@ export async function profilesCommand(cmd: Command): Promise<void> {
     success(`${response.message}\n`)
 
     if (Array.isArray(response.profiles) && response.profiles.length > 0) {
-      info(`Found ${response.profiles.length} profiles:`)
+      info(
+        `Found ${response.profiles.length} profile${
+          response.profiles.length > 1 ? 's' : ''
+        }:`
+      )
 
       for (const { profileId, username } of response.profiles) {
         console.log(`  ${colorize.green('➜')} ID: ${profileId}`)
