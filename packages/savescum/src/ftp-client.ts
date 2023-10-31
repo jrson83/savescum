@@ -1,6 +1,8 @@
 import { mkdir } from 'node:fs/promises'
 import { dirname } from 'node:path'
-import { Client } from 'basic-ftp'
+import { PassThrough } from 'node:stream'
+import { Client, type FileInfo } from 'basic-ftp'
+import { RESPONSE_SUCCESS_MESSAGES } from './constants'
 import type { FtpSchema, OptionsSchema } from './types'
 import {
   colorize,
@@ -9,6 +11,7 @@ import {
   getLatestSavegame,
   message,
   paths,
+  streamToString,
 } from './utils'
 
 export class FTPClient {
@@ -40,14 +43,16 @@ export class FTPClient {
       if ((await client.pwd()) === '/') {
         return {
           success: true,
-          message:
-            'A connection was successfully established with the ftp-server.',
+          message: RESPONSE_SUCCESS_MESSAGES.TEST,
         }
       }
       error(
         `Something went wrong. Could not establish connection to ${options.ip}`
       )
-      process.exit(0)
+      if (options.requestType === 'node') process.exit(0)
+      throw new Error(
+        `Something went wrong. Could not establish connection to ${options.ip}`
+      )
     } catch (err: unknown) {
       if (err instanceof Error) {
         error(err.message)
@@ -74,7 +79,7 @@ export class FTPClient {
       await client.size(src)
       return {
         success: true,
-        message: 'Ensure operation has been successfully finished.',
+        message: RESPONSE_SUCCESS_MESSAGES.ENSURE,
         savegame: {
           profileId: savegame.profileId,
           cusa: savegame.cusa,
@@ -132,7 +137,7 @@ export class FTPClient {
 
     return {
       success: true,
-      message: 'Backup operation has been successfully finished.',
+      message: RESPONSE_SUCCESS_MESSAGES.BACKUP,
       savegame: {
         profileId: savegame.profileId,
         cusa: savegame.cusa,
@@ -177,13 +182,66 @@ export class FTPClient {
 
     return {
       success: true,
-      message: 'Restore operation has been successfully finished.',
+      message: RESPONSE_SUCCESS_MESSAGES.RESTORE,
       savegame: {
         profileId: savegame.profileId,
         cusa: savegame.cusa,
         sdimg: savegame.sdimg,
         backupPath: savegame.backupPath || dest,
       },
+    }
+  }
+
+  static async profiles(options: FtpSchema) {
+    const client = await FTPClient.connect(options)
+
+    try {
+      await client.cd('/user/home')
+
+      const rawProfiles = await client.list()
+
+      if (options.debug) {
+        message(`${colorize.dim(`└── RawProfiles: ${rawProfiles}\n`)}`)
+      }
+
+      if (Array.isArray(rawProfiles) && rawProfiles.length > 0) {
+        const getUsername = async (profile: FileInfo) => {
+          const stream = new PassThrough()
+
+          await client.downloadTo(stream, `${profile.name}/username.dat`)
+
+          const username = await streamToString(stream)
+
+          return {
+            profileId: profile.name,
+            username: username,
+          }
+        }
+
+        const profiles: any[] = []
+
+        for (const profile of rawProfiles) {
+          const actual = await getUsername(profile)
+          profiles.push(actual)
+        }
+
+        return {
+          success: true,
+          message: RESPONSE_SUCCESS_MESSAGES.PROFILES,
+          profiles,
+        }
+      }
+
+      error('Could not find any profiles in /user/home')
+      process.exit(0)
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        error(err.message)
+        if (options.requestType === 'node') process.exit(0)
+        throw err
+      }
+    } finally {
+      if (!client.closed) client.close()
     }
   }
 }

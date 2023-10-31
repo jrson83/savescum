@@ -20,6 +20,13 @@ export interface ServerAdresses {
   internal: boolean
 }
 
+export interface Profile {
+  profileId: string
+  username: string | undefined
+}
+
+export type Profiles = Profile[]
+
 export type ErrorSchema = FromSchema<typeof errorSchema>
 
 export type FtpSchema = FromSchema<typeof ftpSchema>

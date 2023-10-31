@@ -1,5 +1,6 @@
 export * from './backup'
 export * from './ensure'
+export * from './profiles'
 export * from './restore'
 export * from './serve'
 export * from './test'

@@ -12,6 +12,7 @@ import {
 } from 'vitest'
 import { FTPClient } from '../ftp-client'
 import * as util from '../utils'
+import { streamToString } from '../utils/streamToString'
 import {
   backupResponse,
   cusaPath,
@@ -19,10 +20,11 @@ import {
   fakeDate,
   localSavegamePath,
   options,
+  profilesResponse,
   remoteSavegamePath,
   restoreResponse,
   testResponse,
-} from './vitest.setup'
+} from './setup'
 
 vi.mock('basic-ftp', () => {
   const Client = vi.fn()
@@ -39,6 +41,8 @@ vi.mock('basic-ftp', () => {
   return { Client }
 })
 
+vi.mock('../utils/streamToString')
+
 describe('ftp test', () => {
   let client: any
   let spy: any
@@ -50,9 +54,6 @@ describe('ftp test', () => {
     spy = vi.spyOn(util, 'paths')
 
     mock({
-      [normalize(remoteSavegamePath)]: mock.load(
-        resolve(__dirname, 'assets/sdimg_SPRJ0005')
-      ),
       [cusaPath]: {},
     })
   })
@@ -153,5 +154,45 @@ describe('ftp test', () => {
     expect(response).toStrictEqual(restoreResponse)
 
     vi.useRealTimers()
+  })
+
+  it('should run ftp profiles cmd with success', async () => {
+    const mockedStreamToBuffer = vi.mocked(streamToString)
+
+    mockedStreamToBuffer.mockResolvedValueOnce('chiaki')
+    mockedStreamToBuffer.mockResolvedValueOnce('AHunterMustHunt')
+
+    client.cd.mockResolvedValue({
+      code: 250,
+      message: '250 CWD command successful',
+    })
+    client.list.mockResolvedValue([{ name: '1bexx117' }, { name: '1ceaa172' }])
+    client.downloadTo.mockResolvedValue({
+      code: 226,
+      message: '226 Transfer Complete',
+    })
+
+    const response = await FTPClient.profiles(options.ftp)
+
+    expect(client.access).toBeCalledTimes(1)
+
+    expect(client.cd).toBeCalledTimes(1)
+    expect(client.cd).toBeCalledWith('/user/home')
+
+    expect(client.list).toBeCalledTimes(1)
+
+    expect(client.downloadTo).toBeCalledTimes(2)
+    expect(client.downloadTo).toReturnWith({
+      code: 226,
+      message: '226 Transfer Complete',
+    })
+
+    expect(mockedStreamToBuffer).toBeCalledTimes(2)
+    expect(mockedStreamToBuffer).toReturnWith('chiaki')
+    expect(mockedStreamToBuffer).toReturnWith('AHunterMustHunt')
+
+    expect(client.close).toBeCalledTimes(1)
+
+    expect(response).toStrictEqual(profilesResponse)
   })
 })

@@ -5,11 +5,13 @@ import { description, name, version } from '../package.json'
 import {
   backupCommand,
   ensureCommand,
+  profilesCommand,
   restoreCommand,
   serveCommand,
   testCommand,
 } from './commands'
 import type { ServeOptions } from './types'
+import { generateHelperText } from './utils'
 import { merge } from './utils'
 
 program.name(name).description(description).version(version)
@@ -64,13 +66,7 @@ ftp
   .action(async (_options, cmd) => {
     await testCommand(cmd)
   })
-  .addHelpText(
-    'after',
-    `
-  Example:
-    $ savescum ftp --ip=192.168.179.69 test
-    $ savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug test`
-  )
+  .addHelpText('after', generateHelperText('test'))
 
 ftp
   .command('ensure')
@@ -90,13 +86,7 @@ ftp
     const opts = merge(ftp.opts(), options)
     await ensureCommand(opts).then(() => process.exit(0))
   })
-  .addHelpText(
-    'after',
-    `
-  Example (Bloodborne savegame):
-    $ savescum ftp --ip=192.168.179.69 ensure --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005
-    $ savescum ftp --ip=192.168.179.69 --port=41 --no-sound ensure --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005`
-  )
+  .addHelpText('after', generateHelperText('ensure'))
 
 ftp
   .command('backup')
@@ -116,13 +106,7 @@ ftp
     const opts = merge(ftp.opts(), options)
     await backupCommand(opts).then(() => process.exit(0))
   })
-  .addHelpText(
-    'after',
-    `
-  Example (Bloodborne savegame):
-    $ savescum ftp --ip=192.168.179.69 backup --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005
-    $ savescum ftp --ip=192.168.179.69 --port=41 --no-sound backup --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005`
-  )
+  .addHelpText('after', generateHelperText('backup'))
 
 ftp
   .command('restore')
@@ -142,12 +126,14 @@ ftp
     const opts = merge(ftp.opts(), options)
     await restoreCommand(opts).then(() => process.exit(0))
   })
-  .addHelpText(
-    'after',
-    `
-  Example (Bloodborne savegame):
-    $ savescum ftp --ip=192.168.179.69 restore --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005
-    $ savescum ftp --ip=192.168.179.69 --port=41 --no-sound restore --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005`
-  )
+  .addHelpText('after', generateHelperText('restore'))
+
+ftp
+  .command('profiles')
+  .description('list all psn profiles/accounts from ftp-server')
+  .action(async (_options, cmd) => {
+    await profilesCommand(cmd)
+  })
+  .addHelpText('after', generateHelperText('profiles'))
 
 program.parseAsync(process.argv)

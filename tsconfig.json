@@ -9,14 +9,11 @@
     "strictNullChecks": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "types": ["node", "vitest", "vite"],
+    "types": ["node", "vitest/globals", "vite/client"],
     "paths": {
       "savescum": ["./packages/savescum/src/index.ts"],
       "@savescum/web": ["./packages/web/src/index.ts"]
     }
   },
-  "exclude": [
-    "**/bin/**", "**/dist/**", "**/node_modules/**", "**/public/**",
-    "**/__tests__/**"
-  ]
+  "exclude": ["**/bin/**", "**/dist/**", "**/node_modules/**", "**/public/**"]
 }
