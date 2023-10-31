@@ -16,7 +16,7 @@ import {
 
 export const startServer = async (options: ServeOptions) => {
   const fastify = Fastify({
-    logger: true /* !!options.log */,
+    logger: !!options.log,
   }).withTypeProvider<JsonSchemaToTsProviderWithSharedSchema>()
 
   try {
