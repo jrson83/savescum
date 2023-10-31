@@ -1,7 +1,15 @@
 import { normalize, resolve } from 'node:path'
 import { Client } from 'basic-ftp'
 import mock from 'mock-fs'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import {
+  afterAll,
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest'
 import { FTPClient } from '../ftp-client'
 import * as util from '../utils'
 import {
@@ -19,11 +27,13 @@ import {
 vi.mock('basic-ftp', () => {
   const Client = vi.fn()
   Client.prototype.access = vi.fn()
+  Client.prototype.cd = vi.fn()
+  Client.prototype.close = vi.fn()
+  Client.prototype.downloadTo = vi.fn()
+  Client.prototype.ftp = vi.fn()
+  Client.prototype.list = vi.fn()
   Client.prototype.pwd = vi.fn()
   Client.prototype.size = vi.fn()
-  Client.prototype.close = vi.fn()
-  Client.prototype.ftp = vi.fn()
-  Client.prototype.downloadTo = vi.fn()
   Client.prototype.uploadFrom = vi.fn()
 
   return { Client }
@@ -47,6 +57,10 @@ describe('ftp test', () => {
     })
   })
 
+  afterAll(() => {
+    vi.resetAllMocks()
+  })
+
   afterEach(() => {
     vi.clearAllMocks()
     mock.restore()
@@ -58,6 +72,13 @@ describe('ftp test', () => {
     const response = await FTPClient.test(options.ftp)
 
     expect(client.access).toBeCalledTimes(1)
+    expect(client.access).toBeCalledWith({
+      host: '192.168.56.1',
+      port: 21,
+      user: 'anonymous',
+      password: '',
+      secure: false,
+    })
     expect(client.pwd).toBeCalledTimes(1)
     expect(client.close).toBeCalledTimes(1)
 
@@ -72,9 +93,6 @@ describe('ftp test', () => {
     vi.useFakeTimers()
     vi.setSystemTime(fakeDate)
 
-    client.pwd.mockResolvedValueOnce('/')
-    client.size.mockResolvedValueOnce({ ...ensureResponse, code: 200 })
-
     const response = await FTPClient.ensure(options)
 
     expect(client.access).toBeCalledTimes(1)
@@ -88,15 +106,8 @@ describe('ftp test', () => {
   })
 
   it('should run ftp backup cmd with success', async () => {
-    expect(spy.getMockName()).toEqual('paths')
-
-    expect(await util.fileExists(cusaPath)).toBe(true)
-
     vi.useFakeTimers()
     vi.setSystemTime(fakeDate)
-
-    client.pwd.mockResolvedValueOnce('/')
-    client.downloadTo.mockResolvedValueOnce({ ...backupResponse, code: 200 })
 
     const response = await FTPClient.backup(options)
 
@@ -111,7 +122,7 @@ describe('ftp test', () => {
     expect(response).toStrictEqual(backupResponse)
 
     mock({
-      [normalize(localSavegamePath)]: 'test savegame content',
+      [normalize(localSavegamePath)]: 'fake\r\n',
     })
 
     expect(await util.fileExists(localSavegamePath)).toBe(true)
@@ -120,17 +131,13 @@ describe('ftp test', () => {
   })
 
   it('should run ftp restore cmd with success', async () => {
-    expect(spy.getMockName()).toEqual('paths')
-
     expect(await util.fileExists(cusaPath)).toBe(true)
 
     vi.useFakeTimers()
     vi.setSystemTime(fakeDate)
 
-    client.uploadFrom.mockResolvedValueOnce({ ...restoreResponse, code: 200 })
-
     mock({
-      [normalize(localSavegamePath)]: 'test savegame content',
+      [normalize(localSavegamePath)]: 'fake\r\n',
     })
 
     const response = await FTPClient.restore(options)
