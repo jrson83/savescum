@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
+
+
+## [savescum@0.1.4](https://github.com/jrson83/savescum/releases/tag/savescum@0.1.4) - 2023-07-07
+
+      
+### Bug Fixes
+
+- Disable server debug log by default ([ef220a2](https://github.com/jrson83/savescum/commit/ef220a2f0afd55aa1b65d508580c85cb454586a4))          
+- Fix options types ([9775bbc](https://github.com/jrson83/savescum/commit/9775bbc23eda64cb624a60ccaacceaadb42f7e57))          
+- Fix options types in latest savegame ([11da924](https://github.com/jrson83/savescum/commit/11da924d0791ccd2520bf64b182e3f0a55c79e5e))          
+- Update vite, vitest, fix breaking changes ([74f27ef](https://github.com/jrson83/savescum/commit/74f27ef448d384078e375b47ef9d93956e59ef24))          
+- Fix port and log args, improve cli ([f9ec8fd](https://github.com/jrson83/savescum/commit/f9ec8fd99e762dc9674a493404abc920c7afc7f9))          
+
+### Features
+
+- Add logging multiple network addresses ([045d22e](https://github.com/jrson83/savescum/commit/045d22e7391c0ad754b3079e72bdf4a5ab44d30e))          
+- Prepare path for webinterface ([7797364](https://github.com/jrson83/savescum/commit/779736456855ded40101e359fb8b34b813bddb5d))          
+- Prepare savegame for webinterface ([9069b90](https://github.com/jrson83/savescum/commit/9069b9011a2d2c15d173b2291a1c061893f467e6))          
+- Add utils tests ([7e26f3c](https://github.com/jrson83/savescum/commit/7e26f3cbda73cf2467e847b95c63735ee34a756f))          
+- Add history command ([fbd547e](https://github.com/jrson83/savescum/commit/fbd547e787604c6662b2e45342ee1620b4217c9f))          
+- Add ftp tests ([5486fb6](https://github.com/jrson83/savescum/commit/5486fb6db0dffa9a8772beb8e24c880df7ccb346))          
+- Improve ftp file check ([142ccdc](https://github.com/jrson83/savescum/commit/142ccdce9b73a13e9222563b8d3ee5fab0a9808a))          
+- Add command to ensure remote file exists ([88dd53f](https://github.com/jrson83/savescum/commit/88dd53f9fee8145638ed676688b5d3fb01fd67e4))          
+
+### Refactor
+
+- Improve server ([41aee3d](https://github.com/jrson83/savescum/commit/41aee3debd6086114d6ba9f4cdd4119e71c87ca2))          
+
+### Build
+
+- Update dependency @fastify/static to v6.10.2 ([f598f13](https://github.com/jrson83/savescum/commit/f598f1308977aea03e77f8f1147b899f9d214613))          
+- Update dependency fastify to v4.18.0 ([79f90ec](https://github.com/jrson83/savescum/commit/79f90ecb2dc37850b5526c9f9a1d00af4575c012))          
+- Update dependency json-schema-to-ts to v2.9.1 ([7e7564b](https://github.com/jrson83/savescum/commit/7e7564b71939551a2d2c7555ce05ea91400bccc3))          
+- Update dependency @commander-js/extra-typings to v11 (#26) ([5258ec6](https://github.com/jrson83/savescum/commit/5258ec6b64ab9928cefed2fa8e24378763e63eee))          
+- Update dependency commander to v11 (#27) ([4baf455](https://github.com/jrson83/savescum/commit/4baf455fca0d874f7ba7e724bcdf1db4baea9dd1))          
+- Update dependency fastify to v4.19.2 ([4b4517e](https://github.com/jrson83/savescum/commit/4b4517e7a5bf29074ac3d74040d84e151a157eff))          
 ## [savescum@0.1.4](https://github.com/jrson83/savescum/releases/tag/savescum@0.1.4) - 2023-07-07
 
       
