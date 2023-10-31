@@ -6,15 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
-## Unreleased
+## [savescum@0.2.1](https://github.com/jrson83/savescum/releases/tag/savescum@0.2.1) - 2023-10-31
 
-<small>[Compare with latest](https://github.com/jrson83/savescum/compare/savescum@0.2.0...HEAD)</small>
+<small>[Compare with savescum@0.2.0](https://github.com/jrson83/savescum/compare/savescum@0.2.0...savescum@0.2.1)</small>
 
 ### Bug Fixes
 
 - fix changelog ([9994d33](https://github.com/jrson83/savescum/commit/9994d33d0f270e52ec86b6d5297a16ba949055af) by Jrson).
 
-<!-- insertion marker -->
 ## [savescum@0.2.0](https://github.com/jrson83/savescum/releases/tag/savescum@0.2.0) - 2023-10-31
 
 <small>[Compare with savescum@0.1.4](https://github.com/jrson83/savescum/compare/savescum@0.1.4...savescum@0.2.0)</small>
