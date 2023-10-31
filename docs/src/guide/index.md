@@ -27,7 +27,7 @@ backup --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005 --debug
   ├── Remote Path: /user/home/1ceaa172/savedata/CUSA00207/sdimg_SPRJ0005
   └── Local Path: C:\Users\jrson\savescum\1ceaa172\CUSA00207\1683605652684\sdimg_SPRJ0005
 
-✔ Backup completed
+✔ Backup operation completed successfully.
 ```
 
 ## Webinterface

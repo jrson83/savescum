@@ -83,7 +83,7 @@ savescum ftp --ip=192.168.178.69 test
 
 # outputs
 ℹ Running connection test ...
-✔ Connection succeeded
+✔ Connection established successfully.
 
 # or
 savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug test
@@ -92,7 +92,36 @@ savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug test
 ℹ Running connection test ...
   - Connecting to ftp://anonymous@192.168.178.69:21
 
-✔ Connection succeeded
+✔ Connection established successfully.
+```
+:::
+
+---
+
+## `savescum ftp profiles`
+
+Lists PSN profiles/accounts from PS4/PS5 FTP server.
+
+### Usage
+
+```sh
+savescum ftp [options] profiles [options]
+```
+
+::: details Click to view usage example
+```sh
+savescum ftp --ip=192.168.178.69 profiles
+
+# outputs
+ℹ Getting profiles ...
+✔ Profiles operation completed successfully.
+
+ℹ Found 2 profiles:
+  ➜ ID: 1bexx117
+    Username: chiaki
+
+  ➜ ID: 1ceaa172
+    Username: AHunterMustHunt
 ```
 :::
 
@@ -119,7 +148,7 @@ backup --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005 --debug
   ├── Remote Path: /user/home/1ceaa172/savedata/CUSA00207/sdimg_SPRJ0005
   └── Local Path: C:\Users\jrson\savescum\1ceaa172\CUSA00207\1683605652684\sdimg_SPRJ0005
 
-✔ Backup completed
+✔ Backup operation completed successfully.
 ```
 :::
 
@@ -145,7 +174,7 @@ restore --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005 --debug
   ├── Local Path: C:\Users\jrson\savescum\1ceaa172\CUSA00207\1683605652684\sdimg_SPRJ0005
   └── Remote Path: /user/home/1ceaa172/savedata/CUSA00207/sdimg_SPRJ0005
 
-✔ Restore completed
+✔ Restore operation completed successfully.
 ```
 :::
 

@@ -57,6 +57,6 @@ Global Options:
   -V, --version            output the version number
 
   Example:
-    $ savescum ftp --ip=192.168.179.69 test
-    $ savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug test
+    $ savescum ftp --ip=192.168.178.39 test
+    $ savescum ftp --ip=192.168.178.39 --port=21 --no-sound --debug test
 ```
