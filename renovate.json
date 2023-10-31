@@ -32,13 +32,17 @@
       "description": "Automatically merge devDependencies updates",
       "matchDepTypes": ["devDependencies"],
       "matchPackagePatterns": [
+        "@types/mock-fs",
         "@types/node",
+        "@vitest/ui",
         "husky",
+        "mock-fs",
         "nano-staged",
         "ptsup",
-        "rome",
         "sparkee",
         "stylelint",
+        "stylelint-config-property-sort-order-smacss",
+        "stylelint-config-standard-scss",
         "tsx",
         "vite",
         "vitest"
