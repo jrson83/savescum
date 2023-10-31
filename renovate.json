@@ -39,7 +39,6 @@
         "mock-fs",
         "nano-staged",
         "ptsup",
-        "sparkee",
         "stylelint",
         "stylelint-config-property-sort-order-smacss",
         "stylelint-config-standard-scss",

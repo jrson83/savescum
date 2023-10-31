@@ -38,7 +38,7 @@
     "test:ui:cli": "pnpm --filter savescum test:ui",
     "test:ui:web": "pnpm --filter @savescum/web test:ui",
     "prepare": "husky install",
-    "pub": "node ./scripts/prepublishOnly.mjs && npx sparkee publish"
+    "pub": "node ./scripts/prepublishOnly.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.3.1",
@@ -49,7 +49,6 @@
     "mock-fs": "^5.2.0",
     "nano-staged": "^0.8.0",
     "ptsup": "^0.3.4",
-    "sparkee": "^1.3.4",
     "stylelint": "^15.11.0",
     "stylelint-config-property-sort-order-smacss": "^9.1.0",
     "stylelint-config-standard-scss": "^11.0.0",
