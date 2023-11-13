@@ -70,7 +70,7 @@
     "*": "biome format . --write",
     "*.scss": "stylelint \"./packages/web/**/*.scss\" --fix"
   },
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@8.10.3",
   "pnpm": {
     "overrides": {
       "typescript": "5.2.2"
