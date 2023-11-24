@@ -106,7 +106,7 @@ importers:
   packages/web:
     devDependencies:
       '@preact/preset-vite':
-        specifier: ^2.6.0
+        specifier: ^2.7.0
         version: 2.7.0(@babel/core@7.23.3)(preact@10.19.2)(vite@5.0.2)
       '@types/node':
         specifier: ^20.9.5
