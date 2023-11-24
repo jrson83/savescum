@@ -38,7 +38,6 @@
     "dev": "tsx src/index.ts --host=0.0.0.0",
     "build": "ptsup",
     "test": "vitest",
-    "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
