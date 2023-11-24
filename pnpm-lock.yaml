@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  typescript: 5.2.2
+  typescript: 5.3.2
 
 importers:
 
@@ -37,7 +37,7 @@ importers:
         version: 0.3.4
       stylelint:
         specifier: ^15.11.0
-        version: 15.11.0(typescript@5.2.2)
+        version: 15.11.0(typescript@5.3.2)
       stylelint-config-property-sort-order-smacss:
         specifier: ^9.1.0
         version: 9.1.0(stylelint@15.11.0)
@@ -48,8 +48,8 @@ importers:
         specifier: ^4.4.0
         version: 4.4.0
       typescript:
-        specifier: 5.2.2
-        version: 5.2.2
+        specifier: 5.3.2
+        version: 5.3.2
       vite:
         specifier: ^4.5.0
         version: 4.5.0(@types/node@20.9.5)(sass@1.69.5)
@@ -118,8 +118,8 @@ importers:
         specifier: ^1.69.5
         version: 1.69.5
       typescript:
-        specifier: 5.2.2
-        version: 5.2.2
+        specifier: 5.3.2
+        version: 5.3.2
       vite:
         specifier: ^4.5.0
         version: 4.5.0(@types/node@20.9.5)(sass@1.69.5)
@@ -2453,11 +2453,11 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /cosmiconfig@8.3.6(typescript@5.2.2):
+  /cosmiconfig@8.3.6(typescript@5.3.2):
     resolution: {integrity: sha512-kcZ6+W5QzcJ3P1Mt+83OUv/oHFqZHIx8DuxG6eZ5RGMERoLqp4BuGjhHLYGK+Kf5XVkQvqBSmAy/nGWN3qDgEA==}
     engines: {node: '>=14'}
     peerDependencies:
-      typescript: 5.2.2
+      typescript: 5.3.2
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -2466,7 +2466,7 @@ packages:
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
-      typescript: 5.2.2
+      typescript: 5.3.2
     dev: true
 
   /cross-spawn@7.0.3:
@@ -3774,9 +3774,9 @@ packages:
       pascal-case: 3.1.2
       rimraf: 4.4.1
       rollup: 3.29.4
-      rollup-plugin-dts: 5.3.1(rollup@3.29.4)(typescript@5.2.2)
+      rollup-plugin-dts: 5.3.1(rollup@3.29.4)(typescript@5.3.2)
       slash: 3.0.0
-      typescript: 5.2.2
+      typescript: 5.3.2
       unconfig: 0.3.11
     transitivePeerDependencies:
       - supports-color
@@ -3922,16 +3922,16 @@ packages:
       glob: 9.3.5
     dev: true
 
-  /rollup-plugin-dts@5.3.1(rollup@3.29.4)(typescript@5.2.2):
+  /rollup-plugin-dts@5.3.1(rollup@3.29.4)(typescript@5.3.2):
     resolution: {integrity: sha512-gusMi+Z4gY/JaEQeXnB0RUdU82h1kF0WYzCWgVmV4p3hWXqelaKuCvcJawfeg+EKn2T1Ie+YWF2OiN1/L8bTVg==}
     engines: {node: '>=v14.21.3'}
     peerDependencies:
       rollup: ^3.0
-      typescript: 5.2.2
+      typescript: 5.3.2
     dependencies:
       magic-string: 0.30.5
       rollup: 3.29.4
-      typescript: 5.2.2
+      typescript: 5.3.2
     optionalDependencies:
       '@babel/code-frame': 7.23.4
     dev: true
@@ -4212,7 +4212,7 @@ packages:
       stylelint: ^14.0.0 || ^15.0.0
     dependencies:
       css-property-sort-order-smacss: 2.2.0
-      stylelint: 15.11.0(typescript@5.2.2)
+      stylelint: 15.11.0(typescript@5.3.2)
       stylelint-order: 6.0.3(stylelint@15.11.0)
     dev: true
 
@@ -4227,7 +4227,7 @@ packages:
     dependencies:
       postcss: 8.4.31
       postcss-scss: 4.0.9(postcss@8.4.31)
-      stylelint: 15.11.0(typescript@5.2.2)
+      stylelint: 15.11.0(typescript@5.3.2)
       stylelint-config-recommended: 13.0.0(stylelint@15.11.0)
       stylelint-scss: 5.3.1(stylelint@15.11.0)
     dev: true
@@ -4238,7 +4238,7 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
     dependencies:
-      stylelint: 15.11.0(typescript@5.2.2)
+      stylelint: 15.11.0(typescript@5.3.2)
     dev: true
 
   /stylelint-config-standard-scss@11.1.0(postcss@8.4.31)(stylelint@15.11.0):
@@ -4251,7 +4251,7 @@ packages:
         optional: true
     dependencies:
       postcss: 8.4.31
-      stylelint: 15.11.0(typescript@5.2.2)
+      stylelint: 15.11.0(typescript@5.3.2)
       stylelint-config-recommended-scss: 13.1.0(postcss@8.4.31)(stylelint@15.11.0)
       stylelint-config-standard: 34.0.0(stylelint@15.11.0)
     dev: true
@@ -4262,7 +4262,7 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
     dependencies:
-      stylelint: 15.11.0(typescript@5.2.2)
+      stylelint: 15.11.0(typescript@5.3.2)
       stylelint-config-recommended: 13.0.0(stylelint@15.11.0)
     dev: true
 
@@ -4273,7 +4273,7 @@ packages:
     dependencies:
       postcss: 8.4.31
       postcss-sorting: 8.0.2(postcss@8.4.31)
-      stylelint: 15.11.0(typescript@5.2.2)
+      stylelint: 15.11.0(typescript@5.3.2)
     dev: true
 
   /stylelint-scss@5.3.1(stylelint@15.11.0):
@@ -4286,10 +4286,10 @@ packages:
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
-      stylelint: 15.11.0(typescript@5.2.2)
+      stylelint: 15.11.0(typescript@5.3.2)
     dev: true
 
-  /stylelint@15.11.0(typescript@5.2.2):
+  /stylelint@15.11.0(typescript@5.3.2):
     resolution: {integrity: sha512-78O4c6IswZ9TzpcIiQJIN49K3qNoXTM8zEJzhaTE/xRTCZswaovSEVIa/uwbOltZrk16X4jAxjaOhzz/hTm1Kw==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
@@ -4300,7 +4300,7 @@ packages:
       '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
       balanced-match: 2.0.0
       colord: 2.9.3
-      cosmiconfig: 8.3.6(typescript@5.2.2)
+      cosmiconfig: 8.3.6(typescript@5.3.2)
       css-functions-list: 3.2.1
       css-tree: 2.3.1
       debug: 4.3.4
@@ -4464,6 +4464,12 @@ packages:
 
   /typescript@5.2.2:
     resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: true
+
+  /typescript@5.3.2:
+    resolution: {integrity: sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
