@@ -1,4 +1,4 @@
-import { resolve } from 'node:path'
+import { URL, fileURLToPath } from 'node:url'
 import preact from '@preact/preset-vite'
 import { defineConfig } from 'vitest/config'
 
@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [preact()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   server: {
