@@ -70,14 +70,6 @@
   "pnpm": {
     "overrides": {
       "typescript": "5.3.2"
-    },
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@algolia/client-search",
-        "react",
-        "react-dom",
-        "@types/react"
-      ]
     }
   }
 }
