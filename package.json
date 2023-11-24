@@ -36,9 +36,6 @@
     "test": "pnpm --stream -r test run",
     "test:cli": "pnpm --filter savescum test",
     "test:web": "pnpm --filter @savescum/web test",
-    "tes:ui": "pnpm --stream -r test run",
-    "test:ui:cli": "pnpm --filter savescum test:ui",
-    "test:ui:web": "pnpm --filter @savescum/web test:ui",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -46,7 +43,6 @@
     "@bscotch/workspaces": "^0.3.0",
     "@types/mock-fs": "^4.13.3",
     "@types/node": "^20.9.5",
-    "@vitest/ui": "^0.34.6",
     "husky": "^8.0.3",
     "mock-fs": "^5.2.0",
     "nano-staged": "^0.8.0",

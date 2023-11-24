@@ -40,7 +40,6 @@
     "build": "pnpm clean && tsc && vite build",
     "preview": "pnpm build && vite preview",
     "test": "vitest",
-    "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
