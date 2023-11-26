@@ -3,7 +3,7 @@ import { dirname } from 'node:path'
 import { PassThrough } from 'node:stream'
 import { Client, type FileInfo } from 'basic-ftp'
 import { RESPONSE_SUCCESS_MESSAGES } from './constants'
-import type { FtpSchema, OptionsSchema } from './types'
+import type { FtpSchema, OptionsSchema, Profile } from './types'
 import {
   colorize,
   error,
@@ -11,6 +11,7 @@ import {
   getLatestSavegame,
   message,
   paths,
+  streamToBuffer,
   streamToString,
 } from './utils'
 
@@ -38,7 +39,8 @@ export class FTPClient {
   }
 
   static async test(options: FtpSchema) {
-    const client = await FTPClient.connect(options)
+    const client = await this.connect(options)
+
     try {
       if ((await client.pwd()) === '/') {
         return {
@@ -73,7 +75,7 @@ export class FTPClient {
       message(`${colorize.dim(`└── Local Path: ${dest}\n`)}`)
     }
 
-    const client = await FTPClient.connect(ftp)
+    const client = await this.connect(ftp)
 
     try {
       await client.size(src)
@@ -105,7 +107,7 @@ export class FTPClient {
       message(`${colorize.dim(`└── Local Path: ${dest}\n`)}`)
     }
 
-    const client = await FTPClient.connect(ftp)
+    const client = await this.connect(ftp)
 
     try {
       await client.size(src)
@@ -166,7 +168,7 @@ export class FTPClient {
       message(`${colorize.dim(`└── Remote Path: ${dest}\n`)}`)
     }
 
-    const client = await FTPClient.connect(ftp)
+    const client = await this.connect(ftp)
 
     try {
       await client.uploadFrom(src, dest)
@@ -193,7 +195,7 @@ export class FTPClient {
   }
 
   static async profiles(options: FtpSchema) {
-    const client = await FTPClient.connect(options)
+    const client = await this.connect(options)
 
     try {
       await client.cd('/user/home')
@@ -205,6 +207,16 @@ export class FTPClient {
       }
 
       if (Array.isArray(rawProfiles) && rawProfiles.length > 0) {
+        const getAvatar = async (filePath: string) => {
+          const stream = new PassThrough()
+
+          client.downloadTo(stream, filePath)
+
+          const avatar = await streamToBuffer(stream)
+
+          return avatar
+        }
+
         const getUsername = async (profile: FileInfo) => {
           const stream = new PassThrough()
 
@@ -218,11 +230,24 @@ export class FTPClient {
           }
         }
 
-        const profiles: any[] = []
+        const profiles: Profile[] = []
 
         for (const profile of rawProfiles) {
-          const actual = await getUsername(profile)
-          profiles.push(actual)
+          const resolvedProfile = await getUsername(profile)
+
+          const filePath = `/system_data/priv/cache/profile/0x${resolvedProfile.profileId.toUpperCase()}/avatar.png`
+
+          try {
+            await client.size(filePath)
+          } catch (err: unknown) {
+            if ((err as { code: number }).code === 550) {
+              throw err
+            }
+          }
+
+          const avatar = await getAvatar(filePath)
+
+          profiles.push({ ...resolvedProfile, avatar: avatar })
         }
 
         return {

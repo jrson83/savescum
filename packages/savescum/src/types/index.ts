@@ -7,6 +7,7 @@ import type {
   savegameSchema,
   sharedSchema,
 } from '../server'
+import { profilesSchema } from '../server'
 
 export interface ServeOptions {
   host: string
@@ -23,9 +24,10 @@ export interface ServerAdresses {
 export interface Profile {
   profileId: string
   username: string | undefined
+  avatar: string | undefined
 }
 
-export type Profiles = Profile[]
+export type Profiles = FromSchema<typeof profilesSchema>
 
 export type ErrorSchema = FromSchema<typeof errorSchema>
 

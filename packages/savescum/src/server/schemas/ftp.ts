@@ -1,3 +1,5 @@
+import { profilesSchema } from './profile'
+
 export const ftpSchema = {
   type: 'object',
   additionalProperties: false,
@@ -13,6 +15,7 @@ export const ftpSchema = {
     secure: { type: 'boolean' },
     sound: { type: 'boolean' },
     debug: { type: 'boolean' },
+    profiles: profilesSchema,
   },
-  required: ['requestType', 'ip', 'port', 'user'],
+  required: ['requestType', 'ip', 'port', 'user', 'profiles'],
 } as const

@@ -37,6 +37,7 @@ export const ftp: FtpSchema = {
   secure: false,
   debug: false,
   sound: true,
+  profiles: [],
 }
 
 export const savegame: SavegameSchema = {
@@ -55,10 +56,12 @@ export const profiles: Profiles = [
   {
     profileId: '1bexx117',
     username: 'chiaki',
+    avatar: 'base64png_chiaki',
   },
   {
     profileId: '1ceaa172',
     username: 'AHunterMustHunt',
+    avatar: 'base64png_AHunterMustHunt',
   },
 ]
 
