@@ -100,7 +100,7 @@ savescum ftp --ip=192.168.179.69 --port=21 --no-sound --debug test
 
 ## `savescum ftp profiles`
 
-Lists PSN profiles/accounts from PS4/PS5 FTP server.
+Lists PSN profiles/accounts with avatars (base64) from PS4/PS5 FTP server.
 
 ### Usage
 
@@ -119,9 +119,11 @@ savescum ftp --ip=192.168.178.69 profiles
 ℹ Found 2 profiles:
   ➜ ID: 1bexx117
     Username: chiaki
+    Avatar: iVBORw0KGgoAAAANSUhE...
 
   ➜ ID: 1ceaa172
     Username: AHunterMustHunt
+    Avatar: iVBORw0KGgoAAAANSUhE...
 ```
 :::
 

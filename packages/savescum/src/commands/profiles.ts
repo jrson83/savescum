@@ -24,9 +24,10 @@ export async function profilesCommand(cmd: Command): Promise<void> {
         }:`
       )
 
-      for (const { profileId, username } of response.profiles) {
+      for (const { profileId, username, avatar } of response.profiles) {
         console.log(`  ${colorize.green('➜')} ID: ${profileId}`)
-        console.log(`    Username: ${username}\n`)
+        console.log(`    Username: ${username}`)
+        console.log(`    Avatar: ${avatar?.slice(0, 20)}...\n`)
       }
     }
     if (sound) await beep().then(() => process.exit(0))

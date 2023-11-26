@@ -12,6 +12,7 @@ import {
 } from 'vitest'
 import { FTPClient } from '../ftp-client'
 import * as util from '../utils'
+import { streamToBuffer } from '../utils/streamToBuffer'
 import { streamToString } from '../utils/streamToString'
 import {
   backupResponse,
@@ -41,6 +42,7 @@ vi.mock('basic-ftp', () => {
   return { Client }
 })
 
+vi.mock('../utils/streamToBuffer')
 vi.mock('../utils/streamToString')
 
 describe('ftp test', () => {
@@ -87,9 +89,10 @@ describe('ftp test', () => {
   })
 
   it('should run ftp ensure cmd with success', async () => {
-    expect(spy.getMockName()).toEqual('paths')
-
-    expect(await util.fileExists(cusaPath)).toBe(true)
+    client.size.mockResolvedValue({
+      code: 250,
+      message: '250 CWD command successful',
+    })
 
     vi.useFakeTimers()
     vi.setSystemTime(fakeDate)
@@ -99,6 +102,12 @@ describe('ftp test', () => {
     expect(client.access).toBeCalledTimes(1)
     expect(client.size).toBeCalledTimes(1)
     expect(client.size).toBeCalledWith(remoteSavegamePath)
+
+    expect(client.size).toReturnWith({
+      code: 250,
+      message: '250 CWD command successful',
+    })
+
     expect(client.close).toBeCalledTimes(1)
 
     expect(response).toStrictEqual(ensureResponse)
@@ -157,10 +166,13 @@ describe('ftp test', () => {
   })
 
   it('should run ftp profiles cmd with success', async () => {
-    const mockedStreamToBuffer = vi.mocked(streamToString)
+    const mockedStreamToString = vi.mocked(streamToString)
+    mockedStreamToString.mockResolvedValueOnce('chiaki')
+    mockedStreamToString.mockResolvedValueOnce('AHunterMustHunt')
 
-    mockedStreamToBuffer.mockResolvedValueOnce('chiaki')
-    mockedStreamToBuffer.mockResolvedValueOnce('AHunterMustHunt')
+    const mockedStreamToBuffer = vi.mocked(streamToBuffer)
+    mockedStreamToBuffer.mockResolvedValueOnce('base64png_chiaki')
+    mockedStreamToBuffer.mockResolvedValueOnce('base64png_AHunterMustHunt')
 
     client.cd.mockResolvedValue({
       code: 250,
@@ -181,15 +193,21 @@ describe('ftp test', () => {
 
     expect(client.list).toBeCalledTimes(1)
 
-    expect(client.downloadTo).toBeCalledTimes(2)
+    expect(client.downloadTo).toBeCalledTimes(4)
     expect(client.downloadTo).toReturnWith({
       code: 226,
       message: '226 Transfer Complete',
     })
 
+    expect(mockedStreamToString).toBeCalledTimes(2)
+    expect(mockedStreamToString).toReturnWith('chiaki')
+    expect(mockedStreamToString).toReturnWith('AHunterMustHunt')
+
     expect(mockedStreamToBuffer).toBeCalledTimes(2)
-    expect(mockedStreamToBuffer).toReturnWith('chiaki')
-    expect(mockedStreamToBuffer).toReturnWith('AHunterMustHunt')
+    expect(mockedStreamToBuffer).toReturnWith('base64png_chiaki')
+    expect(mockedStreamToBuffer).toReturnWith('base64png_AHunterMustHunt')
+
+    expect(client.size).toBeCalledTimes(2)
 
     expect(client.close).toBeCalledTimes(1)
 

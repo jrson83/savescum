@@ -52,19 +52,7 @@ export const profilesOptionsSchema = {
           success: { type: 'boolean' },
           message: { type: 'string' },
           profiles: {
-            type: 'array',
-            items: {
-              type: 'object',
-              additionalProperties: false,
-              properties: {
-                profileId: {
-                  type: 'string',
-                },
-                username: {
-                  type: 'string',
-                },
-              },
-            },
+            $ref: 'shared-schema#/definitions/profiles',
           },
         },
         required: ['success', 'message', 'profiles'],

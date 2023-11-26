@@ -1,5 +1,6 @@
 export * from './error'
 export * from './ftp'
 export * from './options'
+export * from './profile'
 export * from './savegame'
 export * from './shared'

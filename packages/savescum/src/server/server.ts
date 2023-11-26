@@ -53,7 +53,6 @@ export const startServer = async (options: ServeOptions) => {
       profilesOptionsSchema,
       async (request, reply) => {
         const data = await FTPClient.profiles(request.body.ftp)
-        console.log(data)
         return reply.code(200).send(data)
       }
     )
