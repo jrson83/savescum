@@ -66,7 +66,7 @@
     "*": "biome format . --write",
     "*.scss": "stylelint \"./packages/web/**/*.scss\" --fix"
   },
-  "packageManager": "pnpm@8.10.5",
+  "packageManager": "pnpm@8.11.0",
   "pnpm": {
     "overrides": {
       "typescript": "5.3.2"
