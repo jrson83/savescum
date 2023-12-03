@@ -1,6 +1,6 @@
 import { errorSchema } from './error'
 import { ftpSchema } from './ftp'
-import { profilesSchema } from './profile'
+import { profileSchema } from './profile'
 import {
   savegameDetailSchema,
   savegameHistorySchema,
@@ -11,7 +11,7 @@ export const sharedSchema = {
   $id: 'shared-schema',
   definitions: {
     ftp: ftpSchema,
-    profiles: profilesSchema,
+    profiles: profileSchema,
     savegame: savegameSchema,
     'savegame-detail': savegameDetailSchema,
     history: savegameHistorySchema,

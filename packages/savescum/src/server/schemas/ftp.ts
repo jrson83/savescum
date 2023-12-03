@@ -1,10 +1,9 @@
-import { profilesSchema } from './profile'
+import { profileSchema } from './profile'
 
 export const ftpSchema = {
   type: 'object',
   additionalProperties: false,
   properties: {
-    requestType: { type: 'string', enum: ['browser', 'node'] },
     ip: {
       type: 'string',
       format: 'ipv4',
@@ -15,7 +14,8 @@ export const ftpSchema = {
     secure: { type: 'boolean' },
     sound: { type: 'boolean' },
     debug: { type: 'boolean' },
-    profiles: profilesSchema,
+    profiles: profileSchema,
+    requestType: { type: 'string', enum: ['browser', 'node'] },
   },
-  required: ['requestType', 'ip', 'port', 'user', 'profiles'],
+  required: ['ip', 'port', 'user', 'profiles', 'requestType'],
 } as const

@@ -1,6 +1,5 @@
-export const profilesSchema = {
+export const profileSchema = {
   type: 'array',
-  additionalItems: false,
   items: {
     type: 'object',
     additionalProperties: false,
@@ -14,7 +13,42 @@ export const profilesSchema = {
       avatar: {
         type: 'string',
       },
+      savedata: {
+        type: 'array',
+        items: {
+          type: 'object',
+          additionalProperties: false,
+          properties: {
+            cusa: {
+              type: 'string',
+            },
+            sdimg: {
+              type: 'array',
+              items: {
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                  name: {
+                    type: 'string',
+                  },
+                  size: {
+                    type: 'string',
+                  },
+                },
+                required: ['name', 'size'],
+              },
+              minItems: 1,
+              uniqueItems: true,
+            },
+          },
+          required: ['cusa', 'sdimg'],
+        },
+        minItems: 1,
+        uniqueItems: true,
+      },
     },
     required: ['profileId', 'username'],
   },
+  minItems: 1,
+  uniqueItems: true,
 } as const
