@@ -35,7 +35,6 @@
         "@bscotch/workspaces",
         "@types/mock-fs",
         "@types/node",
-        "@vitest/ui",
         "husky",
         "mock-fs",
         "nano-staged",
