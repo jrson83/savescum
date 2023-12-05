@@ -11,7 +11,8 @@ const hasNoColors = stdout.isTTY && !stdout.hasColors()
 export const colorize = Object.fromEntries(
   Object.entries(colors).map(([color, code]) => [
     color,
-    <T>(str: string | Initializer<T> | undefined) => {
+    // biome-ignore format: TypeScript's TSX syntax interprets arrow functions with a single generic type parameter as an opening JSX element.
+    <T,>(str: string | Initializer<T> | undefined) => {
       if (!code) return ''
       if (hasNoColors) return str
       return `\x1b[${code[0]}m${str}\x1b[${code[1]}m`
