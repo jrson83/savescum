@@ -8,9 +8,12 @@ import type {
   SavegameSchema,
 } from '../../types'
 
+// Thu Jun 01 2023 02:04:44 GMT+0200
 const fakeTimestamp = 1685577884592
 
 export const fakeDate = new Date(fakeTimestamp)
+
+export const fakeFolder = '2023-06-01_02-04'
 
 export const backupPath = normalize(join(homedir(), 'savescum'))
 export const cusaPath = normalize(join(backupPath, '1ceaa172', 'CUSA00207'))
@@ -19,13 +22,7 @@ export const remoteSavegamePath =
   '/user/home/1ceaa172/savedata/CUSA00207/sdimg_SPRJ0005'
 
 export const localSavegamePath = normalize(
-  join(
-    backupPath,
-    '1ceaa172',
-    'CUSA00207',
-    `${fakeTimestamp}`,
-    'sdimg_SPRJ0005'
-  )
+  join(backupPath, '1ceaa172', 'CUSA00207', fakeFolder, 'sdimg_SPRJ0005')
 )
 
 export const ftp: FtpSchema = {

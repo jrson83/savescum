@@ -1,16 +1,18 @@
 import { homedir } from 'node:os'
 import { format, join } from 'node:path'
 import type { SavegameSchema } from '../types'
+import { dateToPath } from './date-to-path'
 
-export function paths(savegame: SavegameSchema, timestamp?: string) {
-  const local = join(
+export function formatPath(savegame: SavegameSchema, timestamp?: Date) {
+  const localPath = join(
     savegame.backupPath || join(homedir(), 'savescum'),
     savegame.profileId,
     savegame.cusa,
-    timestamp ? timestamp : `${Number(new Date())}`,
+    timestamp ? dateToPath(timestamp) : dateToPath(),
     savegame.sdimg
   )
-  const remote = format({
+
+  const remotePath = format({
     dir: `/user/home/${savegame.profileId}/savedata/${savegame.cusa}`,
     base: savegame.sdimg,
   }).replace(/\\/g, '/')
@@ -18,12 +20,12 @@ export function paths(savegame: SavegameSchema, timestamp?: string) {
   return {
     ...(timestamp
       ? {
-          src: local,
-          dest: remote,
+          src: localPath,
+          dest: remotePath,
         }
       : {
-          dest: local,
-          src: remote,
+          dest: localPath,
+          src: remotePath,
         }),
   }
 }

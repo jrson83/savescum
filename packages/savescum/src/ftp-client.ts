@@ -8,9 +8,9 @@ import {
   colorize,
   error,
   fileExists,
+  formatPath,
   getLatestSavegame,
   message,
-  paths,
   streamToBuffer,
   streamToString,
 } from './utils'
@@ -68,7 +68,7 @@ export class FTPClient {
 
   static async ensure(options: OptionsSchema) {
     const { ftp, savegame } = options
-    const { dest, src } = paths(savegame)
+    const { dest, src } = formatPath(savegame)
 
     if (ftp.debug) {
       message(`${colorize.dim(`├── Remote Path: ${src}`)}`)
@@ -100,7 +100,7 @@ export class FTPClient {
 
   static async backup(options: OptionsSchema) {
     const { ftp, savegame } = options
-    const { dest, src } = paths(savegame)
+    const { dest, src } = formatPath(savegame)
 
     if (ftp.debug) {
       message(`${colorize.dim(`├── Remote Path: ${src}`)}`)
@@ -154,7 +154,10 @@ export class FTPClient {
 
     const latestBackup = await getLatestSavegame(savegame)
 
-    const { dest, src } = paths(savegame, latestBackup?.history[0].timestamp)
+    const { dest, src } = formatPath(
+      savegame,
+      latestBackup?.history[0].timestamp
+    )
 
     const localFile = await fileExists(src)
 

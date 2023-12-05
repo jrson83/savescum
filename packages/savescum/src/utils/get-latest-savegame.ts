@@ -8,7 +8,7 @@ async function getLatestSavegame(options: SavegameSchema): Promise<
   | (SavegameSchema & {
       history: Array<{
         id: number
-        timestamp: string
+        timestamp: Date
         mtime: number
         size: string
       }>
@@ -37,11 +37,11 @@ async function getLatestSavegame(options: SavegameSchema): Promise<
               )
             )
 
-            const { size, mtime } = fileDetails
+            const { size, mtime, birthtime } = fileDetails
 
             return {
               id: index + 1,
-              timestamp: path.name,
+              timestamp: birthtime,
               mtime: mtime.getTime(),
               size: `${size / (1024 * 1024)}MB`,
             }

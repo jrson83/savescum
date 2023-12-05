@@ -1,8 +1,13 @@
-import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { cwd } from 'node:process'
 import { describe, expect, it, vi } from 'vitest'
-import { fileExists, merge, paths } from '../utils'
+import { fileExists, formatPath, merge } from '../utils'
+import {
+  backupPath,
+  fakeDate,
+  localSavegamePath,
+  remoteSavegamePath,
+} from './setup'
 
 const saveGame = {
   profileId: '1ceaa172',
@@ -32,7 +37,7 @@ describe('utils test', () => {
       },
       {
         ...saveGame,
-        backupPath: 'C:\\Users\\jrson\\savescum',
+        backupPath,
       }
     )
     expect(options).toMatchObject({
@@ -47,28 +52,19 @@ describe('utils test', () => {
       },
       savegame: {
         ...saveGame,
-        backupPath: 'C:\\Users\\jrson\\savescum',
+        backupPath,
       },
     })
   })
 
   it('local to remote path with empty `backupPath', () => {
     // https://github.com/vitest-dev/vitest/issues/506#issuecomment-1021317811
-    const date = new Date(1685577884592)
-
     vi.useFakeTimers()
-    vi.setSystemTime(date)
+    vi.setSystemTime(fakeDate)
 
-    expect(paths(saveGame)).toMatchObject({
-      dest: join(
-        homedir(),
-        'savescum',
-        '1ceaa172',
-        'CUSA00207',
-        String(date.valueOf()),
-        'sdimg_SPRJ0005'
-      ),
-      src: '/user/home/1ceaa172/savedata/CUSA00207/sdimg_SPRJ0005',
+    expect(formatPath(saveGame)).toMatchObject({
+      dest: localSavegamePath,
+      src: remoteSavegamePath,
     })
 
     vi.useRealTimers()
@@ -76,64 +72,41 @@ describe('utils test', () => {
 
   it('local to remote path with `backupPath', () => {
     // https://github.com/vitest-dev/vitest/issues/506#issuecomment-1021317811
-    const date = new Date(1685577884592)
-
     vi.useFakeTimers()
-    vi.setSystemTime(date)
+    vi.setSystemTime(fakeDate)
 
     expect(
-      paths({
+      formatPath({
         ...saveGame,
-        backupPath: join(homedir(), 'savescum'),
+        backupPath: 'C:\\Users\\jrson\\savescum',
       })
     ).toMatchObject({
-      dest: join(
-        homedir(),
-        'savescum',
-        '1ceaa172',
-        'CUSA00207',
-        String(date.valueOf()),
-        'sdimg_SPRJ0005'
-      ),
-      src: '/user/home/1ceaa172/savedata/CUSA00207/sdimg_SPRJ0005',
+      dest: localSavegamePath,
+      src: remoteSavegamePath,
     })
 
     vi.useRealTimers()
   })
 
   it('remote to local path with empty `backupPath`', () => {
-    expect(paths(saveGame, '1685577884592')).toMatchObject({
-      dest: '/user/home/1ceaa172/savedata/CUSA00207/sdimg_SPRJ0005',
-      src: join(
-        homedir(),
-        'savescum',
-        '1ceaa172',
-        'CUSA00207',
-        '1685577884592',
-        'sdimg_SPRJ0005'
-      ),
+    expect(formatPath(saveGame, fakeDate)).toMatchObject({
+      dest: remoteSavegamePath,
+      src: localSavegamePath,
     })
   })
 
   it('remote to local path with `backupPath`', () => {
     expect(
-      paths(
+      formatPath(
         {
           ...saveGame,
-          backupPath: join(homedir(), 'savescum'),
+          backupPath: 'C:\\Users\\jrson\\savescum',
         },
-        '1685577884592'
+        fakeDate
       )
     ).toMatchObject({
-      dest: '/user/home/1ceaa172/savedata/CUSA00207/sdimg_SPRJ0005',
-      src: join(
-        homedir(),
-        'savescum',
-        '1ceaa172',
-        'CUSA00207',
-        '1685577884592',
-        'sdimg_SPRJ0005'
-      ),
+      dest: remoteSavegamePath,
+      src: localSavegamePath,
     })
   })
 })

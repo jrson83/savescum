@@ -53,7 +53,7 @@ describe('ftp test', () => {
     client = new Client()
     client.ftp.verbose = true
 
-    spy = vi.spyOn(util, 'paths')
+    spy = vi.spyOn(util, 'formatPath')
 
     mock({
       [cusaPath]: {},
