@@ -1,4 +1,4 @@
-import { normalize, resolve } from 'node:path'
+import { normalize } from 'node:path'
 import { Client } from 'basic-ftp'
 import mock from 'mock-fs'
 import {
@@ -12,8 +12,8 @@ import {
 } from 'vitest'
 import { FTPClient } from '../ftp-client'
 import * as util from '../utils'
-import { streamToBuffer } from '../utils/streamToBuffer'
-import { streamToString } from '../utils/streamToString'
+import { streamToBuffer } from '../utils/stream-to-buffer'
+import { streamToString } from '../utils/stream-to-string'
 import {
   backupResponse,
   cusaPath,
@@ -42,8 +42,8 @@ vi.mock('basic-ftp', () => {
   return { Client }
 })
 
-vi.mock('../utils/streamToBuffer')
-vi.mock('../utils/streamToString')
+vi.mock('../utils/stream-to-buffer')
+vi.mock('../utils/stream-to-string')
 
 describe('ftp test', () => {
   let client: any

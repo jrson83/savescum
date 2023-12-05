@@ -1,5 +1,5 @@
 import { colorize } from './colorize'
-import { logSymbols } from './logSymbols'
+import { logSymbols } from './log-symbols'
 
 function success(msg: string) {
   console.log(logSymbols.success, colorize.green(msg))

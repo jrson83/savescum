@@ -1,7 +1,7 @@
 /** https://github.com/sindresorhus/log-symbols */
 
 import { colorize } from './colorize'
-import { isUnicodeSupported } from './isUnicodeSupported'
+import { isUnicodeSupported } from './is-unicode-supported'
 
 const main = {
   info: colorize.blue('ℹ'),
@@ -16,7 +16,5 @@ const fallback = {
   warning: colorize.yellow('‼'),
   error: colorize.red('×'),
 }
-
-// ✘ ✔
 
 export const logSymbols = isUnicodeSupported() ? main : fallback
