@@ -5,7 +5,6 @@ const Icon: IconFC = ({ className, color, icon, size = 32, title }) => {
   return (
     <svg
       aria-hidden="true"
-      role="img"
       fill={
         color
           ? color.startsWith('#')

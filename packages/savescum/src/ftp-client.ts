@@ -39,7 +39,7 @@ export class FTPClient {
   }
 
   static async test(options: FtpSchema) {
-    const client = await this.connect(options)
+    const client = await FTPClient.connect(options)
 
     try {
       if ((await client.pwd()) === '/') {
@@ -75,7 +75,7 @@ export class FTPClient {
       message(`${colorize.dim(`└── Local Path: ${dest}\n`)}`)
     }
 
-    const client = await this.connect(ftp)
+    const client = await FTPClient.connect(ftp)
 
     try {
       await client.size(src)
@@ -107,7 +107,7 @@ export class FTPClient {
       message(`${colorize.dim(`└── Local Path: ${dest}\n`)}`)
     }
 
-    const client = await this.connect(ftp)
+    const client = await FTPClient.connect(ftp)
 
     try {
       await client.size(src)
@@ -168,7 +168,7 @@ export class FTPClient {
       message(`${colorize.dim(`└── Remote Path: ${dest}\n`)}`)
     }
 
-    const client = await this.connect(ftp)
+    const client = await FTPClient.connect(ftp)
 
     try {
       await client.uploadFrom(src, dest)
@@ -195,7 +195,7 @@ export class FTPClient {
   }
 
   static async profiles(options: FtpSchema) {
-    const client = await this.connect(options)
+    const client = await FTPClient.connect(options)
 
     try {
       await client.cd('/user/home')
