@@ -13,7 +13,7 @@ const fakeTimestamp = 1685577884592
 
 export const fakeDate = new Date(fakeTimestamp)
 
-export const fakeFolder = '2023-06-01_02-04'
+export const fakeFolder = '2023-06-01_00-04'
 
 export const backupPath = normalize(join(homedir(), 'savescum'))
 export const cusaPath = normalize(join(backupPath, '1ceaa172', 'CUSA00207'))

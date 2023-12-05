@@ -5,10 +5,10 @@ export function dateToPath(currentDate?: Date): string {
 
   const now = currentDate || new Date(Date.now())
 
-  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(
+  return `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(
     2,
     '0'
   )}-${String(now.getDate()).padStart(2, '0')}_${String(
-    now.getHours()
-  ).padStart(2, '0')}-${String(now.getMinutes()).padStart(2, '0')}`
+    now.getUTCHours()
+  ).padStart(2, '0')}-${String(now.getUTCMinutes()).padStart(2, '0')}`
 }

@@ -1,6 +1,7 @@
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 import { cwd } from 'node:process'
-import { describe, expect, it, vi } from 'vitest'
+import mock from 'mock-fs'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { fileExists, formatPath, merge } from '../utils'
 import {
   backupPath,
@@ -16,12 +17,24 @@ const saveGame = {
 }
 
 describe('utils test', () => {
+  beforeEach(() => {
+    mock({
+      [localSavegamePath]: mock.load(
+        resolve(__dirname, 'assets', 'sdimg_SPRJ0005')
+      ),
+    })
+  })
+
+  afterEach(() => {
+    mock.restore()
+  })
+
   it('file exists', async () => {
-    expect(await fileExists(join(cwd(), 'package.json'))).toBe(true)
+    expect(await fileExists(localSavegamePath)).toBe(true)
   })
 
   it('file does not exists', async () => {
-    expect(await fileExists(join(cwd(), 'save.scum'))).toBe(false)
+    expect(await fileExists('not.exist')).toBe(false)
   })
 
   it('merge ftp.opts() & savegame', () => {
@@ -78,7 +91,7 @@ describe('utils test', () => {
     expect(
       formatPath({
         ...saveGame,
-        backupPath: 'C:\\Users\\jrson\\savescum',
+        backupPath,
       })
     ).toMatchObject({
       dest: localSavegamePath,
@@ -100,7 +113,7 @@ describe('utils test', () => {
       formatPath(
         {
           ...saveGame,
-          backupPath: 'C:\\Users\\jrson\\savescum',
+          backupPath,
         },
         fakeDate
       )
