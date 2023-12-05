@@ -137,8 +137,8 @@ const FTPForm: FunctionComponent = () => {
                     {state.ftp.ip === ''
                       ? ': No IP specified.'
                       : state.fetch.error !== undefined
-                      ? `: ${state.fetch.error}`
-                      : '.'}
+                        ? `: ${state.fetch.error}`
+                        : '.'}
                   </small>
                 </div>
               )}

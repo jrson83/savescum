@@ -22,14 +22,14 @@ export interface ServerAdresses {
 }
 
 export type SDIMG = FromSchema<
-  typeof profileSchema['items']['properties']['savedata']['items']['properties']['sdimg']
+  (typeof profileSchema)['items']['properties']['savedata']['items']['properties']['sdimg']
 >
 
 export type SaveData = FromSchema<
-  typeof profileSchema['items']['properties']['savedata']
+  (typeof profileSchema)['items']['properties']['savedata']
 >
 
-export type Profile = FromSchema<typeof profileSchema['items']>
+export type Profile = FromSchema<(typeof profileSchema)['items']>
 
 export type Profiles = FromSchema<typeof profileSchema>
 

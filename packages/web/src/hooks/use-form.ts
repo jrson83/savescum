@@ -20,7 +20,7 @@ type ErrorRecord<T> = Partial<Record<keyof T, string>>
 type Validations<T extends {}> = Partial<Record<keyof T, Validation>>
 
 export const useForm = <
-  T extends Partial<Record<keyof T, any>> = Record<string, never>
+  T extends Partial<Record<keyof T, any>> = Record<string, never>,
 >(options?: {
   validations?: Validations<T>
   initialValues?: Partial<T>
