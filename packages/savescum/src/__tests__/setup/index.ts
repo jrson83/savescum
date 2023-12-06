@@ -8,12 +8,12 @@ import type {
   SavegameSchema,
 } from '../../types'
 
-// Thu Jun 01 2023 02:04:44 GMT+0200
+// Thu Jun 01 2023 00:04:44 GMT+0000
 const fakeTimestamp = 1685577884592
 
-export const fakeDate = new Date(fakeTimestamp)
+export const mockDate = new Date(fakeTimestamp)
 
-export const fakeFolder = '2023-06-01_00-04'
+export const fakeFolder = '2023-06-01_00-04-44'
 
 export const backupPath = normalize(join(homedir(), 'savescum'))
 export const cusaPath = normalize(join(backupPath, '1ceaa172', 'CUSA00207'))
@@ -41,7 +41,7 @@ export const savegame: SavegameSchema = {
   profileId: '1ceaa172',
   cusa: 'CUSA00207',
   sdimg: 'sdimg_SPRJ0005',
-  backupPath,
+  backupPath: undefined,
 }
 
 export const options: OptionsSchema = {
@@ -70,19 +70,28 @@ export const testResponse = {
 export const ensureResponse = {
   success: true,
   message: RESPONSE_SUCCESS_MESSAGES.ENSURE,
-  savegame,
+  savegame: {
+    ...savegame,
+    backupPath: localSavegamePath,
+  },
 }
 
 export const backupResponse = {
   success: true,
   message: RESPONSE_SUCCESS_MESSAGES.BACKUP,
-  savegame,
+  savegame: {
+    ...savegame,
+    backupPath: localSavegamePath,
+  },
 }
 
 export const restoreResponse = {
   success: true,
   message: RESPONSE_SUCCESS_MESSAGES.RESTORE,
-  savegame,
+  savegame: {
+    ...savegame,
+    backupPath: remoteSavegamePath,
+  },
 }
 
 export const profilesResponse = {

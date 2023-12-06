@@ -1,20 +1,15 @@
-import { join, resolve } from 'node:path'
-import { cwd } from 'node:process'
+import { resolve } from 'node:path'
 import mock from 'mock-fs'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { fileExists, formatPath, merge } from '../utils'
 import {
   backupPath,
-  fakeDate,
+  ftp,
   localSavegamePath,
+  mockDate,
   remoteSavegamePath,
+  savegame,
 } from './setup'
-
-const saveGame = {
-  profileId: '1ceaa172',
-  cusa: 'CUSA00207',
-  sdimg: 'sdimg_SPRJ0005',
-}
 
 describe('utils test', () => {
   beforeEach(() => {
@@ -29,53 +24,34 @@ describe('utils test', () => {
     mock.restore()
   })
 
-  it('file exists', async () => {
+  it('should return true if file exists', async () => {
     expect(await fileExists(localSavegamePath)).toBe(true)
   })
 
-  it('file does not exists', async () => {
+  it('should return false if file does not exists', async () => {
     expect(await fileExists('not.exist')).toBe(false)
   })
 
-  it('merge ftp.opts() & savegame', () => {
-    const options = merge(
-      {
-        port: 2121,
-        user: 'anonymous',
-        password: '',
-        secure: false,
-        sound: true,
-        debug: false,
-        ip: '192.168.56.1',
-      },
-      {
-        ...saveGame,
-        backupPath,
-      }
-    )
+  it('should merge ftp.opts() & savegame', () => {
+    const options = merge(ftp, {
+      ...savegame,
+      backupPath,
+    })
     expect(options).toMatchObject({
-      ftp: {
-        port: 2121,
-        user: 'anonymous',
-        password: '',
-        secure: false,
-        sound: true,
-        debug: false,
-        ip: '192.168.56.1',
-      },
+      ftp,
       savegame: {
-        ...saveGame,
+        ...savegame,
         backupPath,
       },
     })
   })
 
-  it('local to remote path with empty `backupPath', () => {
+  it('should format local to remote path with empty `backupPath', () => {
     // https://github.com/vitest-dev/vitest/issues/506#issuecomment-1021317811
     vi.useFakeTimers()
-    vi.setSystemTime(fakeDate)
+    vi.setSystemTime(mockDate)
 
-    expect(formatPath(saveGame)).toMatchObject({
+    expect(formatPath(savegame)).toMatchObject({
       dest: localSavegamePath,
       src: remoteSavegamePath,
     })
@@ -83,14 +59,14 @@ describe('utils test', () => {
     vi.useRealTimers()
   })
 
-  it('local to remote path with `backupPath', () => {
+  it('should format local to remote path with `backupPath', () => {
     // https://github.com/vitest-dev/vitest/issues/506#issuecomment-1021317811
     vi.useFakeTimers()
-    vi.setSystemTime(fakeDate)
+    vi.setSystemTime(mockDate)
 
     expect(
       formatPath({
-        ...saveGame,
+        ...savegame,
         backupPath,
       })
     ).toMatchObject({
@@ -101,21 +77,21 @@ describe('utils test', () => {
     vi.useRealTimers()
   })
 
-  it('remote to local path with empty `backupPath`', () => {
-    expect(formatPath(saveGame, fakeDate)).toMatchObject({
+  it('should format remote to local path with empty `backupPath`', () => {
+    expect(formatPath(savegame, mockDate)).toMatchObject({
       dest: remoteSavegamePath,
       src: localSavegamePath,
     })
   })
 
-  it('remote to local path with `backupPath`', () => {
+  it('should format remote to local path with `backupPath`', () => {
     expect(
       formatPath(
         {
-          ...saveGame,
+          ...savegame,
           backupPath,
         },
-        fakeDate
+        mockDate
       )
     ).toMatchObject({
       dest: remoteSavegamePath,

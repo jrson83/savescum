@@ -18,8 +18,8 @@ import {
   backupResponse,
   cusaPath,
   ensureResponse,
-  fakeDate,
   localSavegamePath,
+  mockDate,
   options,
   profilesResponse,
   remoteSavegamePath,
@@ -95,7 +95,7 @@ describe('ftp test', () => {
     })
 
     vi.useFakeTimers()
-    vi.setSystemTime(fakeDate)
+    vi.setSystemTime(mockDate)
 
     const response = await FTPClient.ensure(options)
 
@@ -117,7 +117,7 @@ describe('ftp test', () => {
 
   it('should run ftp backup cmd with success', async () => {
     vi.useFakeTimers()
-    vi.setSystemTime(fakeDate)
+    vi.setSystemTime(mockDate)
 
     const response = await FTPClient.backup(options)
 
@@ -144,7 +144,7 @@ describe('ftp test', () => {
     expect(await util.fileExists(cusaPath)).toBe(true)
 
     vi.useFakeTimers()
-    vi.setSystemTime(fakeDate)
+    vi.setSystemTime(mockDate)
 
     mock({
       [normalize(localSavegamePath)]: 'fake\r\n',
