@@ -21,24 +21,27 @@
     "directory": "packages/web"
   },
   "license": "MIT",
+  "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": "./lib/index.cjs",
+    ".": "./lib/index.js",
     "./package.json": "./package.json"
   },
-  "main": "lib/index.cjs",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "typesVersions": {
     "*": {
       "*": ["lib/index.d.ts"]
     }
   },
-  "files": ["dist", "lib", "public"],
+  "files": ["dist", "lib"],
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "pnpm clean && tsc && vite build --watch",
     "build": "pnpm clean && tsc && vite build",
     "preview": "pnpm build && vite preview",
+    "typecheck": "tsc --noEmit",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
@@ -49,6 +52,9 @@
     "sass": "^1.69.5",
     "typescript": "5.3.2",
     "vite": "^5.0.2"
+  },
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
   },
   "publishConfig": {
     "access": "public"

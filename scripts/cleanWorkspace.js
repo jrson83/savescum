@@ -5,11 +5,10 @@ import { readdir, rm } from 'fs/promises'
 /**
  * Deletes node_modules folders inside a workspace recursively & parallel
  *
- * @param {string} [path=process.cwd()] - The target path
+ * @param {string} [root=process.cwd()] - The target path
  * @returns {Promise<void>}
  */
-async function removeWorkspaceDir(path) {
-  const root = path || cwd()
+async function removeWorkspaceDir(root = cwd()) {
   try {
     const contents = await readdir(root, { withFileTypes: true })
     for (const content of contents) {

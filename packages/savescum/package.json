@@ -24,11 +24,12 @@
     "directory": "packages/savescum"
   },
   "sideEffects": false,
+  "type": "module",
   "exports": {
-    ".": "./dist/index.cjs.js",
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.js",
   "bin": {
     "savescum": "bin/savescum.js"
   },
@@ -36,7 +37,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "tsx src/index.ts --host=0.0.0.0",
-    "build": "ptsup",
+    "build": "tsc --noEmit && tsup",
+    "typecheck": "tsc --noEmit",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
@@ -54,7 +56,7 @@
     "json-schema-to-ts": "^2.9.2"
   },
   "engines": {
-    "node": ">=16.14.0"
+    "node": "^18.0.0 || >=20.0.0"
   },
   "publishConfig": {
     "access": "public"
