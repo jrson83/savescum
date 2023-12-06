@@ -1,7 +1,7 @@
-const { join } = require('node:path')
+import { join } from 'node:path'
 
 function resolveWebRoot() {
   return join(__dirname, '..', 'dist')
 }
 
-module.exports = resolveWebRoot
+export default resolveWebRoot
