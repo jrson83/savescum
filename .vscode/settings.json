@@ -1,8 +1,8 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports.biome": true,
-    "source.fixAll": true
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll": "explicit"
   },
   "files.insertFinalNewline": true,
   "css.validate": false,
