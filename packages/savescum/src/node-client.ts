@@ -21,20 +21,14 @@ export class NodeClient {
           Promise.all(
             dirPaths.map(async (path, index) => {
               const fileDetails = await stat(
-                resolve(
-                  options.backupPath || home,
-                  options.profileId,
-                  options.cusa,
-                  path.name,
-                  options.sdimg
-                )
+                resolve(location, path.name, options.sdimg)
               )
 
-              const { size, mtime } = fileDetails
+              const { size, mtime, birthtime } = fileDetails
 
               return {
                 id: index + 1,
-                timestamp: path.name,
+                timestamp: `${birthtime}`,
                 mtime: mtime.getTime(),
                 size: `${size / (1024 * 1024)}MB`,
               }
@@ -47,11 +41,7 @@ export class NodeClient {
         profileId: options.profileId,
         cusa: options.cusa,
         sdimg: options.sdimg,
-        backupPath: resolve(
-          options.backupPath || home,
-          options.profileId,
-          options.cusa
-        ),
+        backupPath: location,
         history: latest,
       }
     } catch (err: unknown) {

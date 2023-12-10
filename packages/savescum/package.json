@@ -39,7 +39,7 @@
     "dev": "tsx src/index.ts --host=0.0.0.0",
     "build": "pnpm typecheck && tsup",
     "typecheck": "tsc --noEmit",
-    "test": "pnpm typecheck && node --test-reporter=spec --import=tsx/esm ./src/__tests__/basic.test.ts"
+    "test": "node --import=tsx/esm ./src/__tests__/run.ts"
   },
   "dependencies": {
     "@savescum/web": "workspace:*"

@@ -3,13 +3,13 @@ import { dirname } from 'node:path'
 import { PassThrough } from 'node:stream'
 import { Client, type FileInfo } from 'basic-ftp'
 import { RESPONSE_SUCCESS_MESSAGES } from './constants'
+import { NodeClient } from './node-client'
 import type { FtpSchema, OptionsSchema, Profile } from './types'
 import {
   colorize,
   error,
   fileExists,
   formatPath,
-  getLatestSavegame,
   message,
   streamToBuffer,
   streamToString,
@@ -152,11 +152,11 @@ export class FTPClient {
   static async restore(options: OptionsSchema) {
     const { ftp, savegame } = options
 
-    const latestBackup = await getLatestSavegame(savegame)
+    const latestBackup = await NodeClient.history(savegame)
 
     const { dest, src } = formatPath(
       savegame,
-      latestBackup?.history[0].timestamp
+      new Date(`${latestBackup?.history[0].timestamp}`)
     )
 
     const localFile = await fileExists(src)
@@ -250,7 +250,10 @@ export class FTPClient {
 
           const avatar = await getAvatar(filePath)
 
-          profiles.push({ ...resolvedProfile, avatar: avatar })
+          profiles.push({
+            ...resolvedProfile,
+            avatar: avatar.toString('base64'),
+          })
         }
 
         return {

@@ -12,6 +12,6 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
+  "include": ["src/**/*.ts"],
   "exclude": ["bin", "dist", "**/node_modules"]
 }
