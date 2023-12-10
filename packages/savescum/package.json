@@ -37,10 +37,9 @@
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "tsx src/index.ts --host=0.0.0.0",
-    "build": "tsc --noEmit && tsup",
+    "build": "pnpm typecheck && tsup",
     "typecheck": "tsc --noEmit",
-    "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "test": "pnpm typecheck && node --test-reporter=spec --import=tsx/esm ./src/__tests__/basic.test.ts"
   },
   "dependencies": {
     "@savescum/web": "workspace:*"

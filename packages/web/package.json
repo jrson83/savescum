@@ -42,8 +42,7 @@
     "build": "pnpm clean && tsc && vite build",
     "preview": "pnpm build && vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "test": "pnpm typecheck && node --test-reporter=spec --import=tsx/esm ./src/__tests__/basic.test.ts"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.7.0",

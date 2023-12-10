@@ -1,6 +1,6 @@
 import { URL, fileURLToPath } from 'node:url'
 import preact from '@preact/preset-vite'
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [preact()],
@@ -11,8 +11,5 @@ export default defineConfig({
   },
   server: {
     host: true,
-  },
-  test: {
-    include: ['./src/__tests__/*.test.ts'],
   },
 })
