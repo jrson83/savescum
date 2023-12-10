@@ -13,10 +13,7 @@ export default defineConfig({
   external: ['@savescum/web'],
   esbuildOptions(options) {
     options.banner = {
-      js: `
-      import { createRequire } from 'module';
-      const require = createRequire(import.meta.url);
-    `,
+      js: "import { createRequire } from 'module';const require = createRequire(import.meta.url);",
     }
   },
 })
