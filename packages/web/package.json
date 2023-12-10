@@ -32,10 +32,15 @@
   "types": "lib/index.d.ts",
   "typesVersions": {
     "*": {
-      "*": ["lib/index.d.ts"]
+      "*": [
+        "lib/index.d.ts"
+      ]
     }
   },
-  "files": ["dist", "lib"],
+  "files": [
+    "dist",
+    "lib"
+  ],
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "pnpm clean && tsc && vite build --watch",
@@ -46,7 +51,7 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.7.0",
-    "@types/node": "^20.9.5",
+    "@types/node": "^20.10.4",
     "preact": "^10.19.2",
     "sass": "^1.69.5",
     "typescript": "5.3.2",
