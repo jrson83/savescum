@@ -4,6 +4,39 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.3.0 (2023-12-11)
+
+### Bug Fixes
+
+- fix shim format ([737860e](https://github.com/jrson83/savescum/commit/a258a74f4cdedd7815ed383525a29171341ad3ef) by Jrson)
+- dynamic require not supported ([737860e](https://github.com/jrson83/savescum/commit/e2ebf53f8ccdd643b2b3b41721cdcbbfec10f15b) by Jrson)
+- fix deps ([737860e](https://github.com/jrson83/savescum/commit/14f302bd6e8c29852657372791c00fc00559aff8) by Jrson)
+- fix bin import path ([737860e](https://github.com/jrson83/savescum/commit/416d8976cd3e3b43005658b8095ea08f45218774) by Jrson)
+- add seconds to path date format ([737860e](https://github.com/jrson83/savescum/commit/1f8ed8114947dbccdc30ddf3b17a6ca8e093dcac) by Jrson)
+- use utc time for consistent tests ([737860e](https://github.com/jrson83/savescum/commit/1340e6b1db995e2e30635197c9a65d249ad3d72d) by Jrson)
+- revert breaking lint rule ([737860e](https://github.com/jrson83/savescum/commit/e46dc375cb7d10813049a4fa6c9bab8e9857d785) by Jrson)
+- remove unused error function ([737860e](https://github.com/jrson83/savescum/commit/3ae07d9e574bb41cffd0d4c140fb77ee13bc5382) by Jrson)
+- apply new lint rules ([737860e](https://github.com/jrson83/savescum/commit/b72527d4b54b0669e690f3da90f8d6e3b6a3b687) by Jrson)
+- replace this with typeof in ftpclient class ([737860e](https://github.com/jrson83/savescum/commit/be987dc6ebceb74137ac30e8e43199fe5a6f45c3) by Jrson)
+- fix and improve profile schema ([737860e](https://github.com/jrson83/savescum/commit/ed7191a1c81964f681a32aa3c2ca1cc1d42937b0) by Jrson)
+- update changelog ([737860e](https://github.com/jrson83/savescum/commit/a7b9356b215ede8a8a9e0420dfab17ecb7290d44) by Jrson)
+
+### Dependencies
+
+- update dependencies (#82) ([737860e](https://github.com/jrson83/savescum/commit/9efd59d5a819907655cbc2093d74e41608ef090d) by Jrson)
+- add changelog generator ([737860e](https://github.com/jrson83/savescum/commit/d02ca0e71081bcac2c1d0e6c605b29e1aa1f5920) by Jrson)
+
+### Features
+
+- add method to resolve profile savedata ([737860e](https://github.com/jrson83/savescum/commit/769884e212b29323224a63f5d2d96fa561b361bb) by Jrson)
+- bump minimum node version to 18 (#87),Node.js 18+ is now required. ([737860e](https://github.com/jrson83/savescum/commit/3d43f271bfe570c539aff9cb38fbff1b23042435) by Jrson)
+- enhance profiles command to get avatars as base64 (#83) ([737860e](https://github.com/jrson83/savescum/commit/c4e366f323a8738ed802cb815181b53888e1e790) by Jrson)
+
+### Refactor
+
+- improve date format in local savegame backup path,since the date format differs, all existing folders in %USERPROFILE%/savescum must be cleared/deleted ([737860e](https://github.com/jrson83/savescum/commit/188a70be23891cf118828128f067fcbbc4261d55) by Jrson)
+- rename util files from camel-case to kebab-case ([737860e](https://github.com/jrson83/savescum/commit/a24b30bf878b542c229ae25dafeac75eddad8ce0) by Jrson)
+
 ## 0.2.1 (2023-10-31)
 
 ### Bug Fixes
