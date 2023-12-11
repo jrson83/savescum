@@ -2,7 +2,7 @@ import { readdir, stat } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 import type { SavegameDetailsSchema, SavegameSchema } from '../types'
-import { error } from '../utils/messages'
+import { error } from '../utils'
 
 export class NodeClient {
   static async history(

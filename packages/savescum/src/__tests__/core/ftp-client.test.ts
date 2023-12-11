@@ -8,7 +8,6 @@ import { fileExists } from '../../utils'
 import {
   backupResponse,
   ensureResponse,
-  fakeTimestamp,
   localSavegamePath,
   mockDate,
   options,
@@ -82,8 +81,9 @@ describe('FTPClient', () => {
     mockFs({
       [normalize(localSavegamePath)]: mockFs.file({
         content: 'fake',
-        ctime: new Date(fakeTimestamp),
-        mtime: new Date(fakeTimestamp),
+        ctime: mockDate,
+        mtime: mockDate,
+        birthtime: mockDate,
       }),
     })
 
@@ -98,8 +98,9 @@ describe('FTPClient', () => {
     mockFs({
       [normalize(localSavegamePath)]: mockFs.file({
         content: 'fake',
-        ctime: new Date(fakeTimestamp),
-        mtime: new Date(fakeTimestamp),
+        ctime: mockDate,
+        mtime: mockDate,
+        birthtime: mockDate,
       }),
     })
 
