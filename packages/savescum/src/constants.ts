@@ -4,6 +4,7 @@ export const RESPONSE_SUCCESS_MESSAGES = {
   BACKUP: 'Backup operation completed successfully.',
   RESTORE: 'Restore operation completed successfully.',
   PROFILES: 'Profiles operation completed successfully.',
+  HISTORY: 'History successfully received.',
 }
 
 export const HELPER_IP = '192.168.178.39'

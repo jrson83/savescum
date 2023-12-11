@@ -162,7 +162,7 @@ export class FTPClient {
 
     const { dest, src } = formatPath(
       savegame,
-      new Date(`${latestBackup?.history[0].timestamp}`)
+      new Date(`${latestBackup?.savegame.history[0].timestamp}`)
     )
 
     const localFile = await fileExists(src)

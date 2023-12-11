@@ -61,11 +61,7 @@ export const startServer = async (options: ServeOptions) => {
       historyOptionsSchema,
       async (request, reply) => {
         const data = await NodeClient.history(request.body.savegame)
-        return reply.code(200).send({
-          success: true,
-          message: 'success',
-          savegame: data,
-        })
+        return reply.code(200).send(data)
       }
     )
 

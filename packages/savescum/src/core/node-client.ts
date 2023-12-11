@@ -1,13 +1,12 @@
 import { readdir, stat } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
-import type { SavegameDetailsSchema, SavegameSchema } from '../types'
+import { RESPONSE_SUCCESS_MESSAGES } from '../constants'
+import type { SavegameSchema } from '../types'
 import { error } from '../utils'
 
 export class NodeClient {
-  static async history(
-    options: SavegameSchema
-  ): Promise<(SavegameSchema & SavegameDetailsSchema) | undefined> {
+  static async history(options: SavegameSchema) {
     const home = join(homedir(), 'savescum')
     const location = join(
       options.backupPath || home,
@@ -38,11 +37,15 @@ export class NodeClient {
         .then((dirs) => dirs.sort((a, b) => b.mtime - a.mtime))
 
       return {
-        profileId: options.profileId,
-        cusa: options.cusa,
-        sdimg: options.sdimg,
-        backupPath: location,
-        history: latest,
+        success: true,
+        message: RESPONSE_SUCCESS_MESSAGES.HISTORY,
+        savegame: {
+          profileId: options.profileId,
+          cusa: options.cusa,
+          sdimg: options.sdimg,
+          backupPath: location,
+          history: latest,
+        },
       }
     } catch (err: unknown) {
       if (err instanceof Error) {
