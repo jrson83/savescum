@@ -1,5 +1,5 @@
 import { homedir } from 'node:os'
-import { join, normalize } from 'node:path'
+import { join } from 'node:path'
 import { RESPONSE_SUCCESS_MESSAGES } from '../constants'
 import type {
   FtpSchema,
@@ -39,23 +39,6 @@ export const options: OptionsSchema = {
   savegame,
 }
 
-export const backupPath = normalize(join(homedir(), 'savescum'))
-export const cusaPath = normalize(
-  join(backupPath, savegame.profileId, savegame.cusa)
-)
-
-export const remoteSavegamePath = `/user/home/${savegame.profileId}/savedata/${savegame.cusa}/${savegame.sdimg}`
-
-export const localSavegamePath = normalize(
-  join(
-    backupPath,
-    savegame.profileId,
-    savegame.cusa,
-    fakeFolder,
-    savegame.sdimg
-  )
-)
-
 export const profiles: Profiles = [
   {
     profileId: '1bexx117',
@@ -68,6 +51,19 @@ export const profiles: Profiles = [
     avatar: 'base64png_AHunterMustHunt',
   },
 ]
+
+export const backupPath = join(homedir(), 'savescum')
+export const cusaPath = join(backupPath, savegame.profileId, savegame.cusa)
+
+export const remoteSavegamePath = `/user/home/${savegame.profileId}/savedata/${savegame.cusa}/${savegame.sdimg}`
+
+export const localSavegamePath = join(
+  backupPath,
+  savegame.profileId,
+  savegame.cusa,
+  fakeFolder,
+  savegame.sdimg
+)
 
 export const testResponse = {
   success: true,
@@ -111,9 +107,7 @@ export const historyResponse = {
   success: true,
   message: RESPONSE_SUCCESS_MESSAGES.HISTORY,
   savegame: {
-    profileId: savegame.profileId,
-    cusa: savegame.cusa,
-    sdimg: savegame.sdimg,
+    ...savegame,
     backupPath: cusaPath,
     history: [
       {
