@@ -23,6 +23,6 @@
     }
   },
   "include": ["src"],
-  "exclude": ["dist", "**/__tests__", "**/node_modules"],
+  "exclude": ["dist", "lib", "**/node_modules", "**/__tests__"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

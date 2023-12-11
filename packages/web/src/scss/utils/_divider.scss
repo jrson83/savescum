@@ -1,9 +1,0 @@
-@use "sass:map";
-@use "../variables" as *;
-
-// Utility: Divider
-hr {
-  margin: map.get($divider, spacing) 0;
-  border: 0;
-  border-top: map.get($divider, border);
-}
