@@ -4,7 +4,13 @@ import { PassThrough } from 'node:stream'
 import { Client, type FileInfo } from 'basic-ftp'
 import { RESPONSE_SUCCESS_MESSAGES } from './constants'
 import { NodeClient } from './node-client'
-import type { FtpSchema, OptionsSchema, Profile } from './types'
+import type {
+  FtpSchema,
+  OptionsSchema,
+  Profile,
+  SDIMG,
+  SaveData,
+} from './types'
 import {
   colorize,
   error,
@@ -210,20 +216,13 @@ export class FTPClient {
       }
 
       if (Array.isArray(rawProfiles) && rawProfiles.length > 0) {
-        const getAvatar = async (filePath: string) => {
-          const stream = new PassThrough()
-
-          client.downloadTo(stream, filePath)
-
-          const avatar = await streamToBuffer(stream)
-
-          return avatar
-        }
-
         const getUsername = async (profile: FileInfo) => {
           const stream = new PassThrough()
 
-          await client.downloadTo(stream, `${profile.name}/username.dat`)
+          await client.downloadTo(
+            stream,
+            `/user/home/${profile.name}/username.dat`
+          )
 
           const username = await streamToString(stream)
 
@@ -231,6 +230,61 @@ export class FTPClient {
             profileId: profile.name,
             username: username,
           }
+        }
+
+        const getAvatar = async (filePath: string) => {
+          const stream = new PassThrough()
+
+          client.downloadTo(stream, filePath)
+
+          const avatar = await streamToBuffer(stream)
+
+          return avatar.toString('base64')
+        }
+
+        const getSaveData = async (profile: FileInfo) => {
+          const rawSaveData = await client.list(
+            `/user/home/${profile.name}/savedata`
+          )
+
+          const saveData: SaveData = []
+
+          if (Array.isArray(rawSaveData) && rawSaveData.length > 0) {
+            for (const data of rawSaveData) {
+              if (
+                data.type === 2 &&
+                !data.name.startsWith('.') &&
+                data.name !== 'LAPY20009' &&
+                data.name !== 'GOLD00777' &&
+                data.name !== 'sce_backup2' &&
+                data.name !== 'APOL00004'
+              ) {
+                const rawFiles = await client.list(
+                  `/user/home/${profile.name}/savedata/${data.name}`
+                )
+
+                const files: SDIMG = []
+
+                if (Array.isArray(rawFiles) && rawFiles.length > 0) {
+                  for (const file of rawFiles) {
+                    if (!file.name.endsWith('.bin')) {
+                      files.push({
+                        name: file.name,
+                        size: file.size,
+                      })
+                    }
+                  }
+                }
+
+                saveData.push({
+                  cusa: data.name,
+                  sdimg: files,
+                })
+              }
+            }
+          }
+
+          return saveData
         }
 
         const profiles: Profile[] = []
@@ -250,9 +304,12 @@ export class FTPClient {
 
           const avatar = await getAvatar(filePath)
 
+          const saveData = await getSaveData(profile)
+
           profiles.push({
             ...resolvedProfile,
-            avatar: avatar.toString('base64'),
+            avatar: avatar,
+            savedata: saveData,
           })
         }
 
@@ -264,7 +321,7 @@ export class FTPClient {
       }
 
       error('Could not find any profiles in /user/home')
-      process.exit(0)
+      process.exit(1)
     } catch (err: unknown) {
       if (err instanceof Error) {
         error(err.message)

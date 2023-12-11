@@ -32,7 +32,7 @@ export const profileSchema = {
                     type: 'string',
                   },
                   size: {
-                    type: 'string',
+                    type: 'number',
                   },
                 },
                 required: ['name', 'size'],
