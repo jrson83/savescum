@@ -33,6 +33,17 @@ If you meet the [requirements](/guide/quick-start#requirements), continue readin
 
 ## How to obtain PSNID, CUSA & SDIMG?
 
+### Obtain automatically
+
+You can use the cli's [profiles command](/cli/commands#savescum-ftp-profiles), to receive a list of all profiles from ftp including:
+
+- psn-id (offline activated account)
+- username
+- avatar (as base64/png)
+- savedata (a list of savegames)
+
+### Obtain manually (deprecated)
+
 > If you don't know a games CUSA, you can search for it on [orbispatches.com](https://orbispatches.com) or [prosperopatches.com](https://prosperopatches.com/).
 
 1. **Download** [WinSCP](https://winscp.net/eng/download.php), [FileZilla](https://filezilla-project.org/) or any FTP-Client

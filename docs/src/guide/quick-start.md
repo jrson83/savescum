@@ -4,7 +4,7 @@
 
 Savescum has a few requirements:
 
-- [Node.js](https://nodejs.org/en/) `>= 16.15.1`
+- [Node.js](https://nodejs.org/en/) `>= 18.0.0`
 - An exploitable PlayStation 4/5 (see [PS4 JB Status](https://wololo.net/2023/05/02/ps4-jailbreak-the-status-in-2023/), [PS5 JB Status](https://wololo.net/2023/05/04/ps5-jailbreak-the-status-in-2023/))
   - PS4: [GoldHEN](https://github.com/GoldHEN/GoldHEN) or any FTP-Server
   - PS5: FTPS5 either [SiSTR0](https://github.com/SiSTR0/FTPS5) or [EchoStretch](https://github.com/EchoStretch/FTPS5)
@@ -50,18 +50,24 @@ By default backups are stored in the home directory of the current user:
 
 Savegame files are not overwritten. Each backup is stored in a `creationTimestamp` folder.
 
+::: danger BREAKING CHANGE
+Since commit [737860e](https://github.com/jrson83/savescum/commit/188a70be23891cf118828128f067fcbbc4261d55) in savescum@0.3.0 the date format in local savegame backup path changed to `YYYY-MM-DD_HH-mm-ss GMT+0000`. This makes it easier to manage & distinguish savegame backups.
+
+**All existing folders in %USERPROFILE%/savescum must be deleted.**
+:::
+
 ```sh
 # example syntax
 /home/username/savescum/
 └── profileId/
     └── CUSAXXXXX/
-        └── timestamp/ # creationTimestamp
+        └── timestamp/ # YYYY-MM-DD_HH-mm-ss GMT+0000
             └── sdimg
 
 # example bloodborne savegame
 /home/username/savescum/
 └── 1ceaa172/
     └── CUSA00207/
-        └── 1683605652684/
+        └── 2023-06-01_00-04-44/ # from timestamp 1685577884592
             └── sdimg_SPRJ0005
 ```

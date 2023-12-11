@@ -108,6 +108,15 @@ Lists PSN profiles/accounts with avatars (base64) from PS4/PS5 FTP server.
 savescum ftp [options] profiles [options]
 ```
 
+::: tip
+The command will list all profiles from ftp including:
+
+- psn-id (offline activated account)
+- username
+- avatar (as base64/png)
+- savedata (a list of savegames)
+:::
+
 ::: details Click to view usage example
 ```sh
 savescum ftp --ip=192.168.178.69 profiles
@@ -120,10 +129,12 @@ savescum ftp --ip=192.168.178.69 profiles
   ➜ ID: 1bexx117
     Username: chiaki
     Avatar: iVBORw0KGgoAAAANSUhE...
+    Savedata: [{"cusa":"CUSA00207","sdimg":[{"name":"sdimg_SPRJ0005","size":37224448}]}]
 
   ➜ ID: 1ceaa172
     Username: AHunterMustHunt
     Avatar: iVBORw0KGgoAAAANSUhE...
+    Savedata: [{"cusa":"CUSA00207","sdimg":[{"name":"sdimg_SPRJ0005","size":37224448}]}]
 ```
 :::
 
