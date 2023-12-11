@@ -2,6 +2,8 @@
 
 A command-line tool & webinterface, to efficiently save scum on an exploitable PS4/PS5.
 
+<a href="https://pkg-size.dev/savescum"><img src="https://pkg-size.dev/badge/bundle/1528" title="Bundle size for savescum"></a>
+
 ## 🎯 Features
 
 - ⚡ Blazing fast savegame backup & restore
