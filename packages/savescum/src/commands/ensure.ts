@@ -1,4 +1,4 @@
-import { FTPClient } from '../ftp-client'
+import { FTPClient } from '../core'
 import type { OptionsSchema } from '../types'
 import { beep, info, success } from '../utils'
 

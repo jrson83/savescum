@@ -4,7 +4,7 @@ import { normalize } from 'node:path'
 import { afterEach, describe, it } from 'node:test'
 import { Client } from 'basic-ftp'
 import { default as mockFs } from 'mock-fs'
-import { fileExists } from '../utils'
+import { fileExists } from '../../utils'
 import {
   backupResponse,
   ensureResponse,
@@ -14,9 +14,9 @@ import {
   options,
   restoreResponse,
   testResponse,
-} from './setup'
+} from '../setup'
 
-import { FTPClient } from '../ftp-client'
+import { FTPClient } from '../../core'
 
 describe('FTPClient', () => {
   afterEach(() => {

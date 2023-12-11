@@ -1,7 +1,6 @@
 import resolveWebRoot from '@savescum/web'
 import Fastify from 'fastify'
-import { FTPClient } from '../ftp-client'
-import { NodeClient } from '../node-client'
+import { FTPClient, NodeClient } from '../core'
 import type {
   JsonSchemaToTsProviderWithSharedSchema,
   ServeOptions,

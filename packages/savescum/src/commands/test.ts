@@ -1,5 +1,5 @@
 import type { Command } from '@commander-js/extra-typings'
-import { FTPClient } from '../ftp-client'
+import { FTPClient } from '../core'
 import type { FtpSchema } from '../types'
 import { beep, info, message, success } from '../utils'
 
