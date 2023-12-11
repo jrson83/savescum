@@ -106,3 +106,18 @@ export const profilesResponse = {
   message: RESPONSE_SUCCESS_MESSAGES.PROFILES,
   profiles,
 }
+
+export const historyResponse = {
+  profileId: savegame.profileId,
+  cusa: savegame.cusa,
+  sdimg: savegame.sdimg,
+  backupPath: cusaPath,
+  history: [
+    {
+      id: 1,
+      mtime: fakeTimestamp,
+      size: '0.000003814697265625MB',
+      timestamp: mockDate.toString(),
+    },
+  ],
+}

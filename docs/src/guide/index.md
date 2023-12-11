@@ -4,6 +4,8 @@
 
 >  A command-line tool & webinterface, to efficiently save scum on an exploitable PS4/PS5.
 
+<a href="https://pkg-size.dev/savescum"><img src="https://pkg-size.dev/badge/bundle/1528" title="Bundle size for savescum"></a>
+
 ## 🎯 Features
 
 - ⚡ Blazing fast savegame backup & restore
@@ -25,10 +27,16 @@ backup --profile-id=1ceaa172 --cusa=CUSA00207 --sdimg=sdimg_SPRJ0005 --debug
 # outputs
 ℹ Running backup ...
   ├── Remote Path: /user/home/1ceaa172/savedata/CUSA00207/sdimg_SPRJ0005
-  └── Local Path: C:\Users\jrson\savescum\1ceaa172\CUSA00207\1683605652684\sdimg_SPRJ0005
+  └── Local Path: C:\Users\jrson\savescum\1ceaa172\CUSA00207\2023-06-01_00-04-44\sdimg_SPRJ0005
 
 ✔ Backup operation completed successfully.
 ```
+
+::: danger BREAKING CHANGE
+Since commit [737860e](https://github.com/jrson83/savescum/commit/188a70be23891cf118828128f067fcbbc4261d55) in savescum@0.3.0 the date format in local savegame backup path changed to `YYYY-MM-DD_HH-mm-ss GMT+0000`. This makes it easier to manage & distinguish savegame backups.
+
+**All existing folders in %USERPROFILE%/savescum must be deleted.**
+:::
 
 ## Webinterface
 

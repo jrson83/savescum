@@ -2,15 +2,14 @@ import { mkdir } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { PassThrough } from 'node:stream'
 import { Client, type FileInfo } from 'basic-ftp'
-import { RESPONSE_SUCCESS_MESSAGES } from './constants'
-import { NodeClient } from './node-client'
+import { RESPONSE_SUCCESS_MESSAGES } from '../constants'
 import type {
   FtpSchema,
   OptionsSchema,
   Profile,
   SDIMG,
   SaveData,
-} from './types'
+} from '../types'
 import {
   colorize,
   error,
@@ -19,7 +18,8 @@ import {
   message,
   streamToBuffer,
   streamToString,
-} from './utils'
+} from '../utils'
+import { NodeClient } from './node-client'
 
 export class FTPClient {
   static async connect(options: FtpSchema): Promise<Client> {
