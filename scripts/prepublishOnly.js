@@ -3,26 +3,25 @@ import { copyFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { cwd } from 'node:process'
 
-const licensePath = resolve(cwd(), 'LICENSE')
-const readmePath = resolve(cwd(), 'README.md')
-const corePackageReadme = resolve(cwd(), 'packages', 'savescum', 'README.md')
-const corePackageLicense = resolve(cwd(), 'packages', 'savescum', 'LICENSE')
-const webPackageReadme = resolve(cwd(), 'packages', 'web', 'README.md')
-const webPackageLicense = resolve(cwd(), 'packages', 'web', 'LICENSE')
+const root = cwd()
+const filesList = ['LICENSE', 'README.md']
+const packages = ['savescum', 'web']
 
 /**
- * Copies LICENSE and README.md to packages parallel
+ * Copies LICENSE & README.md to packages
  *
  * @returns {Promise<void>}
  */
 async function main() {
   try {
-    await Promise.all([
-      await copyFile(readmePath, corePackageReadme),
-      await copyFile(licensePath, corePackageLicense),
-      await copyFile(readmePath, webPackageReadme),
-      await copyFile(licensePath, webPackageLicense),
-    ])
+    for (const pkg of packages) {
+      for (const file of filesList) {
+        await copyFile(
+          resolve(root, file),
+          resolve(root, 'packages', pkg, file)
+        )
+      }
+    }
   } catch (err) {
     if (err instanceof Error) {
       console.error(`${err.name}: ${err.message}`)
