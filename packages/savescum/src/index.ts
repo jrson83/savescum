@@ -11,8 +11,7 @@ import {
   testCommand,
 } from './commands'
 import type { ServeOptions } from './types'
-import { generateHelperText } from './utils'
-import { merge } from './utils'
+import { generateHelperText, merge } from './utils'
 
 program.name(name).description(description).version(version)
 

@@ -1,13 +1,13 @@
-import { JsonSchemaToTsProvider } from '@fastify/type-provider-json-schema-to-ts'
-import { FromSchema } from 'json-schema-to-ts'
+import type { JsonSchemaToTsProvider } from '@fastify/type-provider-json-schema-to-ts'
+import type { FromSchema } from 'json-schema-to-ts'
 import type {
   errorSchema,
   ftpSchema,
+  profileSchema,
   savegameHistorySchema,
   savegameSchema,
   sharedSchema,
 } from '../server'
-import { profileSchema } from '../server'
 
 export interface ServeOptions {
   host: string
