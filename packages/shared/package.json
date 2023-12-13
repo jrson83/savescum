@@ -1,0 +1,30 @@
+{
+  "name": "@savescum/shared",
+  "description": "Internal package to supply json schemas & types.",
+  "version": "0.1.0-dev",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "files": ["src"],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "pnpm typecheck",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "json-schema-to-ts": "^2.9.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

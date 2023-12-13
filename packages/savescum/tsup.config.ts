@@ -10,10 +10,5 @@ export default defineConfig({
   minify: true,
   splitting: false,
   sourcemap: false,
-  external: ['@savescum/web'],
-  esbuildOptions(options) {
-    options.banner = {
-      js: "import { createRequire } from 'module';const require = createRequire(import.meta.url);",
-    }
-  },
+  external: ['@example@web', 'fastify-tsconfig'],
 })
