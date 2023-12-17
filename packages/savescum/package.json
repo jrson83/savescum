@@ -42,7 +42,7 @@
     "@savescum/web": "workspace:*",
     "basic-ftp": "^5.0.3",
     "commander": "^11.1.0",
-    "fastify": "^4.24.3"
+    "fastify": "^4.25.1"
   },
   "devDependencies": {
     "@fastify/type-provider-json-schema-to-ts": "^2.2.2",
