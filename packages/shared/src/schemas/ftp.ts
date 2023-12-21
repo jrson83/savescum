@@ -11,7 +11,6 @@ export const ftpSchema = {
     port: { type: 'number' },
     user: { type: 'string' },
     password: { type: 'string' },
-    secure: { type: 'boolean' },
     sound: { type: 'boolean' },
     debug: { type: 'boolean' },
     profiles: profileSchema,

@@ -32,7 +32,7 @@ export class FTPClient {
         port: options.port,
         user: options.user,
         password: options.password,
-        secure: options.secure,
+        secure: false,
       })
     } catch (err: unknown) {
       if (err instanceof Error) {

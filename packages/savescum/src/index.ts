@@ -52,7 +52,6 @@ const ftp = program
   )
   .option('-u, --user <string>', 'ftp-server username', String, 'anonymous')
   .option('-P, --password <string>', 'ftp-server password', String, '')
-  .option('-s, --secure', 'explicit ftps over tls', false)
   .option('-n, --no-sound', 'disable playing notification sound')
   .option('-d, --debug', 'enable debug logging ftp server events', false)
   .addOption(

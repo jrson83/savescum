@@ -21,7 +21,6 @@ export const ftp: FtpSchema = {
   port: 21,
   user: 'anonymous',
   password: '',
-  secure: false,
   debug: false,
   sound: true,
   profiles: [],
