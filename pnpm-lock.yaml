@@ -104,8 +104,8 @@ importers:
   packages/shared:
     devDependencies:
       json-schema-to-ts:
-        specifier: ^2.9.2
-        version: 2.9.2
+        specifier: ^3.0.0
+        version: 3.0.0
 
   packages/web:
     dependencies:
@@ -2438,6 +2438,15 @@ packages:
 
   /json-schema-to-ts@2.9.2:
     resolution: {integrity: sha512-h9WqLkTVpBbiaPb5OmeUpz/FBLS/kvIJw4oRCPiEisIu2WjMh+aai0QIY2LoOhRFx5r92taGLcerIrzxKBAP6g==}
+    engines: {node: '>=16'}
+    dependencies:
+      '@babel/runtime': 7.23.6
+      '@types/json-schema': 7.0.15
+      ts-algebra: 1.2.2
+    dev: true
+
+  /json-schema-to-ts@3.0.0:
+    resolution: {integrity: sha512-2adDesYifYEXYxNySx3gG0RR69rDWIjqAFzK/JPXdOvjHLZ/UP6d2rkpy6a+AxyhtRp2SvFPZ4+EW36jBinUbA==}
     engines: {node: '>=16'}
     dependencies:
       '@babel/runtime': 7.23.6
