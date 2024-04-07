@@ -24,7 +24,7 @@
     "@types/node": "^20.10.4",
     "sitemap-ts": "^1.6.1",
     "vite": "^5.0.2",
-    "vitepress": "1.0.1",
+    "vitepress": "1.0.2",
     "vue": "^3.3.8"
   }
 }
