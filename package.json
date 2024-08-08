@@ -15,7 +15,7 @@
     "============= STYLE =================": "",
     "style:check": "stylelint \"./packages/web/**/*.scss\" -f verbose --color",
     "style": "stylelint \"./packages/web/**/*.scss\" --fix -f verbose —color",
-    "lint": "biome check --apply-unsafe .",
+    "lint": "biome lint --write .",
     "fmt": "biome format . --write",
     "============= CLEAN =================": "",
     "clean:workspace": "node ./scripts/cleanWorkspace.js",
@@ -37,7 +37,7 @@
     "test": "pnpm --stream -r test run",
     "test:cli": "pnpm --filter savescum test",
     "test:web": "pnpm --filter @savescum/web test",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
@@ -60,7 +60,7 @@
     "yarn": "use `pnpm` instead"
   },
   "nano-staged": {
-    "*.ts": "biome check --apply-unsafe .",
+    "*.ts": "biome lint --write .",
     "*": "biome format . --write",
     "*.scss": "stylelint \"./packages/web/**/*.scss\" --fix"
   },
