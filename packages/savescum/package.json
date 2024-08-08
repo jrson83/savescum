@@ -28,10 +28,7 @@
   "bin": {
     "savescum": "bin/savescum.js"
   },
-  "files": [
-    "bin",
-    "dist"
-  ],
+  "files": ["bin", "dist"],
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "tsx src/index.ts --host=0.0.0.0",

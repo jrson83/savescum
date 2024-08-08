@@ -1,11 +1,11 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit",
     "source.fixAll": "explicit"
   },
   "files.insertFinalNewline": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
@@ -13,6 +13,9 @@
   "stylelint.stylelintPath": "./node_modules/stylelint",
   "stylelint.validate": ["scss"],
   "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[javascript]": {

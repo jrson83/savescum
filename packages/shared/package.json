@@ -1,8 +1,8 @@
 {
   "name": "@savescum/shared",
-  "description": "Internal package to supply json schemas & types.",
   "version": "0.1.0-dev",
   "private": true,
+  "description": "Internal package to supply json schemas & types.",
   "sideEffects": false,
   "type": "module",
   "exports": {
