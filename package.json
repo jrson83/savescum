@@ -55,9 +55,7 @@
   },
   "engines": {
     "node": ">=20.0.0",
-    "npm": "use `pnpm` instead",
-    "pnpm": ">=8.7.0",
-    "yarn": "use `pnpm` instead"
+    "pnpm": ">=9.7.0"
   },
   "nano-staged": {
     "*.ts": "biome lint --write .",
