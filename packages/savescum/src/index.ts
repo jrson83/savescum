@@ -28,12 +28,12 @@ program
   .addOption(
     new Option('-o, --open', 'open webinterface in default browser')
       .default(false)
-      .argParser((i) => (i === 'false' ? false : true))
+      .argParser((i) => i !== 'false')
   )
   .addOption(
     new Option('-l, --log', 'enable debug logging server events')
       .default(false)
-      .argParser((i) => (i === 'false' ? false : true))
+      .argParser((i) => i !== 'false')
   )
   .action(async (options: ServeOptions) => {
     await serveCommand(options)

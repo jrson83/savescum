@@ -1,3 +1,4 @@
+import type { JSONSchema } from 'json-schema-to-ts'
 import { errorSchema } from './error'
 import { ftpSchema } from './ftp'
 import { profileSchema } from './profile'
@@ -17,4 +18,4 @@ export const sharedSchema = {
     history: savegameHistorySchema,
     error: errorSchema,
   },
-} as const
+} as const satisfies JSONSchema

@@ -2,7 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
-    "group:monorepos",
     "schedule:weekly",
     ":gitSignOff",
     ":dependencyDashboard",
@@ -13,7 +12,7 @@
   "timezone": "Europe/Amsterdam",
   "enabledManagers": ["npm", "github-actions"],
   "addLabels": ["dependencies"],
-  "rangeStrategy": "update-lockfile",
+  "rangeStrategy": "bump",
   "automerge": true,
   "automergeType": "pr",
   "platformAutomerge": true,
@@ -23,6 +22,13 @@
   },
   "packageRules": [
     {
+      "description": "Don't bump engines field in package.json",
+      "matchPackageNames": ["node"],
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    },
+    {
       "description": "Automatically merge minor and patch-level updates",
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "matchDepTypes": ["dependencies"],
@@ -31,20 +37,6 @@
     {
       "description": "Automatically merge devDependencies updates",
       "matchDepTypes": ["devDependencies"],
-      "matchPackagePatterns": [
-        "@bscotch/workspaces",
-        "@types/mock-fs",
-        "@types/node",
-        "husky",
-        "mock-fs",
-        "nano-staged",
-        "stylelint",
-        "stylelint-config-property-sort-order-smacss",
-        "stylelint-config-standard-scss",
-        "tsup",
-        "tsx",
-        "vite"
-      ],
       "automerge": true
     }
   ]

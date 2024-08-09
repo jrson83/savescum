@@ -1,3 +1,5 @@
+import type { JSONSchema } from 'json-schema-to-ts'
+
 export const profileSchema = {
   type: 'array',
   items: {
@@ -51,4 +53,4 @@ export const profileSchema = {
   },
   minItems: 1,
   uniqueItems: true,
-} as const
+} as const satisfies JSONSchema

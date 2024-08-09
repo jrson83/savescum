@@ -33,7 +33,7 @@ describe('formatPath', () => {
   it('should format given local to remote path without backupPath', () => {
     // todo: replace with new API https://nodejs.org/api/test.html#mocking
     const fn = mock.method(global.Date, 'now')
-    fn.mock.mockImplementation(() => mockDate)
+    fn.mock.mockImplementation(() => Number(mockDate))
 
     strictEqual(fn.mock.calls.length, 0)
 
@@ -47,14 +47,14 @@ describe('formatPath', () => {
     strictEqual(fn.mock.callCount(), 1)
 
     const call = fn.mock.calls[0]
-    strictEqual(call.result?.toString(), mockDate.toString())
+    strictEqual(call.result, Number(mockDate))
     strictEqual(call.error, undefined)
   })
 
   it('should format given local to remote path with backupPath', () => {
     // todo: replace with new API https://nodejs.org/api/test.html#mocking
     const fn = mock.method(global.Date, 'now')
-    fn.mock.mockImplementation(() => mockDate)
+    fn.mock.mockImplementation(() => Number(mockDate))
 
     strictEqual(fn.mock.calls.length, 0)
 
@@ -71,7 +71,7 @@ describe('formatPath', () => {
     strictEqual(fn.mock.callCount(), 1)
 
     const call = fn.mock.calls[0]
-    strictEqual(call.result?.toString(), mockDate.toString())
+    strictEqual(call.result, Number(mockDate))
     strictEqual(call.error, undefined)
   })
 

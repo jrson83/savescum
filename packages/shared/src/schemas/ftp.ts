@@ -1,3 +1,4 @@
+import type { JSONSchema } from 'json-schema-to-ts'
 import { profileSchema } from './profile'
 
 export const ftpSchema = {
@@ -17,4 +18,4 @@ export const ftpSchema = {
     requestType: { type: 'string', enum: ['browser', 'node'] },
   },
   required: ['ip', 'port', 'user', 'profiles', 'requestType'],
-} as const
+} as const satisfies JSONSchema

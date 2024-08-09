@@ -1,3 +1,5 @@
+import type { JSONSchema } from 'json-schema-to-ts'
+
 export const savegameSchema = {
   title: 'Savegame Schema',
   description: 'Placeholder',
@@ -10,7 +12,7 @@ export const savegameSchema = {
     backupPath: { type: 'string' },
   },
   required: ['profileId', 'cusa', 'sdimg'],
-} as const
+} as const satisfies JSONSchema
 
 export const savegameHistorySchema = {
   title: 'Savegame History Schema',
@@ -35,20 +37,20 @@ export const savegameHistorySchema = {
     },
   },
   required: ['history'],
-} as const
+} as const satisfies JSONSchema
 
 export const savegameDetailSchema = {
   title: 'Savegame with Details Schema',
   description: 'Placeholder',
   allOf: [
     {
-      savegameSchema,
+      ...savegameSchema,
     },
     {
-      savegameHistorySchema,
+      ...savegameHistorySchema,
     },
   ],
-}
+} satisfies JSONSchema
 
 /* export const savegameHistorySchema = {
   title: 'Savegame with History Schema',

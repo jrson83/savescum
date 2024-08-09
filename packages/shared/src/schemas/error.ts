@@ -1,3 +1,5 @@
+import type { JSONSchema } from 'json-schema-to-ts'
+
 export const errorSchema = {
   type: 'object',
   additionalProperties: false,
@@ -8,4 +10,4 @@ export const errorSchema = {
     statusCode: { type: 'number' },
   },
   required: ['error', 'message', 'statusCode'],
-} as const
+} as const satisfies JSONSchema

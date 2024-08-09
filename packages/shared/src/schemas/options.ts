@@ -1,12 +1,29 @@
+import { errorSchema } from './error'
+import { ftpSchema } from './ftp'
+import { profileSchema } from './profile'
+import { savegameDetailSchema, savegameSchema } from './savegame'
+
+/*
+type JSONSchema = boolean | Readonly<{
+    $id?: string | undefined;
+    $ref?: string | undefined;
+    $schema?: string | undefined;
+    $comment?: string | undefined;
+    type?: JSONSchemaType | readonly JSONSchemaType[];
+    ... 43 more ...;
+    [$JSONSchema]?: $JSONSchema;
+}>
+
+*/
 export const ftpOptionsSchema = {
   schema: {
     body: {
       type: 'object',
       additionalProperties: false,
       properties: {
-        ftp: {
+        ftp: ftpSchema /* {
           $ref: 'shared-schema#/definitions/ftp',
-        },
+        } */,
       },
       required: ['ftp'],
     },
@@ -17,20 +34,20 @@ export const ftpOptionsSchema = {
         properties: {
           success: { type: 'boolean' },
           message: { type: 'string' },
-          savegame: {
+          savegame: savegameSchema /* {
             $ref: 'shared-schema#/definitions/savegame',
-          },
+          } */,
         },
         required: ['success', 'message'],
         '4xx': {
-          error: {
+          error: errorSchema /* {
             $ref: 'shared-schema#/definitions/error',
-          },
+          } */,
         },
       },
     },
-  },
-} as const
+  } as const,
+}
 
 export const profilesOptionsSchema = {
   schema: {
@@ -38,9 +55,9 @@ export const profilesOptionsSchema = {
       type: 'object',
       additionalProperties: false,
       properties: {
-        ftp: {
+        ftp: ftpSchema /* {
           $ref: 'shared-schema#/definitions/ftp',
-        },
+        } */,
       },
       required: ['ftp'],
     },
@@ -51,29 +68,29 @@ export const profilesOptionsSchema = {
         properties: {
           success: { type: 'boolean' },
           message: { type: 'string' },
-          profiles: {
+          profiles: profileSchema /* {
             $ref: 'shared-schema#/definitions/profiles',
-          },
+          } */,
         },
         required: ['success', 'message', 'profiles'],
         '4xx': {
-          error: {
+          error: errorSchema /* {
             $ref: 'shared-schema#/definitions/error',
-          },
+          } */,
         },
       },
     },
-  },
-} as const
+  } as const,
+}
 
 export const historyOptionsSchema = {
   schema: {
     body: {
       type: 'object',
       properties: {
-        savegame: {
+        savegame: savegameSchema /* {
           $ref: 'shared-schema#/definitions/savegame',
-        },
+        } */,
       },
       required: ['savegame'],
     },
@@ -84,32 +101,32 @@ export const historyOptionsSchema = {
         properties: {
           success: { type: 'boolean' },
           message: { type: 'string' },
-          savegame: {
+          savegame: savegameDetailSchema /* {
             $ref: 'shared-schema#/definitions/savegame-detail',
-          },
+          } */,
         },
         required: ['success', 'message', 'savegame'],
         '4xx': {
-          error: {
+          error: errorSchema /* {
             $ref: 'shared-schema#/definitions/error',
-          },
+          } */,
         },
       },
     },
-  },
-} as const
+  } as const,
+}
 
 export const savegameOptionsSchema = {
   schema: {
     body: {
       type: 'object',
       properties: {
-        ftp: {
+        ftp: ftpSchema /* {
           $ref: 'shared-schema#/definitions/ftp',
-        },
-        savegame: {
+        } */,
+        savegame: savegameSchema /* {
           $ref: 'shared-schema#/definitions/savegame',
-        },
+        } */,
       },
       required: ['ftp', 'savegame'],
     },
@@ -120,17 +137,17 @@ export const savegameOptionsSchema = {
         properties: {
           success: { type: 'boolean' },
           message: { type: 'string' },
-          savegame: {
+          savegame: savegameSchema /* {
             $ref: 'shared-schema#/definitions/savegame',
-          },
+          } */,
         },
         required: ['success', 'message'],
         '4xx': {
-          error: {
+          error: errorSchema /* {
             $ref: 'shared-schema#/definitions/error',
-          },
+          } */,
         },
       },
     },
-  },
-} as const
+  } as const,
+}

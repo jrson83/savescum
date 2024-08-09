@@ -43,15 +43,15 @@
     "@biomejs/biome": "^1.8.3",
     "@bscotch/workspaces": "^0.3.0",
     "@types/mock-fs": "^4.13.4",
-    "husky": "^8.0.3",
+    "husky": "^9.1.4",
     "mock-fs": "^5.2.0",
     "nano-staged": "^0.8.0",
-    "stylelint": "^16.0.0",
+    "stylelint": "^16.8.1",
     "stylelint-config-property-sort-order-smacss": "^10.0.0",
-    "stylelint-config-standard-scss": "^13.0.0",
-    "tsup": "^8.0.1",
-    "tsx": "^4.4.0",
-    "typescript": "5.3.3"
+    "stylelint-config-standard-scss": "^13.1.0",
+    "tsup": "^8.2.4",
+    "tsx": "^4.17.0",
+    "typescript": "5.5.4"
   },
   "engines": {
     "node": ">=20.0.0",

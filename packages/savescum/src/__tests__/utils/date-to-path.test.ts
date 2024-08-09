@@ -22,7 +22,7 @@ describe('dateToPath', () => {
   it('should convert date to path without param', () => {
     // todo: replace with new API https://nodejs.org/api/test.html#mocking
     const fn = mock.method(global.Date, 'now')
-    fn.mock.mockImplementation(() => mockDate)
+    fn.mock.mockImplementation(() => Number(mockDate))
 
     strictEqual(fn.mock.calls.length, 0)
 
@@ -33,7 +33,7 @@ describe('dateToPath', () => {
     strictEqual(fn.mock.callCount(), 1)
 
     const call = fn.mock.calls[0]
-    strictEqual(call.result?.toString(), mockDate.toString())
+    strictEqual(call.result, Number(mockDate))
     strictEqual(call.error, undefined)
   })
 })
