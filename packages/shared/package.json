@@ -18,7 +18,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "json-schema-to-ts": "^3.1.0"
+    "json-schema-to-ts": "^3.1.1"
   },
   "engines": {
     "node": ">=18.12.0"
