@@ -44,7 +44,7 @@
     "@bscotch/workspaces": "^0.3.0",
     "@types/mock-fs": "^4.13.4",
     "husky": "^9.1.6",
-    "mock-fs": "^5.4.0",
+    "mock-fs": "^5.4.1",
     "nano-staged": "^0.8.0",
     "stylelint": "^16.9.0",
     "stylelint-config-property-sort-order-smacss": "^10.0.0",
