@@ -10,13 +10,8 @@
     ":semanticCommitScope(deps)"
   ],
   "timezone": "Europe/Amsterdam",
-  "enabledManagers": [
-    "npm",
-    "github-actions"
-  ],
-  "addLabels": [
-    "dependencies"
-  ],
+  "enabledManagers": ["npm", "github-actions"],
+  "addLabels": ["dependencies"],
   "rangeStrategy": "bump",
   "automerge": true,
   "automergeType": "pr",
@@ -28,22 +23,14 @@
   "packageRules": [
     {
       "description": "Don't bump engines field in package.json",
-      "matchPackageNames": [
-        "node"
-      ],
-      "matchManagers": [
-        "npm"
-      ],
-      "matchDepTypes": [
-        "engines"
-      ],
+      "matchPackageNames": ["node"],
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
       "enabled": false
     },
     {
       "description": "Automatically merge devDependencies updates",
-      "matchDepTypes": [
-        "devDependencies"
-      ],
+      "matchDepTypes": ["devDependencies"],
       "automerge": true
     }
   ]
