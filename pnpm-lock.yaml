@@ -112,7 +112,7 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       preact:
-        specifier: ^10.24.3
+        specifier: ^10.25.2
         version: 10.25.2
     devDependencies:
       '@preact/preset-vite':
