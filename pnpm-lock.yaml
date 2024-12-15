@@ -122,7 +122,7 @@ importers:
         specifier: ^22.10.2
         version: 22.10.2
       sass:
-        specifier: ^1.81.0
+        specifier: ^1.83.0
         version: 1.83.0
       typescript:
         specifier: 5.7.2
