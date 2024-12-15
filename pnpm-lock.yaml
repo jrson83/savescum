@@ -85,8 +85,8 @@ importers:
         version: 5.2.0
     devDependencies:
       '@fastify/type-provider-json-schema-to-ts':
-        specifier: ^3.0.0
-        version: 3.0.0(fastify@5.2.0)(json-schema-to-ts@3.1.1)
+        specifier: ^4.0.1
+        version: 4.0.1
       '@savescum/shared':
         specifier: workspace:*
         version: link:../shared
@@ -862,11 +862,8 @@ packages:
   '@fastify/static@8.0.3':
     resolution: {integrity: sha512-GHSoOVDIxEYEeVR5l044bRCuAKDErD/+9VE+Z9fnaTRr+DDz0Avrm4kKai1mHbPx6C0U7BVNthjd/gcMquZZUA==}
 
-  '@fastify/type-provider-json-schema-to-ts@3.0.0':
-    resolution: {integrity: sha512-xYU+a21K5IWsXsvDHNzTqwiWVxVbOldzUvNqnj+kFG5TihCZ00g3ODMbu8v6Nj66hBuzOrAz7agVqhgsH3hzGA==}
-    peerDependencies:
-      fastify: ^4.25.2
-      json-schema-to-ts: ^3.0.0
+  '@fastify/type-provider-json-schema-to-ts@4.0.1':
+    resolution: {integrity: sha512-+QS1iiRZMAqCcWX7Ck8zAVXb1WbjpffC2gOYxDGvF1wtLviblz7HtnjAX04bW6ZsgreZP0RktRPlEAzmEafEQw==}
 
   '@iconify-json/simple-icons@1.2.15':
     resolution: {integrity: sha512-4vxMQwkjsbjVIVGsPjKBnLMqAXu4wSlHmeN35KaJLK0UJNUj/ef6ES5c4bT/U4bSZjD2oZqOjOWTPD+HCrSUkg==}
@@ -3240,9 +3237,8 @@ snapshots:
       fastq: 1.17.1
       glob: 11.0.0
 
-  '@fastify/type-provider-json-schema-to-ts@3.0.0(fastify@5.2.0)(json-schema-to-ts@3.1.1)':
+  '@fastify/type-provider-json-schema-to-ts@4.0.1':
     dependencies:
-      fastify: 5.2.0
       json-schema-to-ts: 3.1.1
 
   '@iconify-json/simple-icons@1.2.15':
