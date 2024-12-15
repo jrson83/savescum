@@ -29,12 +29,6 @@
       "enabled": false
     },
     {
-      "description": "Automatically merge minor and patch-level updates",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "matchDepTypes": ["dependencies"],
-      "automerge": true
-    },
-    {
       "description": "Automatically merge devDependencies updates",
       "matchDepTypes": ["devDependencies"],
       "automerge": true
