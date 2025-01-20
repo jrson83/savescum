@@ -46,7 +46,7 @@
     "test": "pnpm typecheck && node --test-reporter=spec --import=tsx/esm ./src/__tests__/basic.test.ts"
   },
   "dependencies": {
-    "@preact/signals": "^1.3.1",
+    "@preact/signals": "^1.3.2",
     "classix": "^2.2.0",
     "preact": "^10.25.4"
   },
