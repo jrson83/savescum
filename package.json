@@ -55,12 +55,12 @@
   },
   "engines": {
     "node": ">=20.0.0",
-    "pnpm": ">=9.15.0"
+    "pnpm": ">=9.15.9"
   },
   "nano-staged": {
     "*.ts": "biome lint --write .",
     "*": "biome format . --write",
     "*.scss": "stylelint \"./packages/web/**/*.scss\" --fix"
   },
-  "packageManager": "pnpm@9.15.0"
+  "packageManager": "pnpm@9.15.9"
 }
