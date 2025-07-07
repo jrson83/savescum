@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.2",
-    "@types/node": "^22.15.34",
+    "@types/node": "^22.16.0",
     "sass": "^1.89.2",
     "typescript": "5.7.2",
     "vite": "^6.0.6"
