@@ -51,8 +51,8 @@ importers:
         specifier: ^22.16.5
         version: 22.16.5
       sitemap-ts:
-        specifier: ^1.8.0
-        version: 1.8.0
+        specifier: ^1.10.1
+        version: 1.10.1
       vite:
         specifier: ^6.0.6
         version: 6.0.6(@types/node@22.16.5)(sass@1.89.2)(tsx@4.19.4)
@@ -2440,8 +2440,8 @@ packages:
   simple-git@3.27.0:
     resolution: {integrity: sha512-ivHoFS9Yi9GY49ogc6/YAi3Fl9ROnF4VyubNylgCkA+RVqLaKWnDSzXOVzya8csELIaWaYNutsEuAhZrtOjozA==}
 
-  sitemap-ts@1.8.0:
-    resolution: {integrity: sha512-QjsUjYRAyxYaVZuJ0E3u3sTaUzkmXf+QterxUVRas/7dfl+oLIOug2haQR6yLGc/+G2oQEHOj1CaT1b97Xon2Q==}
+  sitemap-ts@1.10.1:
+    resolution: {integrity: sha512-K04t8xl8ZvCAQ1QShGfr1+SPpZHCzUBY62wfgTgCXhFrD239oquhgEaBLgpUC+brYoxlyudtCILyY8UdGA9I5Q==}
 
   sitemap@8.0.0:
     resolution: {integrity: sha512-+AbdxhM9kJsHtruUF39bwS/B0Fytw6Fr1o4ZAIAEqA6cke2xcoO2GleBw9Zw7nRzILVEgz7zBM5GiTJjie1G9A==}
@@ -4924,7 +4924,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  sitemap-ts@1.8.0:
+  sitemap-ts@1.10.1:
     dependencies:
       '@antfu/utils': 0.7.10
       fast-glob: 3.3.2
