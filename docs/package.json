@@ -21,7 +21,7 @@
     "preview": "vitepress preview src"
   },
   "devDependencies": {
-    "@types/node": "^22.16.5",
+    "@types/node": "^22.17.1",
     "sitemap-ts": "^1.10.1",
     "vite": "^6.0.6",
     "vitepress": "1.5.0",
