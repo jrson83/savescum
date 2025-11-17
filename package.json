@@ -49,7 +49,7 @@
     "stylelint": "^16.25.0",
     "stylelint-config-property-sort-order-smacss": "^10.0.0",
     "stylelint-config-standard-scss": "^14.0.0",
-    "tsup": "^8.3.5",
+    "tsup": "^8.5.1",
     "tsx": "^4.19.4",
     "typescript": "5.7.2"
   },
