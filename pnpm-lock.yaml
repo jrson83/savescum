@@ -75,8 +75,8 @@ importers:
         specifier: workspace:*
         version: link:../web
       basic-ftp:
-        specifier: ^5.0.5
-        version: 5.0.5
+        specifier: ^5.1.0
+        version: 5.1.0
       commander:
         specifier: ^12.1.0
         version: 12.1.0
@@ -1449,8 +1449,8 @@ packages:
     resolution: {integrity: sha512-JMWsdF+O8Orq3EMukbUN1QfbLK9mX2CkUmQBcW2T0s8OmdAUL5LLM/6wFwSrqXzlXB13yhyK9gTKS1rIizOduQ==}
     hasBin: true
 
-  basic-ftp@5.0.5:
-    resolution: {integrity: sha512-4Bcg1P8xhUuqcii/S0Z9wiHIrQVPMermM1any+MX5GeGD7faD3/msQUDGLol9wOcz4/jbg/WJnGqoJF6LiBdtg==}
+  basic-ftp@5.1.0:
+    resolution: {integrity: sha512-RkaJzeJKDbaDWTIPiJwubyljaEPwpVWkm9Rt5h9Nd6h7tEXTJ3VB4qxdZBioV7JO5yLUaOKwz7vDOzlncUsegw==}
     engines: {node: '>=10.0.0'}
 
   birpc@2.6.1:
@@ -3881,7 +3881,7 @@ snapshots:
 
   baseline-browser-mapping@2.8.20: {}
 
-  basic-ftp@5.0.5: {}
+  basic-ftp@5.1.0: {}
 
   birpc@2.6.1: {}
 
