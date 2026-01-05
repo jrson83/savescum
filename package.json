@@ -46,7 +46,7 @@
     "husky": "^9.1.7",
     "mock-fs": "^5.5.0",
     "nano-staged": "^0.9.0",
-    "stylelint": "^16.25.0",
+    "stylelint": "^16.26.1",
     "stylelint-config-property-sort-order-smacss": "^10.0.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "tsup": "^8.5.1",
