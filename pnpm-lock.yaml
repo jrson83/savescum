@@ -116,8 +116,8 @@ importers:
         version: 10.28.2
     devDependencies:
       '@preact/preset-vite':
-        specifier: ^2.10.2
-        version: 2.10.2(@babel/core@7.28.5)(preact@10.28.2)(vite@6.4.1(@types/node@22.19.7)(sass@1.97.3)(tsx@4.21.0))
+        specifier: ^2.10.3
+        version: 2.10.3(@babel/core@7.28.5)(preact@10.28.2)(rollup@4.52.5)(vite@6.4.1(@types/node@22.19.7)(sass@1.97.3)(tsx@4.21.0))
       '@types/node':
         specifier: ^22.19.7
         version: 22.19.7
@@ -1063,8 +1063,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@preact/preset-vite@2.10.2':
-    resolution: {integrity: sha512-K9wHlJOtkE+cGqlyQ5v9kL3Ge0Ql4LlIZjkUTL+1zf3nNdF88F9UZN6VTV8jdzBX9Fl7WSzeNMSDG7qECPmSmg==}
+  '@preact/preset-vite@2.10.3':
+    resolution: {integrity: sha512-1SiS+vFItpkNdBs7q585PSAIln0wBeBdcpJYbzPs1qipsb/FssnkUioNXuRsb8ZnU8YEQHr+3v8+/mzWSnTQmg==}
     peerDependencies:
       '@babel/core': 7.x
       vite: 2.x || 3.x || 4.x || 5.x || 6.x || 7.x
@@ -1097,6 +1097,15 @@ packages:
   '@rollup/pluginutils@4.2.1':
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
     engines: {node: '>= 8.0.0'}
+
+  '@rollup/pluginutils@5.3.0':
+    resolution: {integrity: sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
 
   '@rollup/rollup-android-arm-eabi@4.52.5':
     resolution: {integrity: sha512-8c1vW4ocv3UOMp9K+gToY5zL2XiiVw3k7f1ksf4yO1FlDFQ1C2u72iACFnSOceJFsWskc2WZNqeRhFRPzv+wtQ==}
@@ -3510,13 +3519,13 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@preact/preset-vite@2.10.2(@babel/core@7.28.5)(preact@10.28.2)(vite@6.4.1(@types/node@22.19.7)(sass@1.97.3)(tsx@4.21.0))':
+  '@preact/preset-vite@2.10.3(@babel/core@7.28.5)(preact@10.28.2)(rollup@4.52.5)(vite@6.4.1(@types/node@22.19.7)(sass@1.97.3)(tsx@4.21.0))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-transform-react-jsx': 7.27.1(@babel/core@7.28.5)
       '@babel/plugin-transform-react-jsx-development': 7.27.1(@babel/core@7.28.5)
       '@prefresh/vite': 2.4.11(preact@10.28.2)(vite@6.4.1(@types/node@22.19.7)(sass@1.97.3)(tsx@4.21.0))
-      '@rollup/pluginutils': 4.2.1
+      '@rollup/pluginutils': 5.3.0(rollup@4.52.5)
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.28.5)
       debug: 4.4.3
       picocolors: 1.1.1
@@ -3524,6 +3533,7 @@ snapshots:
       vite-prerender-plugin: 0.5.12(vite@6.4.1(@types/node@22.19.7)(sass@1.97.3)(tsx@4.21.0))
     transitivePeerDependencies:
       - preact
+      - rollup
       - supports-color
 
   '@preact/signals-core@1.12.1': {}
@@ -3557,6 +3567,14 @@ snapshots:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
+
+  '@rollup/pluginutils@5.3.0(rollup@4.52.5)':
+    dependencies:
+      '@types/estree': 1.0.8
+      estree-walker: 2.0.2
+      picomatch: 4.0.3
+    optionalDependencies:
+      rollup: 4.52.5
 
   '@rollup/rollup-android-arm-eabi@4.52.5':
     optional: true
