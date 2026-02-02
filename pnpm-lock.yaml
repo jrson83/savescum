@@ -106,8 +106,8 @@ importers:
   packages/web:
     dependencies:
       '@preact/signals':
-        specifier: ^1.3.2
-        version: 1.3.2(preact@10.28.2)
+        specifier: ^1.3.3
+        version: 1.3.3(preact@10.28.2)
       classix:
         specifier: ^2.2.6
         version: 2.2.6
@@ -1072,8 +1072,8 @@ packages:
   '@preact/signals-core@1.12.1':
     resolution: {integrity: sha512-BwbTXpj+9QutoZLQvbttRg5x3l5468qaV2kufh+51yha1c53ep5dY4kTuZR35+3pAZxpfQerGJiQqg34ZNZ6uA==}
 
-  '@preact/signals@1.3.2':
-    resolution: {integrity: sha512-naxcJgUJ6BTOROJ7C3QML7KvwKwCXQJYTc5L/b0eEsdYgPB6SxwoQ1vDGcS0Q7GVjAenVq/tXrybVdFShHYZWg==}
+  '@preact/signals@1.3.3':
+    resolution: {integrity: sha512-FieIS2Z3iHAmjYTqsD3U3DEad1/bOicGN8wT34bbrdp422kQfkP7iwYgqTgx53wPdnsENaNkNNmScbi3RVZq8Q==}
     peerDependencies:
       preact: 10.x
 
@@ -3538,7 +3538,7 @@ snapshots:
 
   '@preact/signals-core@1.12.1': {}
 
-  '@preact/signals@1.3.2(preact@10.28.2)':
+  '@preact/signals@1.3.3(preact@10.28.2)':
     dependencies:
       '@preact/signals-core': 1.12.1
       preact: 10.28.2
