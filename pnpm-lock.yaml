@@ -54,8 +54,8 @@ importers:
         specifier: ^1.10.1
         version: 1.10.1
       vite:
-        specifier: ^6.4.1
-        version: 6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
+        specifier: ^6.4.2
+        version: 6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
       vitepress:
         specifier: 1.5.0
         version: 1.5.0(@algolia/client-search@5.41.0)(@types/node@22.19.17)(postcss@8.5.8)(sass@1.97.3)(search-insights@2.17.3)(typescript@5.7.2)
@@ -117,7 +117,7 @@ importers:
     devDependencies:
       '@preact/preset-vite':
         specifier: ^2.10.5
-        version: 2.10.5(@babel/core@7.28.5)(preact@10.29.1)(rollup@4.52.5)(vite@6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))
+        version: 2.10.5(@babel/core@7.28.5)(preact@10.29.1)(rollup@4.52.5)(vite@6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))
       '@types/node':
         specifier: ^22.19.17
         version: 22.19.17
@@ -128,8 +128,8 @@ importers:
         specifier: 5.7.2
         version: 5.7.2
       vite:
-        specifier: ^6.4.1
-        version: 6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
+        specifier: ^6.4.2
+        version: 6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
 
 packages:
 
@@ -2668,8 +2668,8 @@ packages:
       terser:
         optional: true
 
-  vite@6.4.1:
-    resolution: {integrity: sha512-+Oxm7q9hDoLMyJOYfUYBuHQo+dkAloi33apOPP56pzj+vsdJDzr+j1NISE5pyaAuKL4A3UD34qd0lx5+kfKp2g==}
+  vite@6.4.2:
+    resolution: {integrity: sha512-2N/55r4JDJ4gdrCvGgINMy+HH3iRpNIz8K6SFwVsA+JbQScLiC+clmAxBgwiSPgcG9U15QmvqCGWzMbqda5zGQ==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -3538,19 +3538,19 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@preact/preset-vite@2.10.5(@babel/core@7.28.5)(preact@10.29.1)(rollup@4.52.5)(vite@6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))':
+  '@preact/preset-vite@2.10.5(@babel/core@7.28.5)(preact@10.29.1)(rollup@4.52.5)(vite@6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-transform-react-jsx': 7.27.1(@babel/core@7.28.5)
       '@babel/plugin-transform-react-jsx-development': 7.27.1(@babel/core@7.28.5)
-      '@prefresh/vite': 2.4.11(preact@10.29.1)(vite@6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))
+      '@prefresh/vite': 2.4.11(preact@10.29.1)(vite@6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))
       '@rollup/pluginutils': 5.3.0(rollup@4.52.5)
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.28.5)
       debug: 4.4.3
       magic-string: 0.30.21
       picocolors: 1.1.1
-      vite: 6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
-      vite-prerender-plugin: 0.5.12(vite@6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))
+      vite: 6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
+      vite-prerender-plugin: 0.5.12(vite@6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))
       zimmerframe: 1.1.4
     transitivePeerDependencies:
       - preact
@@ -3572,7 +3572,7 @@ snapshots:
 
   '@prefresh/utils@1.2.1': {}
 
-  '@prefresh/vite@2.4.11(preact@10.29.1)(vite@6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))':
+  '@prefresh/vite@2.4.11(preact@10.29.1)(vite@6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0))':
     dependencies:
       '@babel/core': 7.28.5
       '@prefresh/babel-plugin': 0.5.2
@@ -3580,7 +3580,7 @@ snapshots:
       '@prefresh/utils': 1.2.1
       '@rollup/pluginutils': 4.2.1
       preact: 10.29.1
-      vite: 6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
+      vite: 6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -5174,7 +5174,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite-prerender-plugin@0.5.12(vite@6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)):
+  vite-prerender-plugin@0.5.12(vite@6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)):
     dependencies:
       kolorist: 1.8.0
       magic-string: 0.30.21
@@ -5182,7 +5182,7 @@ snapshots:
       simple-code-frame: 1.3.0
       source-map: 0.7.6
       stack-trace: 1.0.0-pre2
-      vite: 6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
+      vite: 6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0)
 
   vite@5.4.21(@types/node@22.19.17)(sass@1.97.3):
     dependencies:
@@ -5194,12 +5194,12 @@ snapshots:
       fsevents: 2.3.3
       sass: 1.97.3
 
-  vite@6.4.1(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0):
+  vite@6.4.2(@types/node@22.19.17)(sass@1.97.3)(tsx@4.21.0):
     dependencies:
       esbuild: 0.25.11
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
-      postcss: 8.5.6
+      postcss: 8.5.8
       rollup: 4.52.5
       tinyglobby: 0.2.15
     optionalDependencies:
