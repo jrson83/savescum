@@ -75,8 +75,8 @@ importers:
         specifier: workspace:*
         version: link:../web
       basic-ftp:
-        specifier: ^5.1.0
-        version: 5.1.0
+        specifier: ^5.3.0
+        version: 5.3.0
       commander:
         specifier: ^12.1.0
         version: 12.1.0
@@ -1459,10 +1459,9 @@ packages:
     resolution: {integrity: sha512-JMWsdF+O8Orq3EMukbUN1QfbLK9mX2CkUmQBcW2T0s8OmdAUL5LLM/6wFwSrqXzlXB13yhyK9gTKS1rIizOduQ==}
     hasBin: true
 
-  basic-ftp@5.1.0:
-    resolution: {integrity: sha512-RkaJzeJKDbaDWTIPiJwubyljaEPwpVWkm9Rt5h9Nd6h7tEXTJ3VB4qxdZBioV7JO5yLUaOKwz7vDOzlncUsegw==}
+  basic-ftp@5.3.0:
+    resolution: {integrity: sha512-5K9eNNn7ywHPsYnFwjKgYH8Hf8B5emh7JKcPaVjjrMJFQQwGpwowEnZNEtHs7DfR7hCZsmaK3VA4HUK0YarT+w==}
     engines: {node: '>=10.0.0'}
-    deprecated: Security vulnerability fixed in 5.2.1, please upgrade
 
   birpc@2.6.1:
     resolution: {integrity: sha512-LPnFhlDpdSH6FJhJyn4M0kFO7vtQ5iPw24FnG0y21q09xC7e8+1LeR31S1MAIrDAHp4m7aas4bEkTDTvMAtebQ==}
@@ -3919,7 +3918,7 @@ snapshots:
 
   baseline-browser-mapping@2.8.20: {}
 
-  basic-ftp@5.1.0: {}
+  basic-ftp@5.3.0: {}
 
   birpc@2.6.1: {}
 
