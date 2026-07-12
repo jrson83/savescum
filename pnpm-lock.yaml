@@ -107,17 +107,17 @@ importers:
     dependencies:
       '@preact/signals':
         specifier: ^1.3.4
-        version: 1.3.4(preact@10.29.4)
+        version: 1.3.4(preact@10.29.7)
       classix:
         specifier: ^2.2.16
         version: 2.2.16
       preact:
-        specifier: ^10.29.4
-        version: 10.29.4
+        specifier: ^10.29.7
+        version: 10.29.7
     devDependencies:
       '@preact/preset-vite':
         specifier: ^2.10.5
-        version: 2.10.5(@babel/core@7.28.5)(preact@10.29.4)(rollup@4.52.5)(vite@6.4.3(@types/node@22.19.21)(sass@1.100.0)(tsx@4.21.0))
+        version: 2.10.5(@babel/core@7.28.5)(preact@10.29.7)(rollup@4.52.5)(vite@6.4.3(@types/node@22.19.21)(sass@1.100.0)(tsx@4.21.0))
       '@types/node':
         specifier: ^22.19.21
         version: 22.19.21
@@ -2258,8 +2258,13 @@ packages:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  preact@10.29.4:
-    resolution: {integrity: sha512-GMpwh9+NJ8tSmqwIaVyFRQkiKfBEzQ+k7r7tle4W+kaJ+7wJiB9hFz9BixAomMtenPPSBfM4bZhXozGxhf0uFQ==}
+  preact@10.29.7:
+    resolution: {integrity: sha512-DCHYrK/B10yUD3ZjLfhZ3WIE/9Vf9VFUODcRE2dRomTYDpJk6z6L9wecSfhfE6M9ZTHUdyQkoC46arIDhEV84Q==}
+    peerDependencies:
+      preact-render-to-string: '>=5'
+    peerDependenciesMeta:
+      preact-render-to-string:
+        optional: true
 
   process-warning@4.0.1:
     resolution: {integrity: sha512-3c2LzQ3rY9d0hc1emcsHhfT9Jwz0cChib/QN89oME2R451w5fy3f0afAhERFZAwrbDU43wk12d0ORBpDVME50Q==}
@@ -3135,10 +3140,11 @@ snapshots:
   '@docsearch/js@3.9.0(@algolia/client-search@5.41.0)(search-insights@2.17.3)':
     dependencies:
       '@docsearch/react': 3.9.0(@algolia/client-search@5.41.0)(search-insights@2.17.3)
-      preact: 10.29.4
+      preact: 10.29.7
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/react'
+      - preact-render-to-string
       - react
       - react-dom
       - search-insights
@@ -3563,12 +3569,12 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@preact/preset-vite@2.10.5(@babel/core@7.28.5)(preact@10.29.4)(rollup@4.52.5)(vite@6.4.3(@types/node@22.19.21)(sass@1.100.0)(tsx@4.21.0))':
+  '@preact/preset-vite@2.10.5(@babel/core@7.28.5)(preact@10.29.7)(rollup@4.52.5)(vite@6.4.3(@types/node@22.19.21)(sass@1.100.0)(tsx@4.21.0))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-transform-react-jsx': 7.27.1(@babel/core@7.28.5)
       '@babel/plugin-transform-react-jsx-development': 7.27.1(@babel/core@7.28.5)
-      '@prefresh/vite': 2.4.11(preact@10.29.4)(vite@6.4.3(@types/node@22.19.21)(sass@1.100.0)(tsx@4.21.0))
+      '@prefresh/vite': 2.4.11(preact@10.29.7)(vite@6.4.3(@types/node@22.19.21)(sass@1.100.0)(tsx@4.21.0))
       '@rollup/pluginutils': 5.3.0(rollup@4.52.5)
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.28.5)
       debug: 4.4.3
@@ -3584,27 +3590,27 @@ snapshots:
 
   '@preact/signals-core@1.12.1': {}
 
-  '@preact/signals@1.3.4(preact@10.29.4)':
+  '@preact/signals@1.3.4(preact@10.29.7)':
     dependencies:
       '@preact/signals-core': 1.12.1
-      preact: 10.29.4
+      preact: 10.29.7
 
   '@prefresh/babel-plugin@0.5.2': {}
 
-  '@prefresh/core@1.5.8(preact@10.29.4)':
+  '@prefresh/core@1.5.8(preact@10.29.7)':
     dependencies:
-      preact: 10.29.4
+      preact: 10.29.7
 
   '@prefresh/utils@1.2.1': {}
 
-  '@prefresh/vite@2.4.11(preact@10.29.4)(vite@6.4.3(@types/node@22.19.21)(sass@1.100.0)(tsx@4.21.0))':
+  '@prefresh/vite@2.4.11(preact@10.29.7)(vite@6.4.3(@types/node@22.19.21)(sass@1.100.0)(tsx@4.21.0))':
     dependencies:
       '@babel/core': 7.28.5
       '@prefresh/babel-plugin': 0.5.2
-      '@prefresh/core': 1.5.8(preact@10.29.4)
+      '@prefresh/core': 1.5.8(preact@10.29.7)
       '@prefresh/utils': 1.2.1
       '@rollup/pluginutils': 4.2.1
-      preact: 10.29.4
+      preact: 10.29.7
       vite: 6.4.3(@types/node@22.19.21)(sass@1.100.0)(tsx@4.21.0)
     transitivePeerDependencies:
       - supports-color
@@ -4753,7 +4759,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  preact@10.29.4: {}
+  preact@10.29.7: {}
 
   process-warning@4.0.1: {}
 
@@ -5278,6 +5284,7 @@ snapshots:
       - less
       - lightningcss
       - nprogress
+      - preact-render-to-string
       - qrcode
       - react
       - react-dom
