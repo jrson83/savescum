@@ -109,8 +109,8 @@ importers:
         specifier: ^1.3.4
         version: 1.3.4(preact@10.29.8)
       classix:
-        specifier: ^2.2.18
-        version: 2.2.18
+        specifier: ^2.2.19
+        version: 2.2.19
       preact:
         specifier: ^10.29.8
         version: 10.29.8
@@ -1683,8 +1683,8 @@ packages:
     resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
     engines: {node: '>= 20.19.0'}
 
-  classix@2.2.18:
-    resolution: {integrity: sha512-aAH0YtLnVKnZEjXqnh8zoosdgIEBH3LxFacWAeQvFZh5WGSYM7ViVjvsiKFgwCIlnEpr1X4DaGz5YUirOMzQMw==}
+  classix@2.2.19:
+    resolution: {integrity: sha512-pKHsmrmWkENjkB1kz1ho/umyldzgqb4b3WysMDiJk6MqimgAhd6jjDQBe2SHEUp2VLkhD7W2JtivLI8219/LNQ==}
 
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -4234,7 +4234,7 @@ snapshots:
     dependencies:
       readdirp: 5.0.0
 
-  classix@2.2.18: {}
+  classix@2.2.19: {}
 
   color-convert@2.0.1:
     dependencies:
