@@ -47,7 +47,7 @@
   "devDependencies": {
     "@fastify/type-provider-json-schema-to-ts": "^4.0.1",
     "@savescum/shared": "workspace:*",
-    "@types/node": "^22.20.4",
+    "@types/node": "^22.20.5",
     "fastify-tsconfig": "^2.0.0"
   },
   "engines": {
